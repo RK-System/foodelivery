@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
         orderText += `\nTotal: R$ ${totalPrice.toFixed(2)}`;
 
-        const whatsappURL = `https://wa.me/send?seunumerodetelefone?text=${encodeURIComponent(orderText)}`;
+        const whatsappURL = `https://wa.me/seunumerodetelefone?text=${encodeURIComponent(orderText)}`;
         window.open(whatsappURL, "_blank");
     });
 
