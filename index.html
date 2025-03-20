@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Responsivo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Delivery Online Feira</h1>
+        <button id="open-cart">🛒 Carrinho (<span id="cart-count">0</span>)</button>
+    </header>
+
+    <main>
+        <div class="products">
+            <div class="product" data-name="Pizza" data-price="35">
+                <img src="pizza.jpg" alt="Pizza">
+                <h2>Pizza</h2>
+                <p>R$ 35,00</p>
+                <button class="add-to-cart">Adicionar</button>
+            </div>
+
+            <div class="product" data-name="Hambúrguer" data-price="25">
+                <img src="burger.jpg" alt="Hambúrguer">
+                <h2>Hambúrguer</h2>
+                <p>R$ 25,00</p>
+                <button class="add-to-cart">Adicionar</button>
+            </div>
+
+            <div class="product" data-name="Refrigerante" data-price="8">
+                <img src="soda.jpg" alt="Refrigerante">
+                <h2>Refrigerante</h2>
+                <p>R$ 8,00</p>
+                <button class="add-to-cart">Adicionar</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="cart-popup" class="hidden">
+        <div class="cart-content">
+            <h2>Carrinho</h2>
+            <ul id="cart-items"></ul>
+            <p><strong>Total: R$ <span id="cart-total">0.00</span></strong></p>
+            <button id="clear-cart">Limpar Carrinho</button>
+            <button id="checkout">Finalizar Pedido</button>
+            <button id="close-cart">Fechar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
