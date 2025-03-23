@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let orderText = "Pedido:\n";
         cart.forEach(item => {
-            orderText += `- ${item.quantity}x ${item.name} R$ ${(item.price * item.quantity).toFixed(2)}\n`;
+            orderText += `- ${item.quantity} x ${item.name} R$ ${(item.price * item.quantity).toFixed(2)}\n`;
         });
 
         const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -57,11 +57,20 @@ document.addEventListener("DOMContentLoaded", () => {
         let total = 0;
 
         cart.forEach((item, index) => {
+            
             const li = document.createElement("li");
-            li.textContent = `${item.quantity}x ${item.name} - R$ ${(item.price * item.quantity).toFixed(2)}`;
+            li.textContent = `${item.quantity} x ${item.name}`;
 
-            const decreaseButton = document.createElement("button");
+            const li2 = document.createElement("li");
+            li2.textContent = ` = R$ ${(item.price * item.quantity).toFixed(2)}\n`;
+            
+            const li3 = document.createElement("li");
+            li3.textContent = ` ••••••••••••••••••••••••••••••••••• `;
+
+            
+            const decreaseButton = document.createElement("button-itemdim");
             decreaseButton.textContent = "-";
+            
             decreaseButton.addEventListener("click", () => {
                 if (item.quantity > 1) {
                     item.quantity--;
@@ -70,17 +79,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 updateCart();
             });
-
-            const increaseButton = document.createElement("button");
+            
+            const increaseButton = document.createElement("button-itemaum");
             increaseButton.textContent = "+";
+            
+            const newContent = document.createTextNode(" ");
+            
             increaseButton.addEventListener("click", () => {
                 item.quantity++;
                 updateCart();
             });
-
-            li.appendChild(decreaseButton);
-            li.appendChild(increaseButton);
+            
+            li2.appendChild(decreaseButton);
+            li2.appendChild(newContent);
+            li2.appendChild(increaseButton);
+            
             cartItemsList.appendChild(li);
+            cartItemsList.appendChild(li2);
+            cartItemsList.appendChild(li3);
+
             total += item.price * item.quantity;
         });
 

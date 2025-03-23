@@ -15,37 +15,54 @@
 
     <main>
         <div class="products">
-            <div class="product" data-name="Pizza" data-price="35">
-                <img src="pizza.jpg" alt="Pizza">
-                <h2>Pizza</h2>
-                <p>R$ 35,00</p>
+            <div class="product" data-name="Pizza brotinho" data-price="35.99">
+                <img src="pizza.jpg" alt="Pizza brotinho">
+                <h2>Pizza brotinho</h2>
+                <p>R$ 35,99</p>
+                <button class="add-to-cart">Adicionar</button>
+            </div>
+            
+            <div class="product" data-name="Lasanha bolhonesa média" data-price="45.99">
+                <img src="lasanha.jpg" alt="Lasanha bolhonesa média">
+                <h2>Lasanha bolhonesa média </h2>
+                <p>R$ 45,99</p>
                 <button class="add-to-cart">Adicionar</button>
             </div>
 
-            <div class="product" data-name="Hambúrguer" data-price="25">
-                <img src="burger.jpg" alt="Hambúrguer">
-                <h2>Hambúrguer</h2>
-                <p>R$ 25,00</p>
+
+
+            <div class="product" data-name="Hambúrguer artesanal" data-price="5.00">
+                <img src="burger.jpg" alt="Hambúrguer artesanal">
+                <h2>Hambúrguer artesanal</h2>
+                <p>R$ 5,00</p>
                 <button class="add-to-cart">Adicionar</button>
             </div>
 
-            <div class="product" data-name="Refrigerante" data-price="8">
-                <img src="soda.jpg" alt="Refrigerante">
-                <h2>Refrigerante</h2>
-                <p>R$ 8,00</p>
+            <div class="product" data-name="Coca-cola lata 350ml" data-price="8.99">
+                <img src="coca.jpg" alt="Coca-cola lata 350ml">
+                <h2>Coca-cola lata 350ml</h2>
+                <p>R$ 6,99</p>
                 <button class="add-to-cart">Adicionar</button>
             </div>
+            
+            <div class="product" data-name="Fanta laranja lata 350ml" data-price="8.99">
+                <img src="fantalar.jpg" alt="Fanta laranja lata 350ml">
+                <h2>Fanta laranja lata 350ml</h2>
+                <p>R$ 5,99</p>
+                <button class="add-to-cart">Adicionar</button>
+            </div>
+
         </div>
     </main>
 
     <div id="cart-popup" class="hidden">
         <div class="cart-content">
-            <h2>Carrinho</h2>
+            <h2><u>Carrinho</u></h2>
             <ul id="cart-items"></ul>
             <p><strong>Total: R$ <span id="cart-total">0.00</span></strong></p>
             <button id="clear-cart">Limpar Carrinho</button>
             <button id="checkout">Finalizar Pedido</button>
-            <button id="close-cart">Fechar</button>
+            <button id="close-cart">Continuar Comprando</button>
         </div>
     </div>
 

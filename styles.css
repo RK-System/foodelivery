@@ -46,6 +46,27 @@ button {
     border-radius: 5px;
 }
 
+button-itemdim {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 3px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+button-itemaum {
+    background-color: #00ff00;
+    color: white;
+    border: none;
+    padding: 3px 8px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
 button:hover {
     background-color: #cc5500;
 }
@@ -53,9 +74,11 @@ button:hover {
 /* Estilo do popup do carrinho */
 #cart-popup {
     position: fixed;
+    clip: rect(10px, 360px, 600px, 20px);
+    overflow: scroll;
     top: 0;
     right: 0;
-    width: 300px;
+    width: 330px;
     height: 100%;
     background: white;
     box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
@@ -70,5 +93,5 @@ button:hover {
 }
 
 .hidden {
-    display: none;
+    display: block;
 }
