@@ -74,7 +74,7 @@ button:hover {
 /* Estilo do popup do carrinho */
 #cart-popup {
     position: fixed;
-    clip: rect(10px, 360px, 700px, 20px);
+    clip: rect(10px, 360px, 900px, 20px);
     overflow: scroll;
     top: 0;
     right: 0;
