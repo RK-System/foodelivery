@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let orderText = "Pedido:\n";
         cart.forEach(item => {
-            orderText += `- ${item.quantity} x ${item.name} R$ ${(item.price * item.quantity).toFixed(2)}\n ${endereco}`;
+            orderText += `- ${item.quantity} x ${item.name} R$ ${(item.price * item.quantity).toFixed(2)} ${endereco}\n`;
         });
 
         const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
