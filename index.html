@@ -12,10 +12,7 @@
         <h1>Delivery Online</h1>
         <button id="open-cart">🛒 Carrinho (<span id="cart-count">0</span>)</button> 
     </header>
-    <!-- <div>
-            <hr> <input type="text" id="endereco" placeholder="Endereço de entrega..."/> <hr>
-        </div> -->
-
+ 
     <main>
         <div class="products">
             <div class="product" data-name="Pizza brotinho" data-price="35.99">
@@ -62,8 +59,19 @@
         <div class="cart-content">
             <h2><u>Carrinho</u></h2>
             <ul id="cart-items"></ul>
-            <p><strong>Total: R$ <span id="cart-total">0.00</span></strong></p>
-            <input type="text" id="endereco" placeholder="Endereço de entrega..."/>
+            <p><strong>Total: R$ <span id="cart-total">0.00</span></strong></p> 
+ 
+            <p><strong>Selecione a forma de pagamento:</strong></p>
+              <input type="radio" id="dinheiro" name="fav_language" value="DINHEIRO">
+              <label for="html">DINHEIRO</label>
+              <input type="radio" id="pix" name="fav_language" value="PIX">
+              <label for="css">PIX</label>
+              <input type="radio" id="cartao" name="fav_language" value="CARTÃO">
+              <label for="javascript">CARTÃO</label>
+            <br><br>
+
+            <input type="text" id="endereco" placeholder="Endereço de entrega..." size="30"/>
+            <br>
             <button id="clear-cart">Limpar Carrinho</button>
             <button id="checkout">Finalizar Pedido</button>
             <button id="close-cart">Continuar Comprando</button>

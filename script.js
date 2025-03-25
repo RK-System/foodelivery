@@ -12,6 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const price = parseFloat(product.getAttribute("data-price"));
             const existingItem = cart.find(item => item.name === name);
             const endereco = document.getElementById("endereco").value;
+            const dinheiro = document.getElementById("dinheiro").value;
+            const pix = document.getElementById("pix").value;
+            const cartao= document.getElementById("cartao").value;
 
             if (existingItem) {
                 existingItem.quantity++;
@@ -36,20 +39,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.getElementById("checkout").addEventListener("click", () => {
+
+        if (document.getElementById("dinheiro").checked) {
+            alert(document.getElementById("dinheiro").value);
+            
+          } else if (document.getElementById("dinheiro").checked = false) {
+            alert('Dinheiro não checado');
+         }
+          
+          alert(document.getElementById("dinheiro").value);
         
         if (cart.length === 0) {
             alert("Seu carrinho está vazio!");
             return;
         }
         
-       /* const end = document.getElementById("endereco");
-        end.addEventListener('input', function() {
-            const valor = inputElement.value;
-            alert(valor);
-        })*/
-        
-        //document.getElementById("endereco").addEventListener("input", () => {
-        //document.getElementById('endereco').innerHTML = entrega;
         const endereco = document.getElementById("endereco").value;
 
         if (endereco == "") {
@@ -63,7 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-        orderText += `\nTOTAL: R$ ${totalPrice.toFixed(2)} \nENDEREÇO DE ENTREGA: ${endereco}`;
+        orderText += `\nTOTAL: R$ ${totalPrice.toFixed(2)}\n`;
+        
+        orderText += `\nENDEREÇO DE ENTREGA: ${endereco}`;
 
         const whatsappURL = `https://wa.me/5575998886000?text=${encodeURIComponent(orderText)}`;
         window.open(whatsappURL, "_blank");
@@ -83,16 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             const li3 = document.createElement("li");
             li3.textContent = ` ••••••••••••••••••••••••••••••••••••••••••• `;
-
-           /* const inp = document.createElement("input");
-            inp.textContent = `end`;
-            
-            inp.addEventListener("onexit", () => {
-                if (inp.length == " ") {
-                    alert("Seu   vazio!");
-                    return;
-                }*/
-            
+         
             const decreaseButton = document.createElement("button-itemdim");
             decreaseButton.textContent = "-";
             
@@ -128,13 +125,11 @@ document.addEventListener("DOMContentLoaded", () => {
             li2.appendChild(decreaseButton);
             li2.appendChild(newContent);
             li2.appendChild(increaseButton);
-            //li2.appendChild(inp);
 
             cartItemsList.appendChild(li);
             cartItemsList.appendChild(li2);
             cartItemsList.appendChild(li3);
-            //cartItemsList.appendChild(inp);
-
+            
             total += item.price * item.quantity;
         });
 
