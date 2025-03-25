@@ -10,8 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const product = event.target.closest(".product");
             const name = product.getAttribute("data-name");
             const price = parseFloat(product.getAttribute("data-price"));
-
             const existingItem = cart.find(item => item.name === name);
+            const endereco = document.getElementById("endereco").value;
+
             if (existingItem) {
                 existingItem.quantity++;
             } else {
@@ -35,14 +36,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.getElementById("checkout").addEventListener("click", () => {
+        
         if (cart.length === 0) {
             alert("Seu carrinho está vazio!");
+            return;
+        }
+        
+       /* const end = document.getElementById("endereco");
+        end.addEventListener('input', function() {
+            const valor = inputElement.value;
+            alert(valor);
+        })*/
+        
+        //document.getElementById("endereco").addEventListener("input", () => {
+        //document.getElementById('endereco').innerHTML = entrega;
+        const endereco = document.getElementById("endereco").value;
+
+        if (endereco == "") {
+            alert("Insira um endereço para entrega!");
             return;
         }
 
         let orderText = "Pedido:\n";
         cart.forEach(item => {
-            orderText += `- ${item.quantity} x ${item.name} R$ ${(item.price * item.quantity).toFixed(2)}\n`;
+            orderText += `- ${item.quantity} x ${item.name} R$ ${(item.price * item.quantity).toFixed(2)}\n ${endereco}`;
         });
 
         const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -65,8 +82,16 @@ document.addEventListener("DOMContentLoaded", () => {
             li2.textContent = ` = R$ ${(item.price * item.quantity).toFixed(2)}\n`;
             
             const li3 = document.createElement("li");
-            li3.textContent = ` ••••••••••••••••••••••••••••••••••• `;
+            li3.textContent = ` ••••••••••••••••••••••••••••••••••••••••••• `;
 
+           /* const inp = document.createElement("input");
+            inp.textContent = `end`;
+            
+            inp.addEventListener("onexit", () => {
+                if (inp.length == " ") {
+                    alert("Seu   vazio!");
+                    return;
+                }*/
             
             const decreaseButton = document.createElement("button-itemdim");
             decreaseButton.textContent = "-";
@@ -90,13 +115,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 updateCart();
             });
             
+            decreaseButton.addEventListener("click", () => {
+                if (item.quantity > 1) {
+                    item.quantity--;
+                } else {
+                    cart.splice(index, 1);
+                }
+                updateCart();
+            });
+
+            
             li2.appendChild(decreaseButton);
             li2.appendChild(newContent);
             li2.appendChild(increaseButton);
-            
+            //li2.appendChild(inp);
+
             cartItemsList.appendChild(li);
             cartItemsList.appendChild(li2);
             cartItemsList.appendChild(li3);
+            //cartItemsList.appendChild(inp);
 
             total += item.price * item.quantity;
         });
