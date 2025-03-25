@@ -57,13 +57,13 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        let orderText = "Pedido:\n";
+        let orderText = "PEDIDO:\n";
         cart.forEach(item => {
             orderText += `\n- ${item.quantity} x ${item.name} R$ ${(item.price * item.quantity).toFixed(2)}\n`;
         });
 
         const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-        orderText += `\nTotal: R$ ${totalPrice.toFixed(2)}\nEndereço de entrega: ${endereco}`;
+        orderText += `\nTOTAL: R$ ${totalPrice.toFixed(2)} \nENDEREÇO DE ENTREGA: ${endereco}`;
 
         const whatsappURL = `https://wa.me/5575998886000?text=${encodeURIComponent(orderText)}`;
         window.open(whatsappURL, "_blank");
