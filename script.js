@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cart = [];
     const cartPopup = document.getElementById("cart-popup");
     const cartItemsList = document.getElementById("cart-items");
-    const cartTotal = document.getElementById("cart-total");
+    const cartTotal = document.getElementById("total");
     const cartCount = document.getElementById("cart-count");
 
     document.querySelectorAll(".add-to-cart").forEach(button => {
@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 existingItem.quantity++;
             } else {
                 cart.push({ name, price, quantity: 1 });
+                document.getElementById("vazio").innerHTML = "Carrinho";
             }
             updateCart();
         });
@@ -48,13 +49,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("clear-cart").addEventListener("click", () => {
         cart.length = 0;
+        document.getElementById("dinheiro").checked = false;
+        document.getElementById("pix").checked = false;
+        document.getElementById("cartao").checked = false;
         document.getElementById("vazio").innerHTML = "Carrinho Vazio";
         updateCart();
+    });
+
+    document.getElementById("limp-end").addEventListener("click", () => {
+        document.getElementById("endereco").value = '';
+        document.getElementById("endereco").placeholder = 'Endereço para entrega...';
     });
 
     let tp = " "; // Variável para tipo de pagamento a ser exibido no WhatsApp
 
     document.getElementById("checkout").addEventListener("click", () => {
+
+        if (cart.length === 0) {
+            alert("Seu carrinho está vazio!");
+            return;
+        }
 
         if (document.getElementById("dinheiro").checked) {
             alert("Pagamento selecionado:\n" + "= (" + document.getElementById("dinheiro").value + ")");
@@ -75,12 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
             alert('Selecione uma forma de pagamento!');
             return;
          }          
-        
-        if (cart.length === 0) {
-            alert("Seu carrinho está vazio!");
-            return;
-        }
-        
+                
         const endereco = document.getElementById("endereco").value;
 
         if (endereco == "") {
@@ -122,9 +131,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const decreaseButton = document.createElement("button-itemdim");
             decreaseButton.textContent = "-";
             
+            
             decreaseButton.addEventListener("click", () => {
-                if (item.quantity > 0) {
-                    item.quantity = item.quantity --;
+                if (item.quantity > 1) {
+                    item.quantity--;
                 } else {
                     cart.splice(index, 1);
                 }
@@ -133,20 +143,12 @@ document.addEventListener("DOMContentLoaded", () => {
             
             const increaseButton = document.createElement("button-itemaum");
             increaseButton.textContent = "+";
+          
             
             const newContent = document.createTextNode(" ");
             
             increaseButton.addEventListener("click", () => {
                 item.quantity++;
-                updateCart();
-            });
-            
-            decreaseButton.addEventListener("click", () => {
-                if (item.quantity > 1) {
-                    item.quantity--;
-                } else {
-                    cart.splice(index, 1);
-                }
                 updateCart();
             });
 
@@ -164,5 +166,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         cartTotal.textContent = total.toFixed(2);
         cartCount.textContent = cart.length;
+
+        if (cartTotal !== '0.00') {
+            document.getElementById("vazio").innerHTML = "Carrinho cheio";
+        }else {
+            document.getElementById("vazio").innerHTML = "Carrinho vazios";
+        }
+
     }
 });

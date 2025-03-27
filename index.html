@@ -80,7 +80,7 @@
         <div class="cart-content">
             <h2 id="vazio"><u>Carrinho</u></h2>
             <ul id="cart-items"></ul>
-            <p><strong>Total: R$ <span id="cart-total">0.00</span></strong></p> 
+            <p><strong>Total: R$ <span id="total">0</span></strong></p> 
  
             <p><strong>Selecione a forma de pagamento:</strong></p>
               <input type="radio" id="dinheiro" name="fav_language" value="DINHEIRO">
@@ -91,7 +91,8 @@
               <label for="javascript">CARTÃO</label>
             <br><br>
 
-            <input type="text" id="endereco" placeholder="Endereço para entrega..." size="30"/>
+            <input type="text" id="endereco" placeholder="Endereço para entrega..." size=""/>
+            <button id="limp-end" name="button"><strong>X</strong></button>
             <br><br>
             <button id="clear-cart">Limpar Carrinho</button>
             <button id="close-cart">Fechar Carrinho</button>

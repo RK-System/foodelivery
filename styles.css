@@ -56,7 +56,6 @@ button-itemdim {
     border-radius: 5px;
 }
 
-
 button-itemaum {
     background-color: #00ff00;
     color: white;
@@ -69,6 +68,16 @@ button-itemaum {
 
 button:hover {
     background-color: #cc5500;
+}
+
+#limp-end {
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 15px;
 }
 
 /* Estilo do popup do carrinho */
