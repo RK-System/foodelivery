@@ -26,28 +26,55 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.getElementById("open-cart").addEventListener("click", () => {
-        cartPopup.style.display = "flex";
+        if (cart.length === 0) {
+            document.getElementById("vazio").innerHTML = "Carrinho Vazio";
+            //document.getElementById("top").visible == true;
+            cartPopup.style.display = "flex";
+            if document.getElementById('top').setAttribute(' ', 'visibility:visible' {
+                document.getElementById("top").display = "none";
+
+                
+            }
+
+            
+        }
+        else {
+            document.getElementById("vazio").innerHTML = "Carrinho";
+            //document.getElementById("top").visible == false;
+            cartPopup.style.display = "flex";
+        }
     });
 
     document.getElementById("close-cart").addEventListener("click", () => {
+        //document.getElementById("top").visible == true;
         cartPopup.style.display = "none";
     });
 
     document.getElementById("clear-cart").addEventListener("click", () => {
         cart.length = 0;
+        document.getElementById("vazio").innerHTML = "Carrinho Vazio";
         updateCart();
     });
 
     document.getElementById("checkout").addEventListener("click", () => {
 
         if (document.getElementById("dinheiro").checked) {
-            alert(document.getElementById("dinheiro").value);
-            
-          } else if (document.getElementById("dinheiro").checked = false) {
-            alert('Dinheiro não checado');
+            alert("Pagamento selecionado:\n" + "= (" + document.getElementById("dinheiro").value + ")");
+        }
+        else if (document.getElementById("pix").checked) {
+            alert("Pagamento selecionado:\n" + "= (" + document.getElementById("pix").value + ")");
+        }
+        else if (document.getElementById("cartao").checked) {
+            alert("Pagamento selecionado:\n" + "= (" + document.getElementById("cartao").value + ")");
+        }
+
+        else if (document.getElementById("dinheiro").checked == false
+            && document.getElementById("pix").checked == false 
+            && document.getElementById("cartao").checked == false) {
+            alert('Selecione uma forma de pagamento!');
          }
           
-          alert(document.getElementById("dinheiro").value);
+          //alert(document.getElementById("dinheiro").value);
         
         if (cart.length === 0) {
             alert("Seu carrinho está vazio!");

@@ -95,3 +95,28 @@ button:hover {
 .hidden {
     display: block;
 }
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: #000;
+    text-decoration: none;
+    border-radius: 15px;
+}
+.btn::after {
+    content: "↑";
+    font-size: 30px;
+    font-weight: bold;
+    color: aqua;
+    transition: margin-top 250ms;
+}
+.btn:hover::after {
+    margin-top:-8px;
+}
+
