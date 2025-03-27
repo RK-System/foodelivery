@@ -28,26 +28,22 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("open-cart").addEventListener("click", () => {
         if (cart.length === 0) {
             document.getElementById("vazio").innerHTML = "Carrinho Vazio";
-            //document.getElementById("top").visible == true;
+            document.getElementById("top").style.visibility = "visible";
             cartPopup.style.display = "flex";
-            if document.getElementById('top').setAttribute(' ', 'visibility:visible' {
-                document.getElementById("top").display = "none";
-
-                
-            }
-
-            
+            if (document.getElementById('top').style.visibility == "visible") {
+                document.getElementById("top").style = "display:none";
+            }           
         }
         else {
             document.getElementById("vazio").innerHTML = "Carrinho";
-            //document.getElementById("top").visible == false;
+            document.getElementById("top").style = "display:none";
             cartPopup.style.display = "flex";
         }
     });
 
     document.getElementById("close-cart").addEventListener("click", () => {
-        //document.getElementById("top").visible == true;
         cartPopup.style.display = "none";
+        document.getElementById("top").style = "display:visible";
     });
 
     document.getElementById("clear-cart").addEventListener("click", () => {
@@ -56,25 +52,29 @@ document.addEventListener("DOMContentLoaded", () => {
         updateCart();
     });
 
+    let tp = " "; // Variável para tipo de pagamento a ser exibido no WhatsApp
+
     document.getElementById("checkout").addEventListener("click", () => {
 
         if (document.getElementById("dinheiro").checked) {
             alert("Pagamento selecionado:\n" + "= (" + document.getElementById("dinheiro").value + ")");
+            tp = "DINHEIRO";
         }
         else if (document.getElementById("pix").checked) {
             alert("Pagamento selecionado:\n" + "= (" + document.getElementById("pix").value + ")");
+            tp = "PIX";
         }
         else if (document.getElementById("cartao").checked) {
             alert("Pagamento selecionado:\n" + "= (" + document.getElementById("cartao").value + ")");
+            tp = "CARTÃO";
         }
 
         else if (document.getElementById("dinheiro").checked == false
             && document.getElementById("pix").checked == false 
             && document.getElementById("cartao").checked == false) {
             alert('Selecione uma forma de pagamento!');
-         }
-          
-          //alert(document.getElementById("dinheiro").value);
+            return;
+         }          
         
         if (cart.length === 0) {
             alert("Seu carrinho está vazio!");
@@ -95,6 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
         orderText += `\nTOTAL: R$ ${totalPrice.toFixed(2)}\n`;
+
+        orderText += `\nFORMA DE PAGAMENTO: = ${tp}\n`;
         
         orderText += `\nENDEREÇO DE ENTREGA: ${endereco}`;
 
@@ -121,8 +123,8 @@ document.addEventListener("DOMContentLoaded", () => {
             decreaseButton.textContent = "-";
             
             decreaseButton.addEventListener("click", () => {
-                if (item.quantity > 1) {
-                    item.quantity--;
+                if (item.quantity > 0) {
+                    item.quantity = item.quantity --;
                 } else {
                     cart.splice(index, 1);
                 }
