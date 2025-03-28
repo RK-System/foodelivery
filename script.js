@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const cart = [];
+    const quantity = 0;
     const cartPopup = document.getElementById("cart-popup");
     const cartItemsList = document.getElementById("cart-items");
     const cartTotal = document.getElementById("total");
@@ -9,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener("click", (event) => {
             const product = event.target.closest(".product");
             const name = product.getAttribute("data-name");
-            const price = parseFloat(product.getAttribute("data-price"));
+            const price = parseFloat(product.getAttribute("data-price").toLocaleString('fr-FR'));
             const existingItem = cart.find(item => item.name === name);
             const endereco = document.getElementById("endereco").value;
             const dinheiro = document.getElementById("dinheiro").value;
@@ -99,10 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let orderText = "PEDIDO:\n";
         cart.forEach(item => {
-            orderText += `\n- ${item.quantity} x ${item.name} R$ ${(item.price * item.quantity).toFixed(2)}\n`;
+            orderText += `\n- ${item.quantity} --> ${item.name} X ${(item.price.toLocaleString('br-BR'))} = R$ ${(item.price * item.quantity).toFixed(2)}\n`;
         });
 
         const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+        
         orderText += `\nTOTAL: R$ ${totalPrice.toFixed(2)}\n`;
 
         orderText += `\nFORMA DE PAGAMENTO: = ${tp}\n`;
@@ -120,10 +122,10 @@ document.addEventListener("DOMContentLoaded", () => {
         cart.forEach((item, index) => {
             
             const li = document.createElement("li");
-            li.textContent = `${item.quantity} x ${item.name}`;
+            li.textContent = `${item.quantity} --> ${item.name}`;
 
             const li2 = document.createElement("li");
-            li2.textContent = ` = R$ ${(item.price * item.quantity).toFixed(2)}\n`;
+            li2.textContent = `x ${item.price.toLocaleString('br-BR')} = R$ ${(item.price * item.quantity).toFixed(2)}\n`;
             
             const li3 = document.createElement("li");
             li3.textContent = ` ••••••••••••••••••••••••••••••••••••••••••• `;
@@ -167,11 +169,12 @@ document.addEventListener("DOMContentLoaded", () => {
         cartTotal.textContent = total.toFixed(2);
         cartCount.textContent = cart.length;
 
-        if (cartTotal !== '0.00') {
-            document.getElementById("vazio").innerHTML = "Carrinho cheio";
+        if (cartCount.textContent !== '0') {
+            document.getElementById("vazio").innerHTML = "Carrinho";
         }else {
-            document.getElementById("vazio").innerHTML = "Carrinho vazios";
+            document.getElementById("vazio").innerHTML = "Carrinho vazio";
         }
-
+  
     }
+  
 });

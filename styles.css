@@ -27,12 +27,12 @@ header {
     padding: 10px;
     margin: 10px;
     text-align: center;
-    width: 200px;
+    width: 135px;
 }
 
 .product img {
     width: 100%;
-    height: 120px;
+    height: 150px;
     border-radius: 5px;
 }
 
@@ -44,6 +44,7 @@ button {
     margin-top: 10px;
     cursor: pointer;
     border-radius: 5px;
+    height: 40px;
 }
 
 button-itemdim {
@@ -71,6 +72,8 @@ button:hover {
 }
 
 #limp-end {
+    width: 30px;
+    height: 30px;
     background-color: #000;
     color: white;
     border: none;
