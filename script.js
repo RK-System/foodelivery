@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     const cart = [];
-    const quantity = 0;
     const cartPopup = document.getElementById("cart-popup");
     const cartItemsList = document.getElementById("cart-items");
     const cartTotal = document.getElementById("total");
     const cartCount = document.getElementById("cart-count");
+
+    document.getElementById("troco").style.visibility = 'hidden';
+    document.getElementById("limptroco").style.visibility = 'hidden';
+    document.getElementById("lbtroco").style.visibility = 'hidden';
 
     document.querySelectorAll(".add-to-cart").forEach(button => {
         button.addEventListener("click", (event) => {
@@ -15,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const endereco = document.getElementById("endereco").value;
             const dinheiro = document.getElementById("dinheiro").value;
             const pix = document.getElementById("pix").value;
-            const cartao= document.getElementById("cartao").value;
+            const cartao = document.getElementById("cartao").value;
 
             if (existingItem) {
                 existingItem.quantity++;
@@ -32,6 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("vazio").innerHTML = "Carrinho Vazio";
             document.getElementById("top").style.visibility = "visible";
             cartPopup.style.display = "flex";
+            //document.getElementById("troco").style = "display:none";
+
             if (document.getElementById('top').style.visibility == "visible") {
                 document.getElementById("top").style = "display:none";
             }           
@@ -40,6 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("vazio").innerHTML = "Carrinho";
             document.getElementById("top").style = "display:none";
             cartPopup.style.display = "flex";
+            //document.getElementById("troco").style = "display:none";
+
         }
     });
 
@@ -54,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("pix").checked = false;
         document.getElementById("cartao").checked = false;
         document.getElementById("vazio").innerHTML = "Carrinho Vazio";
+        document.getElementById("troco").style = "display:none";
         updateCart();
     });
 
@@ -61,9 +69,17 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("endereco").value = '';
         document.getElementById("endereco").placeholder = 'Endereço para entrega...';
     });
+    
+    //botão limpar troco
+    document.getElementById("limptroco").addEventListener("click", () => {
+        document.getElementById("troco").value = '';
+        document.getElementById("troco").placeholder = 'Troco para...';
+        document.getElementById("lbtroco").innerHTML = 'Troco R$ 0.00';
+    });
 
     let tp = " "; // Variável para tipo de pagamento a ser exibido no WhatsApp
-
+    
+    //Fechando e finalizando pedido e enviando pelo WhatsApp
     document.getElementById("checkout").addEventListener("click", () => {
 
         if (cart.length === 0) {
@@ -74,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (document.getElementById("dinheiro").checked) {
             alert("Pagamento selecionado:\n" + "= (" + document.getElementById("dinheiro").value + ")");
             tp = "DINHEIRO";
+        
         }
         else if (document.getElementById("pix").checked) {
             alert("Pagamento selecionado:\n" + "= (" + document.getElementById("pix").value + ")");
@@ -129,10 +146,11 @@ document.addEventListener("DOMContentLoaded", () => {
             
             const li3 = document.createElement("li");
             li3.textContent = ` ••••••••••••••••••••••••••••••••••••••••••• `;
+            
+            
          
             const decreaseButton = document.createElement("button-itemdim");
             decreaseButton.textContent = "-";
-            
             
             decreaseButton.addEventListener("click", () => {
                 if (item.quantity > 1) {
@@ -143,21 +161,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 updateCart();
             });
             
+            const newContent1 = document.createTextNode(" ");
+            
             const increaseButton = document.createElement("button-itemaum");
             increaseButton.textContent = "+";
-          
-            
-            const newContent = document.createTextNode(" ");
             
             increaseButton.addEventListener("click", () => {
                 item.quantity++;
                 updateCart();
             });
+            
+            const newContent2 = document.createTextNode(" ");
+            
+            const deleteButton = document.createElement("button-itemdelete");
+            deleteButton.textContent = "x";
+            
+            deleteButton.addEventListener("click", () => {
+                //item.quantity++;
+                cart.splice(index, 1);
+                updateCart();
+            });
 
             
             li2.appendChild(decreaseButton);
-            li2.appendChild(newContent);
+            li2.appendChild(newContent1);
             li2.appendChild(increaseButton);
+            li2.appendChild(newContent2);
+            li2.appendChild(deleteButton);
+            
 
             cartItemsList.appendChild(li);
             cartItemsList.appendChild(li2);
@@ -174,7 +205,69 @@ document.addEventListener("DOMContentLoaded", () => {
         }else {
             document.getElementById("vazio").innerHTML = "Carrinho vazio";
         }
-  
+        
     }
-  
+    
+      document.getElementById("dinheiro").onclick = function() {ckdinheiro()};
+
+        function ckdinheiro() {
+            if (document.getElementById("dinheiro").checked == true 
+                && document.getElementById("pix").checked == false
+                && document.getElementById("cartao").checked == false) {
+
+                if (document.getElementById("troco").style.visibility === 'hidden') {
+                    document.getElementById("troco").style.visibility = 'visible';
+                    document.getElementById("limptroco").style.visibility = 'visible';
+                    document.getElementById("lbtroco").style.visibility = 'visible'; 
+                    document.getElementById("troco").value = '';                                                            
+                }
+            }    
+        }
+
+        document.getElementById("pix").onclick = function() {ckpix()};
+
+        function ckpix() {
+            if (document.getElementById("pix").checked == true 
+                && document.getElementById("dinheiro").checked == false
+                && document.getElementById("cartao").checked == false) {
+
+                    document.getElementById("troco").style.visibility = 'hidden';
+                    document.getElementById("limptroco").style.visibility = 'hidden';
+                    document.getElementById("lbtroco").style.visibility = 'hidden';
+                    document.getElementById("troco").value = '';                                                            
+            }    
+        }
+
+        document.getElementById("cartao").onclick = function() {ckcartao()};
+
+        function ckcartao() {
+            if (document.getElementById("cartao").checked == true 
+                && document.getElementById("dinheiro").checked == false
+                && document.getElementById("pix").checked == false) {
+
+                    document.getElementById("troco").style.visibility = 'hidden';
+                    document.getElementById("limptroco").style.visibility = 'hidden';
+                    document.getElementById("lbtroco").style.visibility = 'hidden';
+                    document.getElementById("troco").value = '';                                                                                
+            }    
+        }
+
+       /* document.getElementById("troco").onkeydown = function() {myFunction()};
+        function myFunction() {
+           /* var v1 = parseFloat(document.getElementById('lbltroco').value);
+            var v2 = parseFloat(document.getElementById('troco').value);    
+            var v3 = parseFloat(document.getElementById('total').value);
+            var tot = '';*/
+    
+            //alert("You pressed a key inside the input field");
+            /*tot = v2 - v3;
+            v1 = tot;*/
+            /*let trok = (document.getElementById("troco").value) - (parseFloat(document.getElementById("total").innerHTML))
+            document.getElementById("lbtroco").innerHTML = trok;
+            alert(trok);*/
+
+           /* parseFloat(document.getElementById("lbtroco").value) = document.getElementById("troco").value
+            - parseFloat(document.getElementById("total").value);*/
+         // }
+
 });

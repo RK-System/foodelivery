@@ -10,7 +10,7 @@
 
     <header>
         <h1>Delivery Online</h1>
-        <button id="open-cart">🛒<br> Carrinho <br> (<span id="cart-count">0</span>)<span> itens</span></button> 
+        <button id="open-cart">🛒<br>Carrinho<br>(<span id="cart-count">0</span>)<span> itens</span></button> 
     </header>
  
     <main>
@@ -81,19 +81,24 @@
             <h2 id="vazio"><u>Carrinho</u></h2>
             <ul id="cart-items"></ul>
             <p><strong>Total: R$ <span id="total">0.00</span></strong></p> 
- 
-            <p><strong>Selecione a forma de pagamento:</strong></p>
-              <input type="radio" id="dinheiro" name="fav_language" value="DINHEIRO">
-              <label for="html">DINHEIRO</label>
-              <input type="radio" id="pix" name="fav_language" value="PIX">
-              <label for="css">PIX</label>
-              <input type="radio" id="cartao" name="fav_language" value="CARTÃO">
-              <label for="javascript">CARTÃO</label>
-            <br><br>
-
+            <label id="endentrega">Informe endereço para entrega:</label>
             <input type="text" id="endereco" placeholder="Endereço para entrega..." size=""/>
             <button id="limp-end" name="button"><strong>X</strong></button>
-            <br><br>
+            <br>
+ 
+            <p>Selecione a forma de pagamento:</p>
+              <input type="radio" id="dinheiro" name="fav_language" value="DINHEIRO">
+              <label for="dinheiro">DINHEIRO</label>
+              <input type="radio" id="pix" name="fav_language" value="PIX">
+              <label for="pix">PIX</label>
+              <input type="radio" id="cartao" name="fav_language" value="CARTÃO">
+              <label for="cartao">CARTÃO</label> <br>
+              <input type="number"  onkeypress="myFunction()" id="troco" placeholder="Troco para...">
+              <button id="limptroco" name="button"><strong>X</strong></button>
+            <br>
+            
+            <label id="lbtroco" for="dinheiro">Troco R$ 0.00</label>
+            <br>
             <button id="clear-cart">Limpar Carrinho</button>
             <button id="close-cart">Fechar Carrinho</button>
             <button id="checkout">Finalizar Pedido</button>
@@ -103,4 +108,4 @@
     <a id="top" href="#" class="btn"></a>
     <script src="script.js"></script>
 </body>
-</html>
+</html
