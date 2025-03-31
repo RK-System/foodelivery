@@ -1,16 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     const cart = [];
-    const quantity = 0;
     const cartPopup = document.getElementById("cart-popup");
     const cartItemsList = document.getElementById("cart-items");
     const cartTotal = document.getElementById("total");
     const cartCount = document.getElementById("cart-count");
-    document.getElementById("troco").style = "display:none";
 
-/*   const troco = document.getElementById("troco").style = "display:none";
-    const limptroco = document.getElementById("limptroco").style = "display:none";
-    const lbtroco = document.getElementById("lbtroco").style = "display:none";
-*/
+    document.getElementById("troco").style.visibility = 'hidden';
+    document.getElementById("limptroco").style.visibility = 'hidden';
+    document.getElementById("lbtroco").style.visibility = 'hidden';
 
     document.querySelectorAll(".add-to-cart").forEach(button => {
         button.addEventListener("click", (event) => {
@@ -64,7 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("pix").checked = false;
         document.getElementById("cartao").checked = false;
         document.getElementById("vazio").innerHTML = "Carrinho Vazio";
-        document.getElementById("troco").style = "display:none";
+        document.getElementById("troco").style.visibility = 'hidden';
+        document.getElementById("limptroco").style.visibility = 'hidden';
+        document.getElementById("lbtroco").style.visibility = 'hidden';
         updateCart();
     });
 
@@ -77,12 +76,12 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("limptroco").addEventListener("click", () => {
         document.getElementById("troco").value = '';
         document.getElementById("troco").placeholder = 'Troco para...';
-        document.getElementById("lbtroco").innerHTML = 'Troco R$ 0,00';
+        document.getElementById("lbtroco").innerHTML = 'Troco R$ 0.00';
     });
 
     let tp = " "; // Variável para tipo de pagamento a ser exibido no WhatsApp
     
-    //Fechando e finalizando pedido e enviando pelo WhatsApp
+                // Fechando e finalizando pedido e enviando pelo WhatsApp
     document.getElementById("checkout").addEventListener("click", () => {
 
         if (cart.length === 0) {
@@ -90,26 +89,17 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        const endereco = document.getElementById("endereco").value;
+
+        if (endereco == "") {
+            alert("Insira um endereço para entrega!");
+            return;
+        }
+
         if (document.getElementById("dinheiro").checked) {
             alert("Pagamento selecionado:\n" + "= (" + document.getElementById("dinheiro").value + ")");
             tp = "DINHEIRO";
-            if (document.getElementById('troco').style == "display:none") {
-                document.getElementById("troco").style.visibility = "visible";
-            }
-            
-        /*if (document.getElementById("dinheiro").checked) {
-            document.getElementById("troco").style = "display:visible";
-            document.getElementById("troco").style.visibility = "visible";
-            document.getElementById("limptroco").style.visibility = "visible";
-            document.getElementById("lbtroco").style.visibility = "visible";
-            document.getElementById("troco".style = "display:visible";
-        }*/
-
-            /*document.getElementById("troco").style.visibility = "visible";
-            document.getElementById("limptroco").style.visibility = "visible";
-            document.getElementById("lbtroco").style.visibility = "visible"; */
-            //document.getElementById("troco").style = "display:visible";
-
+        
         }
         else if (document.getElementById("pix").checked) {
             alert("Pagamento selecionado:\n" + "= (" + document.getElementById("pix").value + ")");
@@ -125,15 +115,40 @@ document.addEventListener("DOMContentLoaded", () => {
             && document.getElementById("cartao").checked == false) {
             alert('Selecione uma forma de pagamento!');
             return;
-         }          
-                
-        const endereco = document.getElementById("endereco").value;
+        }          
+/* INICIO ***************************************************************************************** */
+        if (document.getElementById("dinheiro").checked == true
+            && document.getElementById("troco").value == "") {
+                alert("Informe um valor para TROCO!");
+                return
+            }
 
-        if (endereco == "") {
-            alert("Insira um endereço para entrega!");
-            return;
-        }
-
+            if (document.getElementById("dinheiro").checked == true
+            && document.getElementById("troco").value == 0 ) {                
+                alert("Valor para TROCO não pode ser ZERO!");
+                return
+            }
+            alert(parseFloat(document.getElementById("total").innerHTML));
+            alert(document.getElementById("troco").value);
+            if (document.getElementById("dinheiro").checked == true
+            && (document.getElementById("troco").value < parseFloat(document.getElementById("total").innerHTML))) {
+                alert("Valor digitado menor que o Total da COMPRA!");
+                return
+            }
+            
+            if (document.getElementById("pix").checked == true
+            && document.getElementById("troco").value == "" ) {                
+                //alert("Agora sim PIX OK!"); 
+                //alert(document.getElementById("troco").value);
+            }
+            
+            if (document.getElementById("cartao").checked == true
+            && document.getElementById("troco").value == "" ) {                
+                //alert("Agora sim CARTÃO OK!"); 
+                //alert(document.getElementById("troco").value);
+            }
+            
+/* FIM **************************************************************************************** */                        
         let orderText = "PEDIDO:\n";
         cart.forEach(item => {
             orderText += `\n- ${item.quantity} --> ${item.name} X ${(item.price.toLocaleString('br-BR'))} = R$ ${(item.price * item.quantity).toFixed(2)}\n`;
@@ -149,6 +164,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const whatsappURL = `https://wa.me/5575998886000?text=${encodeURIComponent(orderText)}`;
         window.open(whatsappURL, "_blank");
+
+        // falta colocar valor do troco na msg do WhatsApp
     });
 
     function updateCart() {
@@ -165,9 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             const li3 = document.createElement("li");
             li3.textContent = ` ••••••••••••••••••••••••••••••••••••••••••• `;
-            
-            
-         
+                    
             const decreaseButton = document.createElement("button-itemdim");
             decreaseButton.textContent = "-";
             
@@ -200,7 +215,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 cart.splice(index, 1);
                 updateCart();
             });
-
             
             li2.appendChild(decreaseButton);
             li2.appendChild(newContent1);
@@ -208,7 +222,6 @@ document.addEventListener("DOMContentLoaded", () => {
             li2.appendChild(newContent2);
             li2.appendChild(deleteButton);
             
-
             cartItemsList.appendChild(li);
             cartItemsList.appendChild(li2);
             cartItemsList.appendChild(li3);
@@ -221,24 +234,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (cartCount.textContent !== '0') {
             document.getElementById("vazio").innerHTML = "Carrinho";
-        }else {
-            document.getElementById("vazio").innerHTML = "Carrinho vazio";
+        } else {
+            document.getElementById("vazio").innerHTML = "Carrinho Vazio";
+        }        
+    }
+    
+      document.getElementById("dinheiro").onclick = function() {ckdinheiro()};
+        function ckdinheiro() {
+            if (document.getElementById("dinheiro").checked == true 
+                && document.getElementById("pix").checked == false
+                && document.getElementById("cartao").checked == false) {
+
+                if (document.getElementById("troco").style.visibility === 'hidden') {
+                    document.getElementById("troco").style.visibility = 'visible';
+                    document.getElementById("limptroco").style.visibility = 'visible';
+                    document.getElementById("lbtroco").style.visibility = 'visible'; 
+                    document.getElementById("troco").value = '';  
+               } 
+            } else if (document.getElementById("dinheiro").checked == false) {
+                if (document.getElementById("troco").style.visibility === 'hidden') {
+                    document.getElementById("troco").style.visibility = 'visible';
+                    document.getElementById("limptroco").style.visibility = 'visible';
+                    document.getElementById("lbtroco").style.visibility = 'visible'; 
+                    document.getElementById("troco").value = '';  
+               } 
+            }
         }
         
-        //if (document.getElementById("dinheiro").checked) {
-            //alert("erro...")
-            //document.getElementById("troco").style = "display:visible";
-            //document.getElementById("troco").style.visibility = "visible";
-            /*document.getElementById("limptroco").style.visibility = "visible";
-            document.getElementById("lbtroco").style.visibility = "visible"; */
-            //document.getElementById("troco").style = "display:visible";
-       // }
-    }
-        function teste() {
+        document.getElementById("pix").onclick = function() {ckpix()};
+        function ckpix() {
+            if (document.getElementById("pix").checked == true 
+                && document.getElementById("dinheiro").checked == false
+                && document.getElementById("cartao").checked == false) {
 
-        if (document.getElementById("dinheiro").checked) {
+                    document.getElementById("troco").style.visibility = 'hidden';
+                    document.getElementById("limptroco").style.visibility = 'hidden';
+                    document.getElementById("lbtroco").style.visibility = 'hidden';
+                    document.getElementById("troco").value = '';                                                            
+            }    
+        }
 
-              document.getElementById("troco").style = "display:visible";
+        document.getElementById("cartao").onclick = function() {ckcartao()};
+        function ckcartao() {
+            if (document.getElementById("cartao").checked == true 
+                && document.getElementById("dinheiro").checked == false
+                && document.getElementById("pix").checked == false) {
+
+                    document.getElementById("troco").style.visibility = 'hidden';
+                    document.getElementById("limptroco").style.visibility = 'hidden';
+                    document.getElementById("lbtroco").style.visibility = 'hidden';
+                    document.getElementById("troco").value = '';                                                                                
+            }    
         }
+
+        document.getElementById("troco").onkeyup = function() {myFunction()};
+        function myFunction() {
+            //var v1 = parseFloat(document.getElementById('lbltroco').innerHTML);
+            var v2 = document.getElementById('troco').value;    
+            var v3 = document.getElementById('total').innerHTML;
+            //var tot = parseFloat(v2) - parseFloat(v3);
+
+            let tot = document.getElementById('troco').value - parseFloat(document.getElementById('total').innerHTML);
+    
+            alert(v2);
+            alert(v3);
+            alert(tot);
         }
+            /*tot = v2 - v3;
+            v1 = tot;*/
+            /*let trok = (document.getElementById("troco").value) - (parseFloat(document.getElementById("total").innerHTML))
+            document.getElementById("lbtroco").innerHTML = trok;
+            alert(trok);*/
+
+           /* parseFloat(document.getElementById("lbtroco").value) = document.getElementById("troco").value
+            - parseFloat(document.getElementById("total").value);*/
+         // }
+         // (document.getElementById("troco").value < parseFloat(document.getElementById("total").innerHTML))) {
 });

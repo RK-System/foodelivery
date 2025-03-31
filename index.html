@@ -80,24 +80,27 @@
         <div class="cart-content">
             <h2 id="vazio"><u>Carrinho</u></h2>
             <ul id="cart-items"></ul>
-            <p><strong>Total: R$ <span id="total">0,00</span></strong></p> 
+            <p><strong>Total: R$ <span id="total">0.00</span></strong></p> 
+            <label id="endentrega">Informe endereço para entrega:</label>
+            <input type="text" id="endereco" placeholder="Endereço para entrega..." size=""/>
+            <button id="limp-end" name="button"><strong>X</strong></button>
+            <br>
  
-            <p><strong>Selecione a forma de pagamento:</strong></p>
+            <p>Selecione a forma de pagamento:</p>
               <input type="radio" id="dinheiro" name="fav_language" value="DINHEIRO">
               <label for="dinheiro">DINHEIRO</label>
               <input type="radio" id="pix" name="fav_language" value="PIX">
               <label for="pix">PIX</label>
               <input type="radio" id="cartao" name="fav_language" value="CARTÃO">
-              <label for="cartao">CARTÃO</label> <br><br>
-              <input type="number" id="troco" placeholder="Troco para...">
+              <label for="cartao">CARTÃO</label> <br>
+              <!-- <input type="number" step="0.01" min="0" max="200" id="troco" placeholder="Troco para..." > -->
+              <input type="number" step="0.01" min="0" max="200" id="troco" placeholder="Troco para..." onkeypress="return (event.charCode >= 48 && event.charCode <= 57) ||  
+              event.charCode == 44 || event.charCode == 0 ">
               <button id="limptroco" name="button"><strong>X</strong></button>
             <br>
             
-            <input type="text" id="endereco" placeholder="Endereço para entrega..." size=""/>
-            <button id="limp-end" name="button"><strong>X</strong></button>
-            <br><br>
-            <label id="lbtroco" for="dinheiro">Troco R$ 0,00 </label>
-            <br><br>
+            <label id="lbtroco" for="dinheiro">Troco R$ 0.00</label>
+            <br>
             <button id="clear-cart">Limpar Carrinho</button>
             <button id="close-cart">Fechar Carrinho</button>
             <button id="checkout">Finalizar Pedido</button>
@@ -107,4 +110,4 @@
     <a id="top" href="#" class="btn"></a>
     <script src="script.js"></script>
 </body>
-</html>
+</html
