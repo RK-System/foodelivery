@@ -82,8 +82,8 @@ button:hover {
 }
 
 #limp-end {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background-color: #000;
     color: white;
     border: none;
@@ -94,8 +94,8 @@ button:hover {
 }
 
 #limptroco {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     background-color: #000;
     color: white;
     border: none;
@@ -104,7 +104,6 @@ button:hover {
     cursor: pointer;
     border-radius: 15px;
 }
-
 
 /* Estilo do popup do carrinho */
 #cart-popup {

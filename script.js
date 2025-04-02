@@ -30,12 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // botão abrir tela do carrinho
     document.getElementById("open-cart").addEventListener("click", () => {
         if (cart.length === 0) {
             document.getElementById("vazio").innerHTML = "Carrinho Vazio";
             document.getElementById("top").style.visibility = "visible";
             cartPopup.style.display = "flex";
-            //document.getElementById("troco").style = "display:none";
 
             if (document.getElementById('top').style.visibility == "visible") {
                 document.getElementById("top").style = "display:none";
@@ -45,16 +45,16 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("vazio").innerHTML = "Carrinho";
             document.getElementById("top").style = "display:none";
             cartPopup.style.display = "flex";
-            //document.getElementById("troco").style = "display:none";
-
         }
     });
 
+    // botão fechar tela do carrinho
     document.getElementById("close-cart").addEventListener("click", () => {
         cartPopup.style.display = "none";
         document.getElementById("top").style = "display:visible";
     });
 
+    // botão limpar carrinho
     document.getElementById("clear-cart").addEventListener("click", () => {
         cart.length = 0;
         document.getElementById("dinheiro").checked = false;
@@ -65,23 +65,25 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("limptroco").style.visibility = 'hidden';
         document.getElementById("lbtroco").style.visibility = 'hidden';
         updateCart();
+        document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
     });
 
+    // botão limpar endereço
     document.getElementById("limp-end").addEventListener("click", () => {
         document.getElementById("endereco").value = '';
         document.getElementById("endereco").placeholder = 'Endereço para entrega...';
     });
     
-    //botão limpar troco
+    // botão limpar troco
     document.getElementById("limptroco").addEventListener("click", () => {
         document.getElementById("troco").value = '';
         document.getElementById("troco").placeholder = 'Troco para...';
-        document.getElementById("lbtroco").innerHTML = 'Troco R$ 0.00';
+        document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
     });
 
     let tp = " "; // Variável para tipo de pagamento a ser exibido no WhatsApp
     
-                // Fechando e finalizando pedido e enviando pelo WhatsApp
+     // Fechando e finalizando pedido e enviando pelo WhatsApp
     document.getElementById("checkout").addEventListener("click", () => {
 
         if (cart.length === 0) {
@@ -116,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
             alert('Selecione uma forma de pagamento!');
             return;
         }          
-/* INICIO ***************************************************************************************** */
+
         if (document.getElementById("dinheiro").checked == true
             && document.getElementById("troco").value == "") {
                 alert("Informe um valor para TROCO!");
@@ -128,8 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Valor para TROCO não pode ser ZERO!");
                 return
             }
-            /* alert(parseFloat(document.getElementById("total").innerHTML));
-            alert(document.getElementById("troco").value); */
+
             if (document.getElementById("dinheiro").checked == true
             && (document.getElementById("troco").value < parseFloat(document.getElementById("total").innerHTML))) {
                 alert("Valor digitado menor que o Total da COMPRA!");
@@ -148,26 +149,32 @@ document.addEventListener("DOMContentLoaded", () => {
                 //alert(document.getElementById("troco").value);
             }
             
-/* FIM **************************************************************************************** */                        
+
         let orderText = "PEDIDO:\n";
         cart.forEach(item => {
             orderText += `\n- ${item.quantity} --> ${item.name} X ${(item.price.toLocaleString('br-BR'))} = R$ ${(item.price * item.quantity).toFixed(2)}\n`;
         });
 
         const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+// ??????? ********* PAREI AQUI **************************************************************????????        
+        const troco = document.getElementById("lbtroco").innerHTML;
         
         orderText += `\nTOTAL: R$ ${totalPrice.toFixed(2)}\n`;
 
         orderText += `\nFORMA DE PAGAMENTO: = ${tp}\n`;
+
+        orderText += `\nTROCO: R$ ${troco}\n`;                
         
         orderText += `\nENDEREÇO DE ENTREGA: ${endereco}`;
 
         const whatsappURL = `https://wa.me/5575998886000?text=${encodeURIComponent(orderText)}`;
         window.open(whatsappURL, "_blank");
 
-        // falta colocar valor do troco na msg do WhatsApp
+        // ?????????????? falta colocar valor do troco na msg do WhatsApp ??????????????
     });
 
+    // Atualizando o carrino
     function updateCart() {
         cartItemsList.innerHTML = "";
         let total = 0;
@@ -236,90 +243,90 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("vazio").innerHTML = "Carrinho";
         } else {
             document.getElementById("vazio").innerHTML = "Carrinho Vazio";
-        }        
+        }     
+        myFunction();   
     }
-    
-      document.getElementById("dinheiro").onclick = function() {ckdinheiro()};
-        function ckdinheiro() {
-            if (document.getElementById("dinheiro").checked == true 
-                && document.getElementById("pix").checked == false
-                && document.getElementById("cartao").checked == false) {
+        
+    document.getElementById("dinheiro").onclick = function() {ckdinheiro()};
+    function ckdinheiro() {
+        if (document.getElementById("dinheiro").checked == true 
+        && document.getElementById("pix").checked == false
+        && document.getElementById("cartao").checked == false) {
+            if (document.getElementById("troco").style.visibility === 'hidden') {
+                document.getElementById("troco").style.visibility = 'visible';
+                document.getElementById("limptroco").style.visibility = 'visible';
+                document.getElementById("lbtroco").style.visibility = 'visible'; 
+                document.getElementById("troco").value = '';
+            } 
 
-                if (document.getElementById("troco").style.visibility === 'hidden') {
-                    document.getElementById("troco").style.visibility = 'visible';
-                    document.getElementById("limptroco").style.visibility = 'visible';
-                    document.getElementById("lbtroco").style.visibility = 'visible'; 
-                    document.getElementById("troco").value = '';  
-               } 
             } else if (document.getElementById("dinheiro").checked == false) {
                 if (document.getElementById("troco").style.visibility === 'hidden') {
                     document.getElementById("troco").style.visibility = 'visible';
                     document.getElementById("limptroco").style.visibility = 'visible';
                     document.getElementById("lbtroco").style.visibility = 'visible'; 
-                    document.getElementById("troco").value = '';  
-               } 
+                    document.getElementById("troco").value = '';
+                } 
             }
         }
         
-        document.getElementById("pix").onclick = function() {ckpix()};
-        function ckpix() {
-            if (document.getElementById("pix").checked == true 
-                && document.getElementById("dinheiro").checked == false
-                && document.getElementById("cartao").checked == false) {
-
-                    document.getElementById("troco").style.visibility = 'hidden';
-                    document.getElementById("limptroco").style.visibility = 'hidden';
-                    document.getElementById("lbtroco").style.visibility = 'hidden';
-                    document.getElementById("troco").value = '';                                                            
-            }    
+    document.getElementById("pix").onclick = function() {ckpix()};
+    function ckpix() {
+        if (document.getElementById("pix").checked == true
+        && document.getElementById("dinheiro").checked == false
+        && document.getElementById("cartao").checked == false) {
+            document.getElementById("troco").style.visibility = 'hidden';
+            document.getElementById("limptroco").style.visibility = 'hidden';
+            document.getElementById("lbtroco").style.visibility = 'hidden';
+            document.getElementById("troco").value = '';
         }
+    }
 
-        document.getElementById("cartao").onclick = function() {ckcartao()};
-        function ckcartao() {
-            if (document.getElementById("cartao").checked == true 
-                && document.getElementById("dinheiro").checked == false
-                && document.getElementById("pix").checked == false) {
-
-                    document.getElementById("troco").style.visibility = 'hidden';
-                    document.getElementById("limptroco").style.visibility = 'hidden';
-                    document.getElementById("lbtroco").style.visibility = 'hidden';
-                    document.getElementById("troco").value = '';                                                                                
-            }    
+    document.getElementById("cartao").onclick = function() {ckcartao()};
+    function ckcartao() {
+        if (document.getElementById("cartao").checked == true
+        && document.getElementById("dinheiro").checked == false
+        && document.getElementById("pix").checked == false) {
+            document.getElementById("troco").style.visibility = 'hidden';
+            document.getElementById("limptroco").style.visibility = 'hidden';
+            document.getElementById("lbtroco").style.visibility = 'hidden';
+            document.getElementById("troco").value = '';
         }
+    }
 
-        document.getElementById("troco").onkeyup = function() {myFunction()};
-        function myFunction() {
-            var v2 = document.getElementById('troco').value;    
-            var v3 = document.getElementById('total').innerHTML;
-            let tot = document.getElementById('troco').value - parseFloat(document.getElementById('total').innerHTML);
-            //tot.replace(".", ",");
-            /*alert(v2);
-            alert(v3);
-            alert(tot);*/
-            document.getElementById('lbtroco').innerHTML = "Valor do Troco R$ " + tot.toFixed(2).replace(".", ",");
+    // Função para o cáuculo input valor do troco
+    document.getElementById("troco").onkeyup = function() {myFunction()};
+    function myFunction() {
+        let tot = document.getElementById('troco').value - parseFloat(document.getElementById('total').innerHTML);
+        document.getElementById('lbtroco').innerHTML = "Valor do Troco R$ " + tot.toFixed(2).replace(".", ",");
+
+        if (document.getElementById('troco').value >= (document.getElementById('total').innerHTML)
+        || document.getElementById('lbtroco').innerHTML == "Valor do Troco R$ 0,00" ) {
+            document.getElementById('lbtroco').style.color = "blue";
+            //document.getElementById('lbtroco').style.backgroundColor = "blue";
         }
-        const input = document.getElementById('troco').display="flex";
-        input.addEventListener('focus', () => {
-        // Garante que o input fique visível ao abrir o teclado
-        setTimeout(() => {
-            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 100); // Atraso para garantir que o teclado já esteja aberto
-    
-    //input.addEventListener('focus', () => {
-        // Desliza suavemente para o topo da página
-        //window.scrollTo({ top: 0, behavior: 'smooth' });
+        else {
+        document.getElementById('lbtroco').style.color = "red";
+        //document.getElementById('lbtroco').style.backgroundColor = "red";
+        }
+        /*alert(document.getElementById('troco').value); //  -5 ; 0; 2
+        alert(document.getElementById('total').innerHTML); // " "; 0; 7
+        alert(document.getElementById('lbtroco').innerHTML);*/
+
+
+        // Aqui zera o input troco e label valor do troco, se total de vendas for 0 (zero)
+        let totVendas = parseFloat(document.getElementById('total').innerHTML);        
+        if (totVendas == 0) {
+            document.getElementById("troco").value = "";
+            document.getElementById('lbtroco').innerHTML = "Valor do Troco R$ 0,00";
+        }
+    }
+
+    // Função para o teclado não esconde o input valor do troco
+    const input = document.getElementById('troco').display="flex";
+    input.addEventListener('focus', () => {
+    // Garante que o input fique visível ao abrir o teclado
+    setTimeout(() => {
+        input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100); // Atraso para garantir que o teclado já esteja aberto
     });
-     //var element = document.getElementById("troco");
-     //element.scrollIntoView({ block: "end", behavior: "smooth" });
-    
-    /*import React, { useRef } from 'react';
-
-function MyForm() {
-  const inputRef = useRef(null);
-
-  const handleClick = () => {
-    inputRef.current.scrollIntoView({ behavior: 'smooth' });
-  }
-}*/
-
 });
