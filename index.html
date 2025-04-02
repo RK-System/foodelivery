@@ -95,11 +95,11 @@
               <label for="cartao">CARTÃO</label> <br>
               <!-- <input type="number" step="0.01" min="0" max="200" id="troco" placeholder="Troco para..." > -->
               <input type="number" step="0.01" min="0" max="200" id="troco" placeholder="Troco para..." onkeypress="return (event.charCode >= 48 && event.charCode <= 57) ||  
-              event.charCode == 44 || event.charCode == 0 ">
+              event.charCode == 44 || event.charCode == 0 " min="0" oninput="validity.valid|| (value='');">
               <button id="limptroco" name="button"><strong>X</strong></button>
-            <br>
+            <br><br>
             
-            <label id="lbtroco" for="dinheiro">Troco R$ 0.00</label>
+            <label id="lbtroco" for="dinheiro"> Valor do Troco R$ 0.00</label>
             <br>
             <button id="clear-cart">Limpar Carrinho</button>
             <button id="close-cart">Fechar Carrinho</button>

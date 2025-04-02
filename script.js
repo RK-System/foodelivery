@@ -128,8 +128,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Valor para TROCO não pode ser ZERO!");
                 return
             }
-            alert(parseFloat(document.getElementById("total").innerHTML));
-            alert(document.getElementById("troco").value);
+            /* alert(parseFloat(document.getElementById("total").innerHTML));
+            alert(document.getElementById("troco").value); */
             if (document.getElementById("dinheiro").checked == true
             && (document.getElementById("troco").value < parseFloat(document.getElementById("total").innerHTML))) {
                 alert("Valor digitado menor que o Total da COMPRA!");
@@ -289,25 +289,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.getElementById("troco").onkeyup = function() {myFunction()};
         function myFunction() {
-            //var v1 = parseFloat(document.getElementById('lbltroco').innerHTML);
             var v2 = document.getElementById('troco').value;    
             var v3 = document.getElementById('total').innerHTML;
-            //var tot = parseFloat(v2) - parseFloat(v3);
-
             let tot = document.getElementById('troco').value - parseFloat(document.getElementById('total').innerHTML);
-    
-            alert(v2);
+            //tot.replace(".", ",");
+            /*alert(v2);
             alert(v3);
-            alert(tot);
+            alert(tot);*/
+            document.getElementById('lbtroco').innerHTML = "Valor do Troco R$ " + tot.toFixed(2).replace(".", ",");
         }
-            /*tot = v2 - v3;
-            v1 = tot;*/
-            /*let trok = (document.getElementById("troco").value) - (parseFloat(document.getElementById("total").innerHTML))
-            document.getElementById("lbtroco").innerHTML = trok;
-            alert(trok);*/
+        const input = document.getElementById('troco').display="flex";
+        input.addEventListener('focus', () => {
+        // Garante que o input fique visível ao abrir o teclado
+        setTimeout(() => {
+            input.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100); // Atraso para garantir que o teclado já esteja aberto
+    
+    //input.addEventListener('focus', () => {
+        // Desliza suavemente para o topo da página
+        //window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+     //var element = document.getElementById("troco");
+     //element.scrollIntoView({ block: "end", behavior: "smooth" });
+    
+    /*import React, { useRef } from 'react';
 
-           /* parseFloat(document.getElementById("lbtroco").value) = document.getElementById("troco").value
-            - parseFloat(document.getElementById("total").value);*/
-         // }
-         // (document.getElementById("troco").value < parseFloat(document.getElementById("total").innerHTML))) {
+function MyForm() {
+  const inputRef = useRef(null);
+
+  const handleClick = () => {
+    inputRef.current.scrollIntoView({ behavior: 'smooth' });
+  }
+}*/
+
 });
