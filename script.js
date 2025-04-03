@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         orderText += `\nFORMA DE PAGAMENTO: = ${tp}\n`;
 
-        orderText += `\n${troco}\n`;                
+        orderText += `\n* ${troco}\n`;                
         
         orderText += `\nENDEREÇO DE ENTREGA: ${endereco}`;
 
