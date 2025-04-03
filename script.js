@@ -163,15 +163,15 @@ document.addEventListener("DOMContentLoaded", () => {
         orderText += `\nTOTAL: R$ ${totalPrice.toFixed(2)}\n`;
 
         orderText += `\nFORMA DE PAGAMENTO: = ${tp}\n`;
-
-        orderText += `\n* ${troco}\n`;                
+        
+        if (troco != "Valor do Troco R$ 0,00") {
+        orderText += `\n ${troco}\n`; 
+        }
         
         orderText += `\nENDEREÇO DE ENTREGA: ${endereco}`;
 
         const whatsappURL = `https://wa.me/5575998886000?text=${encodeURIComponent(orderText)}`;
         window.open(whatsappURL, "_blank");
-
-        // ?????????????? falta colocar valor do troco na msg do WhatsApp ??????????????
     });
 
     // Atualizando o carrino
@@ -299,7 +299,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let tot = document.getElementById('troco').value - parseFloat(document.getElementById('total').innerHTML);
         document.getElementById('lbtroco').innerHTML = "Valor do Troco R$ " + tot.toFixed(2).replace(".", ",");
 
-        if (document.getElementById('troco').value >= (document.getElementById('total').innerHTML)
+        /*if (document.getElementById('troco').value >= (document.getElementById('total').innerHTML)
         || document.getElementById('lbtroco').innerHTML == "Valor do Troco R$ 0,00" ) {
             document.getElementById('lbtroco').style.color = "blue";
             //document.getElementById('lbtroco').style.backgroundColor = "blue";
@@ -307,7 +307,8 @@ document.addEventListener("DOMContentLoaded", () => {
         else {
         document.getElementById('lbtroco').style.color = "red";
         //document.getElementById('lbtroco').style.backgroundColor = "red";
-        }
+        }*/
+        
         /*alert(document.getElementById('troco').value); //  -5 ; 0; 2
         alert(document.getElementById('total').innerHTML); // " "; 0; 7
         alert(document.getElementById('lbtroco').innerHTML);*/
