@@ -46,8 +46,10 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("top").style = "display:none";
             cartPopup.style.display = "flex";
         }
-    });
+            document.getElementById("endereco").focus();
 
+    });
+    
     // botão fechar tela do carrinho
     document.getElementById("close-cart").addEventListener("click", () => {
         cartPopup.style.display = "none";
@@ -95,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (endereco == "") {
             alert("Insira um endereço para entrega!");
+            document.getElementById("endereco").setfocus;
             return;
         }
 
@@ -255,16 +258,19 @@ document.addEventListener("DOMContentLoaded", () => {
             if (document.getElementById("troco").style.visibility === 'hidden') {
                 document.getElementById("troco").style.visibility = 'visible';
                 document.getElementById("limptroco").style.visibility = 'visible';
-                document.getElementById("lbtroco").style.visibility = 'visible'; 
-                document.getElementById("troco").value = '';
-            } 
+                document.getElementById("lbtroco").style.visibility = 'visible';
+                document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
+                document.getElementById("troco").focus();
+            }
 
             } else if (document.getElementById("dinheiro").checked == false) {
                 if (document.getElementById("troco").style.visibility === 'hidden') {
                     document.getElementById("troco").style.visibility = 'visible';
                     document.getElementById("limptroco").style.visibility = 'visible';
-                    document.getElementById("lbtroco").style.visibility = 'visible'; 
-                    document.getElementById("troco").value = '';
+                    document.getElementById("lbtroco").style.visibility = 'visible';
+                    document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
+                    document.getElementById("endereco").focus();
+
                 } 
             }
         }
@@ -276,8 +282,10 @@ document.addEventListener("DOMContentLoaded", () => {
         && document.getElementById("cartao").checked == false) {
             document.getElementById("troco").style.visibility = 'hidden';
             document.getElementById("limptroco").style.visibility = 'hidden';
-            document.getElementById("lbtroco").style.visibility = 'hidden';
             document.getElementById("troco").value = '';
+            document.getElementById("lbtroco").style.visibility = 'hidden';
+            document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
+            document.getElementById("endereco").focus();
         }
     }
 
@@ -288,8 +296,10 @@ document.addEventListener("DOMContentLoaded", () => {
         && document.getElementById("pix").checked == false) {
             document.getElementById("troco").style.visibility = 'hidden';
             document.getElementById("limptroco").style.visibility = 'hidden';
-            document.getElementById("lbtroco").style.visibility = 'hidden';
             document.getElementById("troco").value = '';
+            document.getElementById("lbtroco").style.visibility = 'hidden';
+            document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
+            document.getElementById("endereco").focus();
         }
     }
 
@@ -299,19 +309,19 @@ document.addEventListener("DOMContentLoaded", () => {
         let tot = document.getElementById('troco').value - parseFloat(document.getElementById('total').innerHTML);
         document.getElementById('lbtroco').innerHTML = "Valor do Troco R$ " + tot.toFixed(2).replace(".", ",");
 
-        /*if (document.getElementById('troco').value >= (document.getElementById('total').innerHTML)
-        || document.getElementById('lbtroco').innerHTML == "Valor do Troco R$ 0,00" ) {
-            document.getElementById('lbtroco').style.color = "blue";
+       /* if (document.getElementById('troco').value < (document.getElementById('total').innerHTML)) {
+        //|| document.getElementById('lbtroco').innerHTML == "Valor do Troco R$ 0,00" ) {
+            document.getElementById('lbtroco').style.color = "red";
             //document.getElementById('lbtroco').style.backgroundColor = "blue";
         }
-        else {
-        document.getElementById('lbtroco').style.color = "red";
+        else if (document.getElementById('troco').value > (document.getElementById('total').innerHTML)) {
+        document.getElementById('lbtroco').style.color = "blue";
         //document.getElementById('lbtroco').style.backgroundColor = "red";
-        }*/
+        } */
         
-        /*alert(document.getElementById('troco').value); //  -5 ; 0; 2
-        alert(document.getElementById('total').innerHTML); // " "; 0; 7
-        alert(document.getElementById('lbtroco').innerHTML);*/
+        //alert(document.getElementById('troco').value); //  -5 ; 0; 2
+        //alert(document.getElementById('total').innerHTML); // " "; 0; 7
+        //alert(document.getElementById('lbtroco').innerHTML);
 
 
         // Aqui zera o input troco e label valor do troco, se total de vendas for 0 (zero)
@@ -330,4 +340,38 @@ document.addEventListener("DOMContentLoaded", () => {
         input.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 100); // Atraso para garantir que o teclado já esteja aberto
     });
+    
+    // Função para obter um cookie pelo nome
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+    }
+
+    // Função para definir um cookie
+    function setCookie(name, value, days) {
+        const expires = new Date(Date.now() + days * 864e5).toUTCString();
+        document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+    }
+
+    // Aceitar os termos da LGPD
+    function acceptLgpd() {
+        setCookie('lgpdConsent', 'accepted', 365);
+        document.getElementById('lgpdBanner').style.display = 'none';
+    }
+
+    // Recusar os termos da LGPD
+    function declineLgpd() {
+        setCookie('lgpdConsent', 'declined', 365);
+        alert('Você recusou o uso de cookies.');
+        document.getElementById('lgpdBanner').style.display = 'none';
+    }
+
+    // Mostrar o banner se o consentimento não foi dado
+    window.onload = function() {
+        if (!getCookie('lgpdConsent')) {
+            document.getElementById('lgpdBanner').style.display = 'block';
+        }
+
 });

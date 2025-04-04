@@ -82,8 +82,8 @@ button:hover {
 }
 
 #limp-end {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     background-color: #000;
     color: white;
     border: none;
@@ -94,8 +94,8 @@ button:hover {
 }
 
 #limptroco {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
     background-color: #000;
     color: white;
     border: none;
@@ -163,7 +163,41 @@ button:hover {
     border-radius:50px;
     font-family:'open_sansregular';  
 } 
-     
+
+        .lgpd-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #333;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 16px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .lgpd-banner button {
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .lgpd-banner button:hover {
+            background-color: #45a049;
+        }
+
+        .lgpd-banner a {
+            color: #4CAF50;
+            text-decoration: underline;
+        }
+
+    
 /* .flutuante {  
   display: inline-block;  
   -webkit-transition-duration: 0.4s;  
