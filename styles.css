@@ -130,7 +130,7 @@ button:hover {
     display: block;
 }
 
-.btn {
+.btn {  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -164,40 +164,47 @@ button:hover {
     font-family:'open_sansregular';  
 } 
 
-        .lgpd-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #333;
-            color: #fff;
-            padding: 15px;
-            text-align: center;
-            font-size: 16px;
-            display: none;
-            z-index: 1000;
-        }
+.lgpd-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    font-size: 13px;
+    display: none;
+    z-index: 1000;
+}
 
-        .lgpd-banner button {
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+.lgpd-banner button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-        .lgpd-banner button:hover {
-            background-color: #45a049;
-        }
+.lgpd-banner button:hover {
+    background-color: #45a049;
+}
 
-        .lgpd-banner a {
-            color: #4CAF50;
-            text-decoration: underline;
-        }
+.lgpd-banner a {
+    color: #4CAF50;
+    text-decoration: underline;
+}        
 
-    
+#decli {
+    background-color: #ef4848;
+}
+
+#decli:hover {
+    background-color: #bb3838;
+}
+
 /* .flutuante {  
   display: inline-block;  
   -webkit-transition-duration: 0.4s;  

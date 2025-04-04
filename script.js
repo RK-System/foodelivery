@@ -340,7 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
         input.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 100); // Atraso para garantir que o teclado já esteja aberto
     });
-    
+});
     // Função para obter um cookie pelo nome
     function getCookie(name) {
         const value = `; ${document.cookie}`;
@@ -364,7 +364,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Recusar os termos da LGPD
     function declineLgpd() {
         setCookie('lgpdConsent', 'declined', 365);
-        alert('Você recusou o uso de cookies.');
+        alert('Você recusou o uso de cookies!');
         document.getElementById('lgpdBanner').style.display = 'none';
     }
 
@@ -373,5 +373,4 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!getCookie('lgpdConsent')) {
             document.getElementById('lgpdBanner').style.display = 'block';
         }
-
-});
+    }

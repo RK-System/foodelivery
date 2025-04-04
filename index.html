@@ -6,6 +6,7 @@
     <title>Delivery Online</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>    
     <header>
         <h1>Delivery Online</h1>
@@ -108,95 +109,16 @@
     </div>
     <!--<a href="#" class="botao flutuante"><i class="icon icon-book-1"></i>TOPO </a>  -->
     <a id="top" href="#" class="btn"></a>
-        
-    <style>
-        /* Estilo do banner LGPD */
-        .lgpd-banner {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-color: #333;
-            color: #fff;
-            padding: 15px;
-            text-align: center;
-            font-size: 16px;
-            display: none;
-            z-index: 1000;
-        }
 
-        .lgpd-banner button {
-            background-color: #4CAF50;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            margin: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .lgpd-banner button:hover {
-            background-color: #45a049;
-        }
-
-        .lgpd-banner a {
-            color: #4CAF50;
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-
-<div class="lgpd-banner" id="lgpdBanner">
-    Utilizamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa 
-    <a href="#">Política de Privacidade</a>.
-    <button onclick="acceptLgpd()">Aceitar</button>
-    <button onclick="declineLgpd()">Recusar</button>
-</div>
-
-<script>
-    // Função para obter um cookie pelo nome
-    function getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-        return null;
-    }
-
-    // Função para definir um cookie
-    function setCookie(name, value, days) {
-        const expires = new Date(Date.now() + days * 864e5).toUTCString();
-        document.cookie = `${name}=${value}; expires=${expires}; path=/`;
-    }
-
-    // Aceitar os termos da LGPD
-    function acceptLgpd() {
-        setCookie('lgpdConsent', 'accepted', 365);
-        document.getElementById('lgpdBanner').style.display = 'none';
-    }
-
-    // Recusar os termos da LGPD
-    function declineLgpd() {
-        setCookie('lgpdConsent', 'declined', 365);
-        alert('Você recusou o uso de cookies.');
-        document.getElementById('lgpdBanner').style.display = 'none';
-    }
-
-    // Mostrar o banner se o consentimento não foi dado
-    window.onload = function() {
-        if (!getCookie('lgpdConsent')) {
-            document.getElementById('lgpdBanner').style.display = 'block';
-        }
-    };
-</script>
-
-<div class="lgpd-banner" id="lgpdBanner">
-    Utilizamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa 
-    <a href="#">Política de Privacidade</a>.
-    <button onclick="acceptLgpd()">Aceitar</button>
-    <button onclick="declineLgpd()">Recusar</button>
-</div>
+    <div class="lgpd-banner" id="lgpdBanner">
+        Utilizamos cookies para melhorar sua experiência, conforme [LGPD]. <br>
+        Ao continuar navegando, você concorda com nossa 
+        <a href="priv.html">Política de Privacidade</a>
+        <button onclick="acceptLgpd()">Aceitar</button>
+        <button id="decli" onclick="declineLgpd()">Recusar</button>
+    </div>
 
     <script src="script.js"></script>
+    
 </body>
 </html
