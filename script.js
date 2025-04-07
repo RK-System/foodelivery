@@ -46,8 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("top").style = "display:none";
             cartPopup.style.display = "flex";
         }
-            document.getElementById("endereco").focus();
-
+            document.getElementById("nome").focus();
     });
     
     // botão fechar tela do carrinho
@@ -68,12 +67,22 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("lbtroco").style.visibility = 'hidden';
         updateCart();
         document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
+        document.getElementById("nome").focus();
     });
+    
+        // botão limpar nome
+    document.getElementById("limp-nome").addEventListener("click", () => {
+        document.getElementById("nome").value = '';
+        document.getElementById("nome").placeholder = 'Seu nome...';
+        document.getElementById("nome").focus();
+    });
+
 
     // botão limpar endereço
     document.getElementById("limp-end").addEventListener("click", () => {
         document.getElementById("endereco").value = '';
         document.getElementById("endereco").placeholder = 'Endereço para entrega...';
+        document.getElementById("endereco").focus();
     });
     
     // botão limpar troco
@@ -81,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("troco").value = '';
         document.getElementById("troco").placeholder = 'Troco para...';
         document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
+        document.getElementById("troco").focus();
     });
 
     let tp = " "; // Variável para tipo de pagamento a ser exibido no WhatsApp
@@ -93,11 +103,17 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        const nome = document.getElementById("nome").value;
+        if (nome == "") {
+            alert("Insira seu nome!");
+            document.getElementById("nome").focus();
+            return;
+        }
+        
         const endereco = document.getElementById("endereco").value;
-
         if (endereco == "") {
             alert("Insira um endereço para entrega!");
-            document.getElementById("endereco").setfocus;
+            document.getElementById("endereco").focus();
             return;
         }
 
@@ -137,6 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (document.getElementById("dinheiro").checked == true
             && (document.getElementById("troco").value < parseFloat(document.getElementById("total").innerHTML))) {
                 alert("Valor digitado menor que o Total da COMPRA!");
+                document.getElementById("troco").focus();
                 return
             }
             
@@ -152,15 +169,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 //alert(document.getElementById("troco").value);
             }
             
+        //const name = document.getElementById("nome").innerHTML;
 
-        let orderText = "PEDIDO:\n";
+        let orderText = "PEDIDO para: ${nome}\n";
         cart.forEach(item => {
             orderText += `\n- ${item.quantity} --> ${item.name} X ${(item.price.toLocaleString('br-BR'))} = R$ ${(item.price * item.quantity).toFixed(2)}\n`;
         });
 
         const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
-// ??????? ********* PAREI AQUI **************************************************************????????        
         const troco = document.getElementById("lbtroco").innerHTML;
         
         orderText += `\nTOTAL: R$ ${totalPrice.toFixed(2)}\n`;

@@ -93,7 +93,7 @@ button:hover {
     border-radius: 15px;
 }
 
-#limptroco {
+#limp-nome {
     width: 30px;
     height: 30px;
     background-color: #000;
@@ -203,6 +203,11 @@ button:hover {
 
 #decli:hover {
     background-color: #bb3838;
+}
+
+.logo-image {
+  width: 120px;
+  height: auto;
 }
 
 /* .flutuante {  
