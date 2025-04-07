@@ -105,6 +105,18 @@ button:hover {
     border-radius: 15px;
 }
 
+#limp-troco {
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    color: white;
+    border: none;
+    padding: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
 /* Estilo do popup do carrinho */
 #cart-popup {
     position: fixed;

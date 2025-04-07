@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cartCount = document.getElementById("cart-count");
 
     document.getElementById("troco").style.visibility = 'hidden';
-    document.getElementById("limptroco").style.visibility = 'hidden';
+    document.getElementById("limp-troco").style.visibility = 'hidden';
     document.getElementById("lbtroco").style.visibility = 'hidden';
 
     document.querySelectorAll(".add-to-cart").forEach(button => {
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("cartao").checked = false;
         document.getElementById("vazio").innerHTML = "Carrinho Vazio";
         document.getElementById("troco").style.visibility = 'hidden';
-        document.getElementById("limptroco").style.visibility = 'hidden';
+        document.getElementById("limp-troco").style.visibility = 'hidden';
         document.getElementById("lbtroco").style.visibility = 'hidden';
         updateCart();
         document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     // botão limpar troco
-    document.getElementById("limptroco").addEventListener("click", () => {
+    document.getElementById("limp-troco").addEventListener("click", () => {
         document.getElementById("troco").value = '';
         document.getElementById("troco").placeholder = 'Troco para...';
         document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
@@ -274,7 +274,7 @@ document.addEventListener("DOMContentLoaded", () => {
         && document.getElementById("cartao").checked == false) {
             if (document.getElementById("troco").style.visibility === 'hidden') {
                 document.getElementById("troco").style.visibility = 'visible';
-                document.getElementById("limptroco").style.visibility = 'visible';
+                document.getElementById("limp-troco").style.visibility = 'visible';
                 document.getElementById("lbtroco").style.visibility = 'visible';
                 document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
                 document.getElementById("troco").focus();
@@ -283,7 +283,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else if (document.getElementById("dinheiro").checked == false) {
                 if (document.getElementById("troco").style.visibility === 'hidden') {
                     document.getElementById("troco").style.visibility = 'visible';
-                    document.getElementById("limptroco").style.visibility = 'visible';
+                    document.getElementById("limp-troco").style.visibility = 'visible';
                     document.getElementById("lbtroco").style.visibility = 'visible';
                     document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
                     document.getElementById("endereco").focus();
@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
         && document.getElementById("dinheiro").checked == false
         && document.getElementById("cartao").checked == false) {
             document.getElementById("troco").style.visibility = 'hidden';
-            document.getElementById("limptroco").style.visibility = 'hidden';
+            document.getElementById("limp-troco").style.visibility = 'hidden';
             document.getElementById("troco").value = '';
             document.getElementById("lbtroco").style.visibility = 'hidden';
             document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
@@ -312,7 +312,7 @@ document.addEventListener("DOMContentLoaded", () => {
         && document.getElementById("dinheiro").checked == false
         && document.getElementById("pix").checked == false) {
             document.getElementById("troco").style.visibility = 'hidden';
-            document.getElementById("limptroco").style.visibility = 'hidden';
+            document.getElementById("limp-troco").style.visibility = 'hidden';
             document.getElementById("troco").value = '';
             document.getElementById("lbtroco").style.visibility = 'hidden';
             document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
