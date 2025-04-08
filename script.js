@@ -172,9 +172,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
         const cliente = document.getElementById("nome").value;
-        //orderText += `\nCLIENTE: ${cliente}\n`;    
-        let orderText = 'PEDIDO PARA: \n';
-        orderText += `\n ${cliente}\n`; 
+        let orderText = 'PEDIDO PARA:';
+        orderText += `\n${cliente}\n`; 
         cart.forEach(item => {
             orderText += `\n- ${item.quantity} --> ${item.name} X ${(item.price.toLocaleString('br-BR'))} = R$ ${(item.price * item.quantity).toFixed(2)}\n`;
         });
@@ -188,14 +187,13 @@ document.addEventListener("DOMContentLoaded", () => {
         orderText += `\nFORMA DE PAGAMENTO: = ${tp}\n`;
         
         if (troco != "Valor do Troco R$ 0,00") {
-        orderText += `\n ${troco}\n`; 
+        orderText += `\n${troco}\n`; 
         }
        
         orderText += `\nENDEREÇO DE ENTREGA: ${endereco}\n`;
 
-        orderText += `\n**********************\n`;
-        orderText += `\nAVISO.: Qualquer Divergência no Pedido com relação a Valores ou Quantidade
-                        o mesmo será CANCELADO por nossa equipe!\n`;
+        orderText += `\n******************************\n`;
+        orderText += `\nAVISO.: Qualquer Divergência no Pedido com relação a Valores ou Quantidade, o mesmo será CANCELADO por nossa equipe!\n`;
 
         const whatsappURL = `https://wa.me/5575998886000?text=${encodeURIComponent(orderText)}`;
         window.open(whatsappURL, "_blank");
