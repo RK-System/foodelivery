@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("nome").focus();
     });
     
-        // botão limpar nome
+    // botão limpar nome
     document.getElementById("limp-nome").addEventListener("click", () => {
         document.getElementById("nome").value = '';
         document.getElementById("nome").placeholder = 'Seu nome...';
@@ -184,7 +184,8 @@ document.addEventListener("DOMContentLoaded", () => {
         
         orderText += `\nTOTAL: R$ ${totalPrice.toFixed(2)}\n`;
 
-        orderText += `\nFORMA DE PAGAMENTO: = ${tp}\n`;
+        const vdin = document.getElementById("troco").value;
+        orderText += `\nFORMA DE PAGAMENTO: = ${tp} R$ ${vdin}\n`;
         
         if (troco != "Valor do Troco R$ 0,00") {
         orderText += `\n${troco}\n`; 
@@ -199,7 +200,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.open(whatsappURL, "_blank");
     });
 
-    // Atualizando o carrino
+    // Atualizando o carrinho
     function updateCart() {
         cartItemsList.innerHTML = "";
         let total = 0;
@@ -328,7 +329,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("endereco").focus();
         }
     }
-
+///  VER AQUI ****************
     // Função para o cáuculo input valor do troco
     document.getElementById("troco").onkeyup = function() {myFunction()};
     function myFunction() {
@@ -342,23 +343,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         else
         document.getElementById('lbtroco').style.color = "red";
-        //alert(tot);
-        //alert(label);  // Output: Negative
-
-       /* if (document.getElementById('troco').value < (document.getElementById('total').innerHTML)) {
-        //|| document.getElementById('lbtroco').innerHTML == "Valor do Troco R$ 0,00" ) {
-            document.getElementById('lbtroco').style.color = "red";
-            //document.getElementById('lbtroco').style.backgroundColor = "blue";
-        }
-        else if (document.getElementById('troco').value > (document.getElementById('total').innerHTML)) {
-        document.getElementById('lbtroco').style.color = "blue";
-        //document.getElementById('lbtroco').style.backgroundColor = "red";
-        } */
-        
-        //alert(document.getElementById('troco').value); //  -5 ; 0; 2
-        //alert(document.getElementById('total').innerHTML); // " "; 0; 7
-        //alert(document.getElementById('lbtroco').innerHTML);
-
 
         // Aqui zera o input troco e label valor do troco, se total de vendas for 0 (zero)
         let totVendas = parseFloat(document.getElementById('total').innerHTML);        
