@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("lbtroco").style.visibility = 'hidden';
         updateCart();
         document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
+        document.getElementById('lbtroco').style.color = "red";
         document.getElementById("nome").focus();
     });
     
@@ -90,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("troco").value = '';
         document.getElementById("troco").placeholder = 'Troco para...';
         document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
+        document.getElementById('lbtroco').style.color = "red";
         document.getElementById("troco").focus();
     });
 
@@ -168,10 +170,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 //alert("Agora sim CARTÃO OK!"); 
                 //alert(document.getElementById("troco").value);
             }
-            
-        const cliente = document.getElementById("nome").innerHTML;
 
-        let orderText = 'PEDIDO para: ${cliente}\n';
+        const cliente = document.getElementById("nome").value;
+        //orderText += `\nCLIENTE: ${cliente}\n`;    
+        let orderText = 'PEDIDO PARA: \n';
+        orderText += `\n ${cliente}\n`; 
         cart.forEach(item => {
             orderText += `\n- ${item.quantity} --> ${item.name} X ${(item.price.toLocaleString('br-BR'))} = R$ ${(item.price * item.quantity).toFixed(2)}\n`;
         });
@@ -187,8 +190,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (troco != "Valor do Troco R$ 0,00") {
         orderText += `\n ${troco}\n`; 
         }
-        
-        orderText += `\nENDEREÇO DE ENTREGA: ${endereco}`;
+       
+        orderText += `\nENDEREÇO DE ENTREGA: ${endereco}\n`;
+
+        orderText += `\n**********************\n`;
+        orderText += `\nAVISO.: Qualquer Divergência no Pedido com relação a Valores ou Quantidade
+                        o mesmo será CANCELADO por nossa equipe!\n`;
 
         const whatsappURL = `https://wa.me/5575998886000?text=${encodeURIComponent(orderText)}`;
         window.open(whatsappURL, "_blank");
@@ -263,6 +270,10 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("vazio").innerHTML = "Carrinho";
         } else {
             document.getElementById("vazio").innerHTML = "Carrinho Vazio";
+            document.getElementById('lbtroco').style.color = "red";
+            document.getElementById("troco").value = '';
+            document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
+            updateCart();
         }     
         myFunction();   
     }
@@ -325,6 +336,16 @@ document.addEventListener("DOMContentLoaded", () => {
     function myFunction() {
         let tot = document.getElementById('troco').value - parseFloat(document.getElementById('total').innerHTML);
         document.getElementById('lbtroco').innerHTML = "Valor do Troco R$ " + tot.toFixed(2).replace(".", ",");
+        
+        // Verifica se o valor do troco informado é positivo ou negativo -1, 0, ou >= 0 ...
+        let i = Math.sign(tot) >= 0 ? "Positive" : "Negative";
+        if (i == 'Positive') {
+            document.getElementById('lbtroco').style.color = "blue";
+        }
+        else
+        document.getElementById('lbtroco').style.color = "red";
+        //alert(tot);
+        //alert(label);  // Output: Negative
 
        /* if (document.getElementById('troco').value < (document.getElementById('total').innerHTML)) {
         //|| document.getElementById('lbtroco').innerHTML == "Valor do Troco R$ 0,00" ) {
