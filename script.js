@@ -169,9 +169,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 //alert(document.getElementById("troco").value);
             }
             
-        //const name = document.getElementById("nome").innerHTML;
+        const name = document.getElementById("nome").innerHTML;
 
-        let orderText = "PEDIDO para: ${nome}\n";
+        let orderText = 'PEDIDO para: ${name}\n';
         cart.forEach(item => {
             orderText += `\n- ${item.quantity} --> ${item.name} X ${(item.price.toLocaleString('br-BR'))} = R$ ${(item.price * item.quantity).toFixed(2)}\n`;
         });
