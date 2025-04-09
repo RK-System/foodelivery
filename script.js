@@ -380,7 +380,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Aceitar os termos da LGPD
     function acceptLgpd() {
-        setCookie('lgpdConsent', 'accepted', 365);
+        setCookie('lgpdConsent', 'accepted', 0);
         document.getElementById('lgpdBanner').style.display = 'none';
     }
 
