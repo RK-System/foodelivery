@@ -185,7 +185,11 @@ document.addEventListener("DOMContentLoaded", () => {
         orderText += `\nTOTAL: R$ ${totalPrice.toFixed(2)}\n`;
 
         const vdin = document.getElementById("troco").value;
-        orderText += `\nFORMA DE PAGAMENTO: = ${tp} R$ ${vdin}\n`;
+        if (document.getElementById("dinheiro").checked == true) {
+            orderText += `\nFORMA DE PAGAMENTO: = ${tp} R$ ${vdin}\n`;
+        }
+        else 
+        orderText += `\nFORMA DE PAGAMENTO: = ${tp}\n`;
         
         if (troco != "Valor do Troco R$ 0,00") {
         orderText += `\n${troco}\n`; 
@@ -297,10 +301,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     document.getElementById("lbtroco").style.visibility = 'visible';
                     document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
                     document.getElementById("endereco").focus();
-
-                } 
+                }
             }
-        }
+    }
         
     document.getElementById("pix").onclick = function() {ckpix()};
     function ckpix() {
@@ -329,7 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("endereco").focus();
         }
     }
-///  VER AQUI ****************
+
     // Função para o cáuculo input valor do troco
     document.getElementById("troco").onkeyup = function() {myFunction()};
     function myFunction() {
