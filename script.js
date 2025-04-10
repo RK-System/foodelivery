@@ -205,8 +205,8 @@ document.addEventListener("DOMContentLoaded", () => {
         orderText += `\no mesmo será CANCELADO por nossa equipe!\n`;
         
         const whatsappURL = `https://wa.me/5575998886000?text=${encodeURIComponent(orderText)}`;
-        //window.open(whatsappURL, "_blank"); // Aber o WhatsApp diretamente
-        setTimeout(() => { window.open(whatsappURL, "_blank"); }, 5000); // Abrir o WhatsApp com Delay
+        window.open(whatsappURL, "_blank"); // Aber o WhatsApp diretamente
+        //setTimeout(() => { window.open(whatsappURL, "_blank"); }, 5000); // Abrir o WhatsApp com Delay
         
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
