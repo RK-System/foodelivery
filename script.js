@@ -1,9 +1,11 @@
+// INICIO DO PRINCIPAL
 document.addEventListener("DOMContentLoaded", () => {
     const cart = [];
     const cartPopup = document.getElementById("cart-popup");
     const cartItemsList = document.getElementById("cart-items");
     const cartTotal = document.getElementById("total");
     const cartCount = document.getElementById("cart-count");
+    var orderText = " ";
 
     document.getElementById("troco").style.visibility = 'hidden';
     document.getElementById("limp-troco").style.visibility = 'hidden';
@@ -172,8 +174,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
         const cliente = document.getElementById("nome").value;
-        let orderText = 'PEDIDO PARA:';
-        orderText += `\n${cliente}\n`; 
+        orderText = `******************************\n`;
+        orderText += 'PEDIDO PARA:';
+        orderText += `\n[ ${cliente} ]\n`; 
         cart.forEach(item => {
             orderText += `\n- ${item.quantity} --> ${item.name} X ${(item.price.toLocaleString('br-BR'))} = R$ ${(item.price * item.quantity).toFixed(2)}\n`;
         });
@@ -197,11 +200,26 @@ document.addEventListener("DOMContentLoaded", () => {
        
         orderText += `\nENDEREÇO DE ENTREGA: ${endereco}\n`;
 
-        orderText += `\n******************************\n`;
-        orderText += `\nAVISO.: Qualquer Divergência no Pedido com relação a Valores ou Quantidade, o mesmo será CANCELADO por nossa equipe!\n`;
-
+        orderText += `\n******************************`;
+        orderText += `\nAVISO.: Qualquer Divergência no Pedido com relação a Valores ou Quantidade,`;
+        orderText += `\no mesmo será CANCELADO por nossa equipe!\n`;
+        
         const whatsappURL = `https://wa.me/5575998886000?text=${encodeURIComponent(orderText)}`;
-        window.open(whatsappURL, "_blank");
+        //window.open(whatsappURL, "_blank"); // Aber o WhatsApp diretamente
+        setTimeout(() => { window.open(whatsappURL, "_blank"); }, 5000); // Abrir o WhatsApp com Delay
+        
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+        var hoje = new Date();
+        const dia = hoje.getDate().toString().padStart(2,'0');
+        const mes = String(hoje.getMonth() + 1).padStart(2,'0');
+        const ano = hoje.getFullYear();
+        //const hora = hoje.getHours();
+        //const minuto = hoje.getMinutes();
+        const hora = hoje.toLocaleTimeString(); 
+        const dataAtual = (`${dia}-${mes}-${ano} ${hora}s`);
+        doc.text(orderText, 5, 10);
+        doc.save("Pedido "+dataAtual+".pdf");
     });
 
     // Atualizando o carrinho
@@ -363,7 +381,9 @@ document.addEventListener("DOMContentLoaded", () => {
         input.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 100); // Atraso para garantir que o teclado já esteja aberto
     });
-});
+
+}); // FIM DO PRINCIPAL
+
     // Função para obter um cookie pelo nome
     function getCookie(name) {
         const value = `; ${document.cookie}`;
@@ -380,7 +400,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Aceitar os termos da LGPD
     function acceptLgpd() {
-        setCookie('lgpdConsent', 'accepted', -1);
+        setCookie('lgpdConsent', 'accepted', 0);
         document.getElementById('lgpdBanner').style.display = 'none';
     }
 
@@ -397,4 +417,3 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById('lgpdBanner').style.display = 'block';
         }
     }
-

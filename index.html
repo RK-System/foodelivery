@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delivery Online</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js" target="_blank" rel="noreferrer noopener">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" target="_blank" rel="noreferrer noopener">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" target="_blank" rel="noreferrer noopener">
+    </script>
+
 
 <body>    
     <!--<a href="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js" target="_blank" rel="noreferrer noopener">freeCodeCamp</a> -->
@@ -108,16 +112,20 @@
             <button id="clear-cart">Limpar Carrinho</button>
             <button id="close-cart">Fechar Carrinho</button>
             <button id="checkout">Finalizar Pedido</button>
+            
+            <!-- <input type="button" value="Create PDF" onclick="generatePDF()"> -->
         </div>
     </div>
+
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
       <a href="https://api.whatsapp.com/send?phone=5575998886000&text=Ol%C3%A1!"
           style="position:initial;width:90px;height:90px;right:5px;background-color:#25d366;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 0px 0px 0px #888;
                z-index:1000;" target="_blank">
-         <i style="margin-top:15px" class="fa fa-whatsapp"></i>       
-      </a>
-        &nbsp;
-        &nbsp;
+         <i style="margin-top:15px" class="fa fa-whatsapp"></i> 
+        </a>
+      
+      &nbsp;
+      &nbsp;
                
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
       <a href="https://api.whatsapp.com/send?phone=&text=Link%20abaixo%20do%20Aplicativo%20delivery.%0A%0Ahttps%3A%2F%2Frk-system.github.io%2Ffoodelivery%2F" 
@@ -125,30 +133,35 @@
                z-index:1000;" target="_blank">
          <i style="margin-top:15px" class="fa fa-share"></i>
       </a>
-
-                <div class="col-lg-3 col-12">
-                    <p class="copyright-text mb-0">Copyright © 2025 Delivery Online
-                        <br><br>
-                        Design: <a rel="nofollow" href="https://api.whatsapp.com/send?phone=5575998886000&text=Ol%C3%A1!" target="_parent">RK-Systems</a>
-                      <br><br>
-                        <img src="qrdelivery.png" class="logo-image img-fluid" alt="Erro...">
-                       <br> 
-                  QRCode do Site 
-                </div>                  
-
+      <div class="col-lg-3 col-12">
+        <p class="copyright-text mb-0">Copyright © 2025 Delivery Online
+            <br><br>
+            Design: <a rel="nofollow" href="https://api.whatsapp.com/send?phone=5575998886000&text=Ol%C3%A1!" target="_parent">RK-Systems</a>
+            <br><br>
+            <img src="qrdelivery.png" class="logo-image img-fluid" alt="Erro...">
+            <br> 
+            QRCode do Site
+        </div>
         
-    <!--<a href="#" class="botao flutuante"><i class="icon icon-book-1"></i>TOPO </a>  -->
-    <a id="top" href="#" class="btn"></a>
-
-    <div class="lgpd-banner" id="lgpdBanner">
-        Utilizamos cookies para melhorar sua experiência, conforme [LGPD]. <br>
-        Ao continuar navegando, você concorda com nossa 
-        <a href="priv.html">Política de Privacidade</a>
-        <button onclick="acceptLgpd()">Aceitar</button>
-        <button id="decli" onclick="declineLgpd()">Recusar</button>
-    </div>
-
-    <script src="script.js"></script>
+        <!--<a href="#" class="botao flutuante"><i class="icon icon-book-1"></i>TOPO </a>  -->
+        <a id="top" href="#" class="btn"></a>
+        <div class="lgpd-banner" id="lgpdBanner">
+            Utilizamos cookies para melhorar sua experiência, conforme [LGPD]. <br>
+            Ao continuar navegando, você concorda com nossa 
+            <a href="priv.html">Política de Privacidade</a>
+            <button onclick="acceptLgpd()">Aceitar</button>
+            <button id="decli" onclick="declineLgpd()">Recusar</button>
+        </div>
+        
+        <!-- <script type="text/javascript">
+            function generatePDF() {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                doc.text("Hello world!", 100, 100);
+                doc.save("newFile.pdf");                
+            }            
+        </script> -->
+        <script src="script.js"></script>
     
 </body>
 </html
