@@ -397,3 +397,4 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById('lgpdBanner').style.display = 'block';
         }
     }
+
