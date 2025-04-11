@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const cliente = document.getElementById("nome").value;
         orderText = `******************************\n`;
-        orderText += 'PEDIDO PARA:';
+        orderText += '*PEDIDO PARA:*';
         orderText += `\n[ ${cliente} ]\n`; 
         cart.forEach(item => {
             orderText += `\n- ${item.quantity} --> ${item.name} X ${(item.price.toLocaleString('br-BR'))} = R$ ${(item.price * item.quantity).toFixed(2)}\n`;
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const troco = document.getElementById("lbtroco").innerHTML;
         
-        orderText += `\nTOTAL: R$ ${totalPrice.toFixed(2)}\n`;
+        orderText += `\n*TOTAL:* R$ ${totalPrice.toFixed(2)}\n`;
 
         const vdin = document.getElementById("troco").value;
         if (document.getElementById("dinheiro").checked == true) {
@@ -194,21 +194,22 @@ document.addEventListener("DOMContentLoaded", () => {
         else 
         orderText += `\nFORMA DE PAGAMENTO: = ${tp}\n`;
         
-        if (troco != "Valor do Troco R$ 0,00") {
+        if (troco != "*Valor do Troco* R$ 0,00") {
         orderText += `\n${troco}\n`; 
         }
        
         orderText += `\nENDEREÇO DE ENTREGA: ${endereco}\n`;
 
         orderText += `\n******************************`;
-        orderText += `\nAVISO.: Qualquer Divergência no Pedido com relação a Valores ou Quantidade,`;
+        orderText += `\n_*AVISO.:*_ Qualquer Divergência no Pedido com relação a Valores ou Quantidade,`;
         orderText += `\no mesmo será CANCELADO por nossa equipe!\n`;
         
         const whatsappURL = `https://wa.me/5575998886000?text=${encodeURIComponent(orderText)}`;
         window.open(whatsappURL, "_blank"); // Aber o WhatsApp diretamente
         //setTimeout(() => { window.open(whatsappURL, "_blank"); }, 5000); // Abrir o WhatsApp com Delay
         
-        const { jsPDF } = window.jspdf;
+        // Cria o arquivo PDF
+        /*const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
         var hoje = new Date();
         const dia = hoje.getDate().toString().padStart(2,'0');
@@ -219,7 +220,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const hora = hoje.toLocaleTimeString(); 
         const dataAtual = (`${dia}-${mes}-${ano} ${hora}s`);
         doc.text(orderText, 5, 10);
-        doc.save("Pedido "+dataAtual+".pdf");
+        doc.save("Pedido "+dataAtual+".pdf");*/
     });
 
     // Atualizando o carrinho
