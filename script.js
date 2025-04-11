@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let tp = " "; // Variável para tipo de pagamento a ser exibido no WhatsApp
     
      // Fechando e finalizando pedido e enviando pelo WhatsApp
-    document.getElementById("checkout").addEventListener("click", () => {
+    document.getElementById("checkout").addEventListener("click", (e) => {
 
         if (cart.length === 0) {
             alert("Seu carrinho está vazio!");
@@ -204,10 +204,16 @@ document.addEventListener("DOMContentLoaded", () => {
         orderText += `\n*_AVISO.:_* Qualquer Divergência no Pedido com relação a Valores ou Quantidade,`;
         orderText += `\no mesmo será CANCELADO por nossa equipe!\n`;
         
+
+      alert('Compra finalizada! Obrigado.');
+
+        
         const whatsappURL = `https://wa.me/5575998886000?text=${encodeURIComponent(orderText)}`;
         window.open(whatsappURL, "_blank"); // Aber o WhatsApp diretamente
         //setTimeout(() => { window.open(whatsappURL, "_blank"); }, 5000); // Abrir o WhatsApp com Delay
-        
+
+      e.target.reset();
+
         // Cria o arquivo PDF
         /*const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
