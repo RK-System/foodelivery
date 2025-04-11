@@ -178,21 +178,21 @@ document.addEventListener("DOMContentLoaded", () => {
         orderText += '_*PEDIDO PARA:*_';
         orderText += `\n[ ${cliente} ]\n`; 
         cart.forEach(item => {
-            orderText += `\n*- ${item.quantity} -->* ${item.name} X ${(item.price.toLocaleString('br-BR'))} = R$ ${(item.price * item.quantity).toFixed(2)}\n`;
+            orderText += `\n- *${item.quantity} -->* ${item.name} X ${(item.price.toLocaleString('br-BR'))} = R$ ${(item.price * item.quantity).toFixed(2)}\n`;
         });
 
         const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
         const troco = document.getElementById("lbtroco").innerHTML;
         
-        orderText += `\n_*TOTAL: R$*_ ${totalPrice.toFixed(2)}\n`;
+        orderText += `\n_*TOTAL:*_ R$ ${totalPrice.toFixed(2)}\n`;
 
         const vdin = document.getElementById("troco").value;
         if (document.getElementById("dinheiro").checked == true) {
-            orderText += `\n_*FORMA DE PAGAMENTO: =*_ ${tp} R$ ${vdin}\n`;
+            orderText += `\n_*FORMA DE PAGAMENTO:*_ ${tp} R$ ${vdin}\n`;
         }
         else 
-        orderText += `\n_*FORMA DE PAGAMENTO: =*_ ${tp}\n`;
+        orderText += `\n_*FORMA DE PAGAMENTO:*_ ${tp}\n`;
         
         if (troco != "Valor do Troco R$ 0,00") {
         orderText += `\n_*${troco}*_\n`; 
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
         orderText += `\n_*ENDEREÇO DE ENTREGA:*_ ${endereco}\n`;
 
         orderText += `\n******************************`;
-        orderText += `\n*_AVISO.:_* Qualquer Divergência no Pedido com relação a Valores ou Quantidade,`;
+        orderText += `\n_*AVISO:*_ Qualquer Divergência no Pedido com relação a Valores ou Quantidade,`;
         orderText += `\no mesmo será CANCELADO por nossa equipe!\n`;
         
 
