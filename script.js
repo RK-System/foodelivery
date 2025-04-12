@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("troco").style.visibility = 'hidden';
     document.getElementById("limp-troco").style.visibility = 'hidden';
     document.getElementById("lbtroco").style.visibility = 'hidden';
+    document.getElementById("divpix").style.visibility = 'hidden';
 
+    
     document.querySelectorAll(".add-to-cart").forEach(button => {
         button.addEventListener("click", (event) => {
             const product = event.target.closest(".product");
@@ -56,10 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
         cartPopup.style.display = "none";
         document.getElementById("top").style = "display:visible";
     });
-
+    
+//AQUI *******
     // botão limpar carrinho
-    document.getElementById("clear-cart").addEventListener("click", () => {
-        cart.length = 0;
+   document.getElementById("clear-cart").addEventListener("click", () => {
+       cart.length = 0;
         document.getElementById("dinheiro").checked = false;
         document.getElementById("pix").checked = false;
         document.getElementById("cartao").checked = false;
@@ -67,11 +70,12 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("troco").style.visibility = 'hidden';
         document.getElementById("limp-troco").style.visibility = 'hidden';
         document.getElementById("lbtroco").style.visibility = 'hidden';
+        document.getElementById("divpix").style.visibility = 'hidden';
         updateCart();
         document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
         document.getElementById('lbtroco').style.color = "red";
         document.getElementById("nome").focus();
-    });
+    }); 
     
     // botão limpar nome
     document.getElementById("limp-nome").addEventListener("click", () => {
@@ -100,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let tp = " "; // Variável para tipo de pagamento a ser exibido no WhatsApp
     
      // Fechando e finalizando pedido e enviando pelo WhatsApp
-    document.getElementById("checkout").addEventListener("click", (e) => {
+    document.getElementById("checkout").addEventListener("click", () => {
 
         if (cart.length === 0) {
             alert("Seu carrinho está vazio!");
@@ -122,19 +126,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         if (document.getElementById("dinheiro").checked) {
-            alert("Pagamento selecionado:\n" + "= (" + document.getElementById("dinheiro").value + ")");
+            alert("Pagamento selecionado:\n" + "= (" + document.getElementById("dinheiro").value + ")\n\nPara enviar e finalizar seu pedido, envie-nos no WhatsApp!\n\nObrigado...");
             tp = "DINHEIRO";
         
         }
         else if (document.getElementById("pix").checked) {
-            alert("Pagamento selecionado:\n" + "= (" + document.getElementById("pix").value + ")");
+            alert("Pagamento selecionado:\n" + "= (" + document.getElementById("pix").value + ")\n\nPara enviar e finalizar seu pedido, envie-nos no WhatsApp!\n\nObrigado...");
             tp = "PIX";
         }
         else if (document.getElementById("cartao").checked) {
-            alert("Pagamento selecionado:\n" + "= (" + document.getElementById("cartao").value + ")");
-            tp = "CARTÃO";
+            alert("Pagamento selecionado:\n" + "= (" + document.getElementById("cartao").value + ")\n\nPara enviar e finalizar seu pedido, envie-nos no WhatsApp!\n\nObrigado...");
         }
-
         else if (document.getElementById("dinheiro").checked == false
             && document.getElementById("pix").checked == false 
             && document.getElementById("cartao").checked == false) {
@@ -176,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const cliente = document.getElementById("nome").value;
         orderText = `******************************\n`;
         orderText += '_*PEDIDO PARA:*_';
-        orderText += `\n[ ${cliente} ]\n`; 
+        orderText += `\n( ${cliente} )\n`; 
         cart.forEach(item => {
             orderText += `\n- *${item.quantity} -->* ${item.name} X ${(item.price.toLocaleString('br-BR'))} = R$ ${(item.price * item.quantity).toFixed(2)}\n`;
         });
@@ -204,15 +206,9 @@ document.addEventListener("DOMContentLoaded", () => {
         orderText += `\n_*AVISO:*_ Qualquer Divergência no Pedido com relação a Valores ou Quantidade,`;
         orderText += `\no mesmo será CANCELADO por nossa equipe!\n`;
         
-
-      alert('Compra finalizada! Obrigado.');
-
-        
         const whatsappURL = `https://wa.me/5575998886000?text=${encodeURIComponent(orderText)}`;
         window.open(whatsappURL, "_blank"); // Aber o WhatsApp diretamente
         //setTimeout(() => { window.open(whatsappURL, "_blank"); }, 5000); // Abrir o WhatsApp com Delay
-
-      e.target.reset();
 
         // Cria o arquivo PDF
         /*const { jsPDF } = window.jspdf;
@@ -306,6 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
         myFunction();   
     }
         
+    // Eventos de click no radio button seleção de pagamento
     document.getElementById("dinheiro").onclick = function() {ckdinheiro()};
     function ckdinheiro() {
         if (document.getElementById("dinheiro").checked == true 
@@ -315,6 +312,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("troco").style.visibility = 'visible';
                 document.getElementById("limp-troco").style.visibility = 'visible';
                 document.getElementById("lbtroco").style.visibility = 'visible';
+                document.getElementById("divpix").style.visibility = 'hidden';
                 document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
                 document.getElementById("troco").focus();
             }
@@ -341,6 +339,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("lbtroco").style.visibility = 'hidden';
             document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
             document.getElementById("endereco").focus();
+            document.getElementById("divpix").style.visibility = 'visible';
         }
     }
 
@@ -353,6 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("limp-troco").style.visibility = 'hidden';
             document.getElementById("troco").value = '';
             document.getElementById("lbtroco").style.visibility = 'hidden';
+            document.getElementById("divpix").style.visibility = 'hidden';
             document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
             document.getElementById("endereco").focus();
         }
@@ -424,3 +424,30 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById('lgpdBanner').style.display = 'block';
         }
     }
+
+    function copiarPix() {
+        const chave = document.getElementById("chave-pix").textContent;
+        navigator.clipboard.writeText(chave).then(() => {
+            document.getElementById("mensagem").textContent = "Chave PIX copiada!";
+        }).catch(() => {
+            document.getElementById("mensagem").textContent = "Erro ao copiar chave PIX!";
+        });
+    }
+
+    /*function limpcart() {
+    //document.getElementById("clear-cart").addEventListener("click", () => {
+        cart.length = 0;
+        document.getElementById("dinheiro").checked = false;
+        document.getElementById("pix").checked = false;
+        document.getElementById("cartao").checked = false;
+        document.getElementById("vazio").innerHTML = "Carrinho Vazio";
+        document.getElementById("troco").style.visibility = 'hidden';
+        document.getElementById("limp-troco").style.visibility = 'hidden';
+        document.getElementById("lbtroco").style.visibility = 'hidden';
+        document.getElementById("divpix").style.visibility = 'hidden';
+        updateCart();
+        document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
+        document.getElementById('lbtroco').style.color = "red";
+        document.getElementById("nome").focus();
+    //});
+    }*/

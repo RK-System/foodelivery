@@ -222,6 +222,11 @@ button:hover {
   height: auto;
 }
 
+#mensagem {
+    font-size: 15px;
+    color: green;
+}
+
 /* .flutuante {  
   display: inline-block;  
   -webkit-transition-duration: 0.4s;  

@@ -106,10 +106,14 @@
               event.charCode == 44 || event.charCode == 0 " min="0" oninput="validity.valid|| (value='');">
               <button id="limptroco" name="button"><strong>X</strong></button> -->
             <br><br>
-            
             <label id="lbtroco" for="dinheiro"> Valor do Troco R$ 0,00</label>
+                  <div id="divpix">
+                      <p>Nossa chave PIX: <span id="chave-pix">meuemail@provedor.com</span></p>
+                      <button onclick="copiarPix()">Copiar chave PIX</button>
+                      <p id="mensagem"></p>
+                  </div>
             <br>
-            <button id="clear-cart">Limpar Carrinho</button>
+            <button id="clear-cart" onclick="limpcart()">Limpar Carrinho</button>
             <button id="close-cart">Fechar Carrinho</button>
             <button id="checkout">Finalizar Pedido</button>
             
