@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const cartTotal = document.getElementById("total");
     const cartCount = document.getElementById("cart-count");
     var orderText = " ";
+    var contador = 0; // Variável para contar qtd de itens geral
 
     document.getElementById("troco").style.visibility = 'hidden';
     document.getElementById("limp-troco").style.visibility = 'hidden';
@@ -19,18 +20,21 @@ document.addEventListener("DOMContentLoaded", () => {
             const name = product.getAttribute("data-name");
             const price = parseFloat(product.getAttribute("data-price").toLocaleString('fr-FR'));
             const existingItem = cart.find(item => item.name === name);
-            const endereco = document.getElementById("endereco").value;
+            /*const endereco = document.getElementById("endereco").value;
             const dinheiro = document.getElementById("dinheiro").value;
             const pix = document.getElementById("pix").value;
-            const cartao = document.getElementById("cartao").value;
+            const cartao = document.getElementById("cartao").value;*/
 
             if (existingItem) {
                 existingItem.quantity++;
+                contador++;
             } else {
                 cart.push({ name, price, quantity: 1 });
                 document.getElementById("vazio").innerHTML = "Carrinho";
+                contador++;
             }
             updateCart();
+            alert(contador);
         });
     });
 
@@ -59,24 +63,11 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("top").style = "display:visible";
     });
     
-//AQUI *******
     // botão limpar carrinho
-   document.getElementById("clear-cart").addEventListener("click", () => {
-       cart.length = 0;
-        document.getElementById("dinheiro").checked = false;
-        document.getElementById("pix").checked = false;
-        document.getElementById("cartao").checked = false;
-        document.getElementById("vazio").innerHTML = "Carrinho Vazio";
-        document.getElementById("troco").style.visibility = 'hidden';
-        document.getElementById("limp-troco").style.visibility = 'hidden';
-        document.getElementById("lbtroco").style.visibility = 'hidden';
-        document.getElementById("divpix").style.visibility = 'hidden';
-        updateCart();
-        document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
-        document.getElementById('lbtroco').style.color = "red";
-        document.getElementById("nome").focus();
-    }); 
-    
+    document.getElementById("clear-cart").addEventListener("click", () => {
+        limpCart();
+    });
+ 
     // botão limpar nome
     document.getElementById("limp-nome").addEventListener("click", () => {
         document.getElementById("nome").value = '';
@@ -183,6 +174,9 @@ document.addEventListener("DOMContentLoaded", () => {
             orderText += `\n- *${item.quantity} -->* ${item.name} X ${(item.price.toLocaleString('br-BR'))} = R$ ${(item.price * item.quantity).toFixed(2)}\n`;
         });
 
+        const totitens = document.getElementById("cart-count").innerHTML;
+        orderText += `\n_*QTD SELECIONADAS:*_ ${totitens} _*TOTAL ITENS:*_ ${contador}\n`;
+
         const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
         const troco = document.getElementById("lbtroco").innerHTML;
@@ -247,10 +241,13 @@ document.addEventListener("DOMContentLoaded", () => {
             decreaseButton.addEventListener("click", () => {
                 if (item.quantity > 1) {
                     item.quantity--;
+                    contador--;
                 } else {
                     cart.splice(index, 1);
+                    contador--;
                 }
                 updateCart();
+                alert(contador);
             });
             
             const newContent1 = document.createTextNode(" ");
@@ -260,7 +257,9 @@ document.addEventListener("DOMContentLoaded", () => {
             
             increaseButton.addEventListener("click", () => {
                 item.quantity++;
+                contador++;
                 updateCart();
+                alert(contador);
             });
             
             const newContent2 = document.createTextNode(" ");
@@ -271,7 +270,9 @@ document.addEventListener("DOMContentLoaded", () => {
             deleteButton.addEventListener("click", () => {
                 //item.quantity++;
                 cart.splice(index, 1);
+                contador = contador - item.quantity;
                 updateCart();
+                alert(contador);
             });
             
             li2.appendChild(decreaseButton);
@@ -389,15 +390,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 100); // Atraso para garantir que o teclado já esteja aberto
     });
 
+    // Função para limpar o carrinho
+    function limpCart() {
+        cart.length = 0;
+        contador = 0;
+        document.getElementById("dinheiro").checked = false;
+        document.getElementById("pix").checked = false;
+        document.getElementById("cartao").checked = false;
+        document.getElementById("vazio").innerHTML = "Carrinho Vazio";
+        document.getElementById("troco").style.visibility = 'hidden';
+        document.getElementById("limp-troco").style.visibility = 'hidden';
+        document.getElementById("lbtroco").style.visibility = 'hidden';
+        document.getElementById("divpix").style.visibility = 'hidden';
+        updateCart();
+        document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
+        document.getElementById('lbtroco').style.color = "red";
+        document.getElementById("nome").focus();
+    }
+
 }); // FIM DO PRINCIPAL
 
-    // Função para obter um cookie pelo nome
-    function getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-        return null;
-    }
+   // Função para obter um cookie pelo nome
+   function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+}
 
     // Função para definir um cookie
     function setCookie(name, value, days) {
@@ -407,7 +426,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Aceitar os termos da LGPD
     function acceptLgpd() {
-        setCookie('lgpdConsent', 'accepted', 0);
+        setCookie('lgpdConsent', 'accepted', 1);
         document.getElementById('lgpdBanner').style.display = 'none';
     }
 
@@ -434,20 +453,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    /*function limpcart() {
-    //document.getElementById("clear-cart").addEventListener("click", () => {
-        cart.length = 0;
-        document.getElementById("dinheiro").checked = false;
-        document.getElementById("pix").checked = false;
-        document.getElementById("cartao").checked = false;
-        document.getElementById("vazio").innerHTML = "Carrinho Vazio";
-        document.getElementById("troco").style.visibility = 'hidden';
-        document.getElementById("limp-troco").style.visibility = 'hidden';
-        document.getElementById("lbtroco").style.visibility = 'hidden';
-        document.getElementById("divpix").style.visibility = 'hidden';
-        updateCart();
-        document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
-        document.getElementById('lbtroco').style.color = "red";
-        document.getElementById("nome").focus();
-    //});
-    }*/
