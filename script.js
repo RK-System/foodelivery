@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         const totitens = document.getElementById("cart-count").innerHTML;
-        orderText += `\n_*QTD SELECIONADAS:*_ ${totitens}\n _*TOTAL ITENS:*_ ${contador}\n`;
+        orderText += `\n_*ITENS SELECIONADOS:*_ (${totitens})\n_*ITENS TOTAL:*_ (${contador})\n`;
 
         const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
