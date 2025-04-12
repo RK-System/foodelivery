@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 contador++;
             }
             updateCart();
-            alert(contador);
+            //alert(contador);
         });
     });
 
@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 //alert("Agora sim CARTÃO OK!"); 
                 //alert(document.getElementById("troco").value);
             }
-
+        // Montando a menssagem do Whatsapp
         const cliente = document.getElementById("nome").value;
         orderText = `******************************\n`;
         orderText += '_*PEDIDO PARA:*_';
@@ -175,7 +175,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         const totitens = document.getElementById("cart-count").innerHTML;
-        orderText += `\n_*QTD SELECIONADAS:*_ ${totitens} _*TOTAL ITENS:*_ ${contador}\n`;
+        orderText += `\n_*QTD SELECIONADAS:*_ ${totitens}\n _*TOTAL ITENS:*_ ${contador}\n`;
 
         const totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     contador--;
                 }
                 updateCart();
-                alert(contador);
+                //alert(contador);
             });
             
             const newContent1 = document.createTextNode(" ");
@@ -259,7 +259,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 item.quantity++;
                 contador++;
                 updateCart();
-                alert(contador);
+                //alert(contador);
             });
             
             const newContent2 = document.createTextNode(" ");
@@ -272,7 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 cart.splice(index, 1);
                 contador = contador - item.quantity;
                 updateCart();
-                alert(contador);
+                //alert(contador);
             });
             
             li2.appendChild(decreaseButton);
