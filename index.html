@@ -14,11 +14,12 @@
 <body>    
     <!--<a href="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js" target="_blank" rel="noreferrer noopener">freeCodeCamp</a> -->
     <header>
-        <h1>Delivery Online</h1>
+        <h1><i>Delivery Online</i></h1>
         <button id="open-cart">🛒<br>Carrinho<br>(<span id="cart-count">0</span>)<span> itens</span></button> 
     </header>
  
     <main>
+        <h3 style="color: #ff6600"><u>CATEGORIAS</u></h3>
         <div class="products">
             <div class="product" data-name="SANDUICHES">                
                 <a href="#sanduba"><img src="burger.jpg" alt="SANDUICHES"></a>
@@ -43,7 +44,7 @@
 
             <div class="product" data-name="REFRIGERANTES">
                 <img src="coca.jpg" alt="REFRIGERANTES">
-                <h4>REFRIGERANTES</h4>
+                <h5>REFRIGERANTES</h5>
                 <!--<p>R$ 6,99</p>
                 <button class="add-to-cart">Adicionar</button>-->
             </div>
@@ -81,68 +82,81 @@
             <section>
                 <div id="sanduba" class="products"></div> <!--Separar Categorias da de Produtos-->
                 <h4>*************************************</h4>    
-                <h3><u>SANDUICHES</u></h3>
+                <h3 style="color: #ff6600"><u>SANDUICHES</u></h3>
                 
                 <div class="products">
                 <div class="product" data-name="Mixto quente na chapa" data-price="5.99">
-                    <img src="mixto.jpeg" alt="Mixto quente na chapa">
+                    <img src="mixto.jpeg" alt="Mixto quente na chapa" class="imagem" onclick="mostrarModal(this)">
+                    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
                     <h4>Mixto quente na chapa</h4>
                     <p>R$ 5,99</p>
                     <button class="add-to-cart">Adicionar</button>
                 </div>
                 
                 <div class="product" data-name="Hambúrguer com fritas" data-price="20.99">
-                    <img src="burgerfritas.jpeg" alt="Hambúrguer com fritas">
+                    <img src="burgerfritas.jpeg" alt="Hambúrguer com fritas" class="imagem" onclick="mostrarModal(this)">
+                    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
                     <h4>Hambúrguer com fritas</h4>
                     <p>R$ 20,99</p>
                     <button class="add-to-cart">Adicionar</button>
                 </div>
     
                 <div class="product" data-name="Hambúrguer artesanal" data-price="5.00">
-                    <img src="burger.jpg" alt="Hambúrguer artesanal">
+                    <img src="burger.jpg" alt="Hambúrguer artesanal" class="imagem" onclick="mostrarModal(this)">
+                    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
                     <h4>Hambúrguer artesanal</h4>
                     <p>R$ 5,00</p>
                     <button class="add-to-cart">Adicionar</button>
                 </div>
     
                 <div class="product" data-name="X-Bacon com frango" data-price="8.99">
-                    <img src="xbacon.jpeg" alt="X-Bacon com frango">
+                    <img src="xbacon.jpeg" alt="X-Bacon com frango" class="imagem" onclick="mostrarModal(this)">
+                    <p class="pingredientes">Click na imagem para ver os ingredientes</p>                    
                     <h4>X-Bacon com frango</h4>
                     <p>R$ 8,99</p>
                     <button class="add-to-cart">Adicionar</button>
                 </div>
                 
                 <div class="product" data-name="X-Filet completo" data-price="25.99">
-                    <img src="xfilet.jpeg" alt="X-Filet completo">
+                    <img src="xfilet.jpeg" alt="X-Filet completo" class="imagem" onclick="mostrarModal(this)">
+                    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
                     <h4>X-Filet com frango</h4>
                     <p>R$ 25,99</p>
                     <button class="add-to-cart">Adicionar</button>
                 </div>
     
                 <div class="product" data-name="Cachorro quente grande" data-price="7.99">
-                    <img src="cachorro.jpeg" alt="Cachorro quente grande">
+                    <img src="cachorro.jpeg" alt="Cachorro quente grande" onclick="mostrarModal(this)">
+                    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
                     <h4>Cachorro quente grande</h4>
                     <p>R$ 7,99</p>
                     <button class="add-to-cart">Adicionar</button>
                 </div>
                 </div>
-            </section>
+            <div id="modal" class="modal" onclick="clicarFora(event)">
+                <span class="close" onclick="fecharModal()">&times;</span>
+                <img id="imgModal" alt="">
+                <div class="info-text" id="textoInfo">                   
+                </div>             
+            </div>
+        </section>
 
             <section>
                 <div id="lasanha" class="products"></div> <!--Separar Categorias da de Produtos-->
                 <h4>*************************************</h4>    
-                <h3><u>LASANHAS</u></h3>
-                
+                <h3 style="color: #ff6600"><u>LASANHAS</u></h3>                
                 <div class="products">  
                 <div class="product" data-name="Lasanha bolonhesa" data-price="55.99">
-                    <img src="lasanhabolonhesa.jpeg" alt="Lasanha bolonhesa">
+                    <img src="lasanhabolonhesa.jpeg" alt="Lasanha bolonhesa" onclick="mostrarModal(this)">
+                    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
                     <h4>Lasanha bolonhesa</h4>
                     <p>R$ 55,99</p>
                     <button class="add-to-cart">Adicionar</button>
                 </div>
     
                 <div class="product" data-name="Lasanha frango catupiry" data-price="45.99">
-                    <img src="lasanhafrango.jpeg" alt="Lasanha frango catupiry">
+                    <img src="lasanhafrango.jpeg" alt="Lasanha frango catupiry" onclick="mostrarModal(this)">
+                    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
                     <h4>Lasanha frango catupiry</h4>
                     <p>R$ 45,99</p>
                     <button class="add-to-cart">Adicionar</button>
@@ -187,13 +201,17 @@
                       <p id="mensagem"></p>
                   </div>
             <br>
+                  <div class="sobe">
             <button id="clear-cart">Limpar Carrinho</button>
             <button id="close-cart">Fechar Carrinho</button>
-            <button id="checkout">Finalizar Pedido</button><br><br><br>
+            <button id="checkout">Finalizar Pedido</button>
+                   </div>
+                      <br><br><br>
             <!-- <input type="button" value="Create PDF" onclick="generatePDF()"> -->
         </div>
     </div>
-
+        
+      <h4>=============================</h4>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
       <a href="https://api.whatsapp.com/send?phone=5575998886000&text=Ol%C3%A1!"
           style="position:initial;width:90px;height:90px;right:5px;background-color:#25d366;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 0px 0px 0px #888;
@@ -229,8 +247,19 @@
             <button onclick="acceptLgpd()">Aceitar</button>
             <button id="decli" onclick="declineLgpd()">Recusar</button>
         </div>
+        <h4>=============================</h4>
+
+<!-- Modal de imagem -->
+<div id="modal" class="modal">
+  <span class="close" onclick="fecharModal()">&times;</span>
+  <div class="modal-conteudo" onclick="event.stopPropagation()">
+    <img id="imgModal" alt="">
+    <div class="info-text" id="textoInfo"></div>
+    <button class="botao-modal" onclick="acaoDoBotao()">Ver Mais Informações</button>
+  </div>
+</div>
           
-          <script src="script.js"></script>
+        <script src="script.js"></script>
           
 </body>
 </html

@@ -25,9 +25,11 @@ header {
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 10px;
-    margin: 10px;
+    margin: 5px;
     text-align: center;
-    width: 135px;
+    width: 145px;
+    /*height: 300px;*/
+    font-style: italic;
 }
 
 .product img {
@@ -92,6 +94,26 @@ button:hover {
     cursor: pointer;
     border-radius: 15px;
 }
+#divpix {
+  position: relative;
+  top: -90px; /* Ajuste esse valor conforme necessário */
+  /*left: 200px; /* Opcional: ajuste para posicionar ao lado do input */
+  z-index: 1;
+}
+
+.sobe {
+  position: relative;
+  top: -130px; /* Ajuste esse valor conforme necessário */
+  /*left: 200px; /* Opcional: ajuste para posicionar ao lado do input */
+  z-index: 1;
+}
+
+.sobemais {
+  position: relative;
+  top: -250px; /* Ajuste esse valor conforme necessário */
+  /*left: 200px; /* Opcional: ajuste para posicionar ao lado do input */
+  z-index: 1;
+}
 
 #limp-nome {
     width: 30px;
@@ -125,7 +147,7 @@ button:hover {
     top: 0;
     right: 0;
     width: 330px;
-    height: 100%;
+    height: 90%;
     background: rgb(233, 222, 222);
     box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2);
     padding: 20px;
@@ -226,6 +248,85 @@ button:hover {
     font-size: 15px;
     color: green;
 }
+
+.pingredientes {
+  font-size: 10px;
+    font-weight: bold;
+    position: relative;
+    top: -10px; /* Ajuste esse valor conforme necessário */
+    /*left: 200px; /* Opcional: ajuste para posicionar ao lado do input */
+}
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .info-text {
+      color: #fff;
+      text-align: center;
+      margin-top: 15px;
+      font-size: 18px;
+      padding: 0 15px;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .info-text {
+        font-size: 16px;
+      }
+    }
+
+.modal-conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 90%;
+  margin: auto;
+}
+
+.botao-modal {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.botao-modal:hover {
+  background-color: #388e3c;
+}
+
 
 /* .flutuante {  
   display: inline-block;  

@@ -54,7 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("top").style = "display:none";
             cartPopup.style.display = "flex";
         }
-            document.getElementById("nome").focus();
+        document.getElementById("nome").focus();
+        const elemento = document.querySelector('.sobe');
+        elemento.setAttribute('class', 'sobemais');
+
     });
     
     // botão fechar tela do carrinho
@@ -316,6 +319,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("divpix").style.visibility = 'hidden';
                 document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
                 document.getElementById("troco").focus();
+                const elemento = document.querySelector('.sobemais');
+                elemento.setAttribute('class', 'sobe');
+
             }
 
             } else if (document.getElementById("dinheiro").checked == false) {
@@ -341,6 +347,8 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
             document.getElementById("endereco").focus();
             document.getElementById("divpix").style.visibility = 'visible';
+            const elemento = document.querySelector('.sobemais');
+            elemento.setAttribute('class', 'sobe');
         }
     }
 
@@ -356,6 +364,12 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("divpix").style.visibility = 'hidden';
             document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
             document.getElementById("endereco").focus();
+            const elemento = document.querySelector('.sobe');
+            elemento.setAttribute('class', 'sobemais');
+        }
+        else {
+        const elemento = document.querySelector('.sobemais');
+        elemento.setAttribute('class', 'sobe');
         }
     }
 
@@ -453,3 +467,71 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+  // Mostrar img com informaçoēs de ingredientes
+  const descricoes = {
+    "mixto.jpeg": "<MIXTO>\nPão, queijo e presunto.",
+    "burgerfritas.jpeg": "<HAMBURGEUR COM FRITAS>\nPão, hamburguer, queijo, salada e uma porção de batata fritas 200gr.",
+    "burger.jpg": "<HAMBURGUER ARTESANAL>\nPão, hamburguer, queijo, salada."
+  };
+
+  let escala = 1;
+
+  function mostrarModal(img) {
+    const src = img.src;
+    const fileName = src.split('/').pop();
+    const texto = descricoes[fileName] || "Sem descrição.";
+
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("imgModal");
+    const textoInfo = document.getElementById("textoInfo");
+
+    modal.style.display = "flex";
+    modalImg.src = src;
+    textoInfo.innerText = texto;
+
+    escala = 1;
+    modalImg.style.transform = "scale(1)";
+  }
+
+  function fecharModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+
+  function clicarFora(e) {
+    if (e.target.id === "modal") {
+      fecharModal();
+    }
+  }
+
+  // Zoom com scroll
+  document.getElementById("modal").addEventListener("wheel", function(e) {
+    const img = document.getElementById("imgModal");
+    e.preventDefault();
+    if (e.deltaY < 0) {
+      escala += 0.1;
+    } else {
+      escala = Math.max(1, escala - 0.1);
+    }
+    img.style.transform = `scale(${escala})`;
+  });
+
+  // Fechar com ESC
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") {
+      fecharModal();
+    }
+  });
+
+function clicarFora(e) {
+  if (e.target.id === "modal") {
+    fecharModal();
+  }
+}
+
+
+function acaoDoBotao() {
+  alert("Você clicou no botão dentro do modal! Aqui você pode abrir outro popup, ir para outro link, etc.");
+  // Exemplo: abrir outro popup ou redirecionar
+  // abrirPopup(); // se quiser mostrar um segundo popup
+  // window.location.href = "pagina.html"; // redirecionar
+}
