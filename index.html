@@ -86,11 +86,20 @@
                 
                 <div class="products">
                 <div class="product" data-name="Mixto quente na chapa" data-price="5.99">
-                    <img src="mixto.jpeg" alt="Mixto quente na chapa" class="imagem" onclick="mostrarModal(this)">
+                    <img src="mixto.jpeg" alt="Mixto quente na chapa" class="imagem"  onclick="abrirModal(this)"/>
                     <p class="pingredientes">Click na imagem para ver os ingredientes</p>
                     <h4>Mixto quente na chapa</h4>
                     <p>R$ 5,99</p>
                     <button class="add-to-cart">Adicionar</button>
+
+                    <div id="modal" class="modal" onclick="fecharModal(event)">
+                        <span class="close" onclick="fecharModal(event)">&times;</span>
+                        <div class="modal-content" onclick="event.stopPropagation()">
+                          <img id="modalImg" src="mixto.jpeg" alt="">
+                          <div class="info-text" id="infoText"></div>
+                          <button onclick="acaoDoBotao()" class="add-to-cart">Adicionar</button>
+                        </div>
+                      </div>
                 </div>
                 
                 <div class="product" data-name="Hambúrguer com fritas" data-price="20.99">
@@ -201,12 +210,12 @@
                       <p id="mensagem"></p>
                   </div>
             <br>
-                  <div class="sobe">
-            <button id="clear-cart">Limpar Carrinho</button>
-            <button id="close-cart">Fechar Carrinho</button>
-            <button id="checkout">Finalizar Pedido</button>
-                   </div>
-                      <br><br><br>
+            <div class="sobe">
+                <button id="clear-cart">Limpar Carrinho</button>
+                <button id="close-cart">Fechar Carrinho</button>
+                <button id="checkout">Finalizar Pedido</button>
+            </div>
+            <br><br><br>
             <!-- <input type="button" value="Create PDF" onclick="generatePDF()"> -->
         </div>
     </div>

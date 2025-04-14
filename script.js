@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("limp-troco").style.visibility = 'hidden';
     document.getElementById("lbtroco").style.visibility = 'hidden';
     document.getElementById("divpix").style.visibility = 'hidden';
-
     
     document.querySelectorAll(".add-to-cart").forEach(button => {
         button.addEventListener("click", (event) => {
@@ -20,10 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const name = product.getAttribute("data-name");
             const price = parseFloat(product.getAttribute("data-price").toLocaleString('fr-FR'));
             const existingItem = cart.find(item => item.name === name);
-            /*const endereco = document.getElementById("endereco").value;
-            const dinheiro = document.getElementById("dinheiro").value;
-            const pix = document.getElementById("pix").value;
-            const cartao = document.getElementById("cartao").value;*/
 
             if (existingItem) {
                 existingItem.quantity++;
@@ -33,8 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("vazio").innerHTML = "Carrinho";
                 contador++;
             }
-            updateCart();
-            //alert(contador);
+            updateCart();           
         });
     });
 
@@ -55,8 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
             cartPopup.style.display = "flex";
         }
         document.getElementById("nome").focus();
-        const elemento = document.querySelector('.sobe');
-        elemento.setAttribute('class', 'sobemais');
+        const elemento = document.querySelector('.sobemais');
+        elemento.setAttribute('class', 'sobe');
 
     });
     
@@ -348,7 +342,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("endereco").focus();
             document.getElementById("divpix").style.visibility = 'visible';
             const elemento = document.querySelector('.sobemais');
-            elemento.setAttribute('class', 'sobe');
+            elemento.setAttribute('class', 'sobemenos');
         }
     }
 
@@ -364,12 +358,12 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("divpix").style.visibility = 'hidden';
             document.getElementById("lbtroco").innerHTML = 'Valor do Troco R$ 0,00';
             document.getElementById("endereco").focus();
-            const elemento = document.querySelector('.sobe');
-            elemento.setAttribute('class', 'sobemais');
+            const elemento = document.querySelector('.sobemais');
+            elemento.setAttribute('class', 'sobe');
         }
         else {
         const elemento = document.querySelector('.sobemais');
-        elemento.setAttribute('class', 'sobe');
+        elemento.setAttribute('class', 'sobemenos');
         }
     }
 
@@ -476,25 +470,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let escala = 1;
 
-  function mostrarModal(img) {
-    const src = img.src;
-    const fileName = src.split('/').pop();
-    const texto = descricoes[fileName] || "Sem descrição.";
-
+  function abrirModal(img) {
     const modal = document.getElementById("modal");
-    const modalImg = document.getElementById("imgModal");
-    const textoInfo = document.getElementById("textoInfo");
+    const modalImg = document.getElementById("modalImg");
+    const infoText = document.getElementById("infoText");
 
     modal.style.display = "flex";
-    modalImg.src = src;
-    textoInfo.innerText = texto;
+    modalImg.src = img.src;
 
     escala = 1;
     modalImg.style.transform = "scale(1)";
+
+    const nomeArquivo = img.src.split('/').pop();
+    infoText.innerText = descricoes[nomeArquivo] || "Sem descrição disponível.";
   }
 
-  function fecharModal() {
-    document.getElementById("modal").style.display = "none";
+  function fecharModal(event) {
+    const modal = document.getElementById("modal");
+    if (event.target.id === "modal" || event.target.classList.contains("close")) {
+      modal.style.display = "none";
+    }
   }
 
   function clicarFora(e) {
@@ -505,7 +500,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Zoom com scroll
   document.getElementById("modal").addEventListener("wheel", function(e) {
-    const img = document.getElementById("imgModal");
+    const img = document.getElementById("modalImg");
     e.preventDefault();
     if (e.deltaY < 0) {
       escala += 0.1;
@@ -522,16 +517,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-function clicarFora(e) {
-  if (e.target.id === "modal") {
-    fecharModal();
+  function acaoDoBotao() {
+    document.querySelectorAll(".add-to-cart").forEach(button => {
+        document.getElementById("modal").style.display = "none";                          
+        button.addEventListener("click", (event) => {
+            const product = event.target.closest(".product");
+            const name = product.getAttribute("data-name");
+            const price = parseFloat(product.getAttribute("data-price").toLocaleString('fr-FR'));
+            const existingItem = cart.find(item => item.name === name);
+
+            if (existingItem) {
+                existingItem.quantity++;
+                contador++;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+                document.getElementById("vazio").innerHTML = "Carrinho";
+                contador++;
+            }
+            updateCart();   
+        });
+    });
   }
-}
-
-
-function acaoDoBotao() {
-  alert("Você clicou no botão dentro do modal! Aqui você pode abrir outro popup, ir para outro link, etc.");
-  // Exemplo: abrir outro popup ou redirecionar
-  // abrirPopup(); // se quiser mostrar um segundo popup
-  // window.location.href = "pagina.html"; // redirecionar
-}
