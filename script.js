@@ -464,8 +464,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // Mostrar img com informaçoēs de ingredientes
   const descricoes = {
     "mixto.jpeg": "<MIXTO>\nPão, queijo e presunto.",
-    "burgerfritas.jpeg": "<HAMBURGEUR COM FRITAS>\nPão, hamburguer, queijo, salada e uma porção de batata fritas 200gr.",
-    "burger.jpg": "<HAMBURGUER ARTESANAL>\nPão, hamburguer, queijo, salada."
+    "burgerfritas.jpeg": "<HAMBURGEUR COM FRITAS>\nPão, hamburguer, queijo, salada\ne uma porção de batata fritas 200gr.",
+    "burger.jpeg": "<HAMBURGUER ARTESANAL>\nPão, hamburguer, queijo e salada.",
+    "xbacon.jpeg": "<X-BACON COM FRANGO>\nPão, queijo, presunto, bacon e salada.",
+    "xfilet.jpeg": "<X-FILET COM FRANGO COMPLETO>\nPão, queijo, filé, frango e salada.",
+    "cachorro.jpeg": "<CACHORRO QUENTE COMPLETO>\nPão, salsicha, milho, ervilha, batata-palha e salada.",
+    "lasanhabolonhesa.jpeg": "<LASANHA BOLONHESA>\nMacarrão, queijo, presunto, carne moída,\nmilho, ervilha e azeitona.",
+    "lasanhafrango.jpeg": "<LASANHA FRANGO CATUPIRY>\nMacarrão, queijo, presunto, frango,\ncatupiry, milho, ervilha e azeitona."
   };
 
   let escala = 1;
@@ -518,6 +523,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function acaoDoBotao() {
+        document.getElementById("modal").style.display = "none";                          
+  }
+
+
+  /*function acaoDoBotao() {
     document.querySelectorAll(".add-to-cart").forEach(button => {
         document.getElementById("modal").style.display = "none";                          
         button.addEventListener("click", (event) => {
@@ -537,4 +547,5 @@ document.addEventListener("DOMContentLoaded", () => {
             updateCart();   
         });
     });
-  }
+  } */
+
