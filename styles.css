@@ -298,8 +298,8 @@ button:hover {
 
 .close {
   position: absolute;
-  top: 120px;
-  right: 440px;
+  top: 80px;
+  right: 30px;
   color: rgb(227, 5, 5);
   font-size: 40px;
   font-weight: bold;
