@@ -9,15 +9,14 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" target="_blank" rel="noreferrer noopener">
     </script>
-
-
-<body>    
+    
+    <body>    
     <!--<a href="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js" target="_blank" rel="noreferrer noopener">freeCodeCamp</a> -->
     <header>
         <h1><i>Delivery Online</i></h1>
         <button id="open-cart">🛒<br>Carrinho<br>(<span id="cart-count">0</span>)<span> itens</span></button> 
     </header>
- 
+    
     <main>
         <!-- CATEGORIAS DE PRODUTOS -->
         <h3 style="color: #ff6600"><u>CATEGORIAS</u></h3>
@@ -81,192 +80,349 @@
                         <span class="close">&times;</span>
                         <div class="modal-content" onclick="event.stopPropagation()">
                             <img class="modalImg" src="mixto.jpeg">
-                            <div class="info-text" id="infoText"></div>
+                            <div class="info-text"></div>
                             <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                          
                         </div>
                     </div>
                 </div>
-                    
-                    <div class="product" data-name="Hambúrguer com fritas" data-price="20.99">
+                
+                <div class="product" data-name="Hambúrguer com fritas" data-price="20.99">
                     <img src="burgerfritas.jpeg" alt="Hambúrguer com fritas" class="imagem" onclick="abrirModal(this)">
                     <p class="pingredientes">Click na imagem para ver os ingredientes</p>
                     <h4>Hambúrguer com fritas</h4>
                     <p>R$ 20,99</p>
                     <button class="add-to-cart">Adicionar</button>
-                        
-                        <div class="modal" onclick="fecharModal(event)">
-                            <span class="close">&times;</span>
-                            <div class="modal-content" onclick="event.stopPropagation()">
-                                <img class="modalImg" src="burgerfritas.jpeg">
-                                <div class="info-text" id="infoText"></div>
-                                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                               
-                            </div>
-                        </div>
-                    </div>
-    
-                <div class="product" data-name="Hambúrguer artesanal" data-price="5.00">
-                    <img src="burger.jpeg" alt="Hambúrguer artesanal" class="imagem" onclick="abrirModal(this)">
-                    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
-                    <h4>Hambúrguer artesanal</h4>
-                    <p>R$ 5,00</p>
-                    <button class="add-to-cart">Adicionar</button>
                     
-                        <div class="modal" onclick="fecharModal(event)"><span class="close">&times;</span>
-                            <div class="modal-content" onclick="event.stopPropagation()">
-                                <img id="modalImg" src="burger.jpeg">
-                                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                               
-                            </div>
-                        </div>
+                    <div class="modal" onclick="fecharModal(event)">
+                        <span class="close">&times;</span>
+                        <div class="modal-content" onclick="event.stopPropagation()">
+                        <img class="modalImg" src="burgerfritas.jpeg">
+                        <div class="info-text"></div>
+                        <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
                     </div>
+                </div>
+            </div>
+            
+            <div class="product" data-name="Hambúrguer artesanal" data-price="5.00">
+                <img src="burger.jpeg" alt="Hambúrguer artesanal" class="imagem" onclick="abrirModal(this)">
+                <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+                <h4>Hambúrguer artesanal</h4>
+                <p>R$ 5,00</p>
+                <button class="add-to-cart">Adicionar</button>
+
+                <div class="modal" onclick="fecharModal(event)">
+                    <span class="close">&times;</span>
+                    <div class="modal-content" onclick="event.stopPropagation()">
+                    <img class="modalImg" src="burger.jpeg">
+                    <div class="info-text"></div>
+                    <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="product" data-name="X-Bacon com frango" data-price="8.99">
+            <img src="xbacon.jpeg" alt="X-Bacon com frango" class="imagem" onclick="abrirModal(this)">
+            <p class="pingredientes">Click na imagem para ver os ingredientes</p>                    
+            <h4>X-Bacon com frango</h4>
+            <p>R$ 8,99</p>
+            <button class="add-to-cart">Adicionar</button>
+            
+            <div class="modal" onclick="fecharModal(event)">
+                <span class="close">&times;</span>
+                <div class="modal-content" onclick="event.stopPropagation()">
+                <img class="modalImg" src="xbacon.jpeg">
+                <div class="info-text"></div>
+                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="product" data-name="X-Filet com frango completo" data-price="25.99">
+        <img src="xfilet.jpeg" alt="X-Filet com frango completo" class="imagem" onclick="abrirModal(this)">
+        <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+        <h4>X-Filet com frango completo</h4>
+        <p>R$ 25,99</p>
+        <button class="add-to-cart">Adicionar</button>
+
+        <div class="modal" onclick="fecharModal(event)">
+            <span class="close">&times;</span>
+            <div class="modal-content" onclick="event.stopPropagation()">
+            <img class="modalImg" src="xfilet.jpeg">
+            <div class="info-text"></div>
+            <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+        </div>
+    </div>
+</div>
+
+<div class="product" data-name="Cachorro quente completo" data-price="7.99">
+    <img src="cachorro.jpeg" alt="Cachorro quente completo" onclick="abrirModal(this)">
+    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+    <h4>Cachorro quente completo</h4>
+    <p>R$ 7,99</p>
+    <button class="add-to-cart">Adicionar</button>
+
+    <div class="modal" onclick="fecharModal(event)">
+        <span class="close">&times;</span>
+        <div class="modal-content" onclick="event.stopPropagation()">
+        <img class="modalImg" src="cachorro.jpeg">
+        <div class="info-text"></div>
+        <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+    </div>
+</div>
+</div>
+
+<!-- <div class="product" data-name="Sanduiche natural" data-price="17.99">
+    <img src="sandubaNatural.jpeg" alt="Sanduiche natural" onclick="abrirModal(this)">
+    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+    <h4>Sanduiche natural</h4>
+    <p>R$ 17,99</p>
+    <button class="add-to-cart">Adicionar</button>
+
+    <div class="modal" onclick="fecharModal(event)">
+        <span class="close">&times;</span>
+        <div class="modal-content" onclick="event.stopPropagation()">
+        <img class="modalImg" src="sandubaNatural.jpeg">
+        <div class="info-text"></div>
+        <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+    </div>
+</div>
+</div> -->
+
+</section>
+
+<section>
+    <div id="lasanha" class="products"></div> <!--Separar Categorias da de Produtos-->
+    <h4>*************************************</h4>    
+    <h3 style="color: #ff6600"><u>LASANHAS</u></h3>                
+    <div class="products">
+        <div class="product" data-name="Lasanha bolonhesa" data-price="55.99">
+            <img src="lasanhabolonhesa.jpeg" alt="Lasanha bolonhesa" onclick="abrirModal(this)">
+            <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+            <h4>Lasanha bolonhesa</h4>
+            <p>R$ 55,99</p>
+            <button class="add-to-cart">Adicionar</button>
+
+            <div class="modal" onclick="fecharModal(event)">
+                <span class="close">&times;</span>
+                <div class="modal-content" onclick="event.stopPropagation()">
+                <img class="modalImg" src="lasanhabolonhesa.jpeg">
+                <div class="info-text"></div>
+                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+            </div>
+        </div>
+    </div>
     
-                <div class="product" data-name="X-Bacon com frango" data-price="8.99">
-                    <img src="xbacon.jpeg" alt="X-Bacon com frango" class="imagem" onclick="abrirModal(this)">
-                    <p class="pingredientes">Click na imagem para ver os ingredientes</p>                    
-                    <h4>X-Bacon com frango</h4>
+    <div class="product" data-name="Lasanha frango catupiry" data-price="45.99">
+        <img src="lasanhafrango.jpeg" alt="Lasanha frango catupiry" onclick="abrirModal(this)">
+        <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+        <h4>Lasanha frango catupiry</h4>
+        <p>R$ 45,99</p>
+        <button class="add-to-cart">Adicionar</button>
+
+        <div class="modal" onclick="fecharModal(event)">
+            <span class="close">&times;</span>
+            <div class="modal-content" onclick="event.stopPropagation()">
+            <img class="modalImg" src="lasanhafrango.jpeg">
+            <div class="info-text"></div>
+            <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+        </div>
+    </div>
+</div>
+
+<div class="product" data-name="Lasanha de bacalhau" data-price="45.99">
+    <img src="lasanhaBacalhau.jpeg" alt="Lasanha de bacalhau" onclick="abrirModal(this)">
+    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+    <h4>Lasanha de bacalhau</h4>
+    <p>R$ 45,99</p>
+    <button class="add-to-cart">Adicionar</button>
+
+    <div class="modal" onclick="fecharModal(event)">
+        <span class="close">&times;</span>
+        <div class="modal-content" onclick="event.stopPropagation()">
+        <img class="modalImg" src="lasanhaBacalhau.jpeg">
+        <div class="info-text"></div>
+        <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+    </div>
+</div>
+</div>
+</section>
+
+            <!-- PRODUTOS SEPARADOS EM CATEGORIAS-->
+            <section>
+                <div id="pizza" class="products"></div> <!--Separar Categorias da de Produtos-->
+                <h4>*************************************</h4>    
+                <h3 style="color: #ff6600"><u>PIZZAS</u></h3>
+                
+                <div class="products">
+                    
+                <div class="product" data-name="Pizza brotinho mixta" data-price="8.99">
+                    <img src="brotinho.jpeg" alt="Pizza brotinho mixta" class="imagem"  onclick="abrirModal(this)"/>
+                    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+                    <h4>Pizza brotinho mixta</h4>
                     <p>R$ 8,99</p>
                     <button class="add-to-cart">Adicionar</button>
                     
-                        <div class="modal" onclick="fecharModal(event)"><span class="close">&times;</span>
-                            <div class="modal-content" onclick="event.stopPropagation()">
-                                <img id="modalImg" src="xbacon.jpeg">
-                                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                               
-                            </div>
+                    <div class="modal" onclick="fecharModal(event)">
+                        <span class="close">&times;</span>
+                        <div class="modal-content" onclick="event.stopPropagation()">
+                            <img class="modalImg" src="brotinho.jpeg">
+                            <div class="info-text"></div>
+                            <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                          
                         </div>
                     </div>
+                </div>
                 
-                <div class="product" data-name="X-Filet com frango completo" data-price="25.99">
-                    <img src="xfilet.jpeg" alt="X-Filet com frango completo" class="imagem" onclick="abrirModal(this)">
+                <div class="product" data-name="Pizza calabresa média" data-price="20.99">
+                    <img src="calabresaM.jpeg" alt="Pizza calabresa média" class="imagem" onclick="abrirModal(this)">
                     <p class="pingredientes">Click na imagem para ver os ingredientes</p>
-                    <h4>X-Filet com frango completo</h4>
-                    <p>R$ 25,99</p>
+                    <h4>Pizza calabresa média</h4>
+                    <p>R$ 20,99</p>
                     <button class="add-to-cart">Adicionar</button>
                     
-                        <div class="modal" onclick="fecharModal(event)"><span class="close">&times;</span>
-                            <div class="modal-content" onclick="event.stopPropagation()">
-                                <img id="modalImg" src="xfilet.jpeg">
-                                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                               
-                            </div>
-                        </div>
+                    <div class="modal" onclick="fecharModal(event)">
+                        <span class="close">&times;</span>
+                        <div class="modal-content" onclick="event.stopPropagation()">
+                        <img class="modalImg" src="calabresaM.jpeg">
+                        <div class="info-text"></div>
+                        <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
                     </div>
-    
-                <div class="product" data-name="Cachorro quente completo" data-price="7.99">
-                    <img src="cachorro.jpeg" alt="Cachorro quente completo" onclick="abrirModal(this)">
-                    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
-                    <h4>Cachorro quente completo</h4>
-                    <p>R$ 7,99</p>
-                    <button class="add-to-cart">Adicionar</button>
-                    
-                        <div class="modal" onclick="fecharModal(event)"><span class="close">&times;</span>
-                            <div class="modal-content" onclick="event.stopPropagation()">
-                                <img id="modalImg" src="cachorro.jpeg">
-                                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                               
-                            </div>
-                        </div>
-                    </div>
-                </div>            
-        </section>
-
-            <section>
-                <div id="lasanha" class="products"></div> <!--Separar Categorias da de Produtos-->
-                <h4>*************************************</h4>    
-                <h3 style="color: #ff6600"><u>LASANHAS</u></h3>                
-                <div class="products">  
-                <div class="product" data-name="Lasanha bolonhesa" data-price="55.99">
-                    <img src="lasanhabolonhesa.jpeg" alt="Lasanha bolonhesa" onclick="abrirModal(this)">
-                    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
-                    <h4>Lasanha bolonhesa</h4>
-                    <p>R$ 55,99</p>
-                    <button class="add-to-cart">Adicionar</button>
-                    
-                        <div class="modal" onclick="fecharModal(event)"><span class="close">&times;</span>
-                            <div class="modal-content" onclick="event.stopPropagation()">
-                                <img id="modalImg" src="lasanhabolonhesa.jpeg">
-                                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                               
-                            </div>
-                        </div>
-                    </div>
-    
-                <div class="product" data-name="Lasanha frango catupiry" data-price="45.99">
-                    <img src="lasanhafrango.jpeg" alt="Lasanha frango catupiry" onclick="abrirModal(this)">
-                    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
-                    <h4>Lasanha frango catupiry</h4>
-                    <p>R$ 45,99</p>
-                    <button class="add-to-cart">Adicionar</button>
-                        <div class="modal" onclick="fecharModal(event)"><span class="close">&times;</span>
-                            <div class="modal-content" onclick="event.stopPropagation()">
-                                <img id="modalImg" src="lasanhabolonhesa.jpeg">
-                                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                               
-                            </div>
-                        </div>
                 </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <div id="cart-popup" class="hidden">
-        <div class="cart-content">
-            <h2 id="vazio"><u>Carrinho</u></h2>
-            <ul id="cart-items"></ul>
-            <p><strong>Total: R$ <span id="total">0,00</span></strong></p> 
-            <label id="endentrega">Nome e endereço para entrega:</label>
-            <input type="text" id="nome" placeholder="Seu nome..." size="" required/>
-            <button id="limp-nome" name="button"><strong>X</strong></button>
-            <input type="text" id="endereco" placeholder="Endereço para entrega..." size="" required/>
-            <button id="limp-end" name="button"><strong>X</strong></button>
-            <br>
- 
-            <p>Selecione a forma de pagamento:</p>
-              <input type="radio" id="dinheiro" name="fav_language" value="DINHEIRO">
-              <label for="dinheiro">DINHEIRO</label>
-              <input type="radio" id="pix" name="fav_language" value="PIX">
-              <label for="pix">PIX</label>
-              <input type="radio" id="cartao" name="fav_language" value="CARTÃO">
-              <label for="cartao">CARTÃO</label> <br>
-              <input type="number" step="0.01" min="0" max=" " id="troco" placeholder="Troco para..." onkeypress="return (event.charCode >= 48 && event.charCode <= 57) ||  
-              event.charCode == 44 || event.charCode == 0 " min="0" oninput="validity.valid|| (value='');">
-              <button id="limp-troco" name="button"><strong>X</strong></button>
-              <!-- <input type="number" step="0.01" min="0" max="200" id="troco" placeholder="Troco para..." > -->
-              <!--<input type="text" inputmode="numeric" step="0.01" min="0" max="200" id="troco" placeholder="Troco para..." onkeypress="return (event.charCode >= 48 && event.charCode <= 57) ||  
-              event.charCode == 44 || event.charCode == 0 " min="0" oninput="validity.valid|| (value='');">
-              <button id="limptroco" name="button"><strong>X</strong></button> -->
-            <br><br>
-            <label id="lbtroco" for="dinheiro"> Valor do Troco R$ 0,00</label>
-                  <div id="divpix">
-                      <p>Nossa Chave PIX<br><span id="chave-pix">meuemail@provedor.com</span></p>
-                      <button onclick="copiarPix()">Copiar Chave PIX</button>
-                      <p id="mensagem"></p>
-                  </div>
-            <br>
-            <div class="sobe">
-                <button id="clear-cart">Limpar Carrinho</button>
-                <button id="close-cart">Fechar Carrinho</button>
-                <button id="checkout">Finalizar Pedido</button>
             </div>
-            <br><br><br>
-            <!-- <input type="button" value="Create PDF" onclick="generatePDF()"> -->
+            
+            <div class="product" data-name="Pizza calabresa grande" data-price="45.00">
+                <img src="calabresaG.jpeg" alt="Pizza calabresa grande" class="imagem" onclick="abrirModal(this)">
+                <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+                <h4>Pizza calabresa grande</h4>
+                <p>R$ 45,00</p>
+                <button class="add-to-cart">Adicionar</button>
+
+                <div class="modal" onclick="fecharModal(event)">
+                    <span class="close">&times;</span>
+                    <div class="modal-content" onclick="event.stopPropagation()">
+                    <img class="modalImg" src="calabresaG.jpeg">
+                    <div class="info-text"></div>
+                    <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="product" data-name="Pizza margerita média" data-price="35.99">
+            <img src="margeritaM.jpeg" alt="Pizza margerita média" class="imagem" onclick="abrirModal(this)">
+            <p class="pingredientes">Click na imagem para ver os ingredientes</p>                    
+            <h4>Pizza margerita média</h4>
+            <p>R$ 35,99</p>
+            <button class="add-to-cart">Adicionar</button>
+            
+            <div class="modal" onclick="fecharModal(event)">
+                <span class="close">&times;</span>
+                <div class="modal-content" onclick="event.stopPropagation()">
+                <img class="modalImg" src="margeritaM.jpeg">
+                <div class="info-text"></div>
+                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+            </div>
         </div>
     </div>
+
+    <div class="product" data-name="Pizza margerita grande" data-price="25.99">
+        <img src="margeritaG.jpeg" alt="Pizza margerita grande" class="imagem" onclick="abrirModal(this)">
+        <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+        <h4>Pizza margerita grande</h4>
+        <p>R$ 25,99</p>
+        <button class="add-to-cart">Adicionar</button>
+
+        <div class="modal" onclick="fecharModal(event)">
+            <span class="close">&times;</span>
+            <div class="modal-content" onclick="event.stopPropagation()">
+            <img class="modalImg" src="margeritaG.jpeg">
+            <div class="info-text"></div>
+            <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+        </div>
+    </div>
+</div>
+
+<div class="product" data-name="Pizza tradicional família" data-price="57.99">
+    <img src="pizzaFamilia.jpeg" alt="Pizza tradicional família" onclick="abrirModal(this)">
+    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+    <h4>Pizza tradicional família</h4>
+    <p>R$ 57,99</p>
+    <button class="add-to-cart">Adicionar</button>
+
+    <div class="modal" onclick="fecharModal(event)">
+        <span class="close">&times;</span>
+        <div class="modal-content" onclick="event.stopPropagation()">
+        <img class="modalImg" src="pizzaFamilia.jpeg">
+        <div class="info-text"></div>
+        <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+    </div>
+</div>
+</div>
+</section>
+
+</div>
+</main>
+
+<div id="cart-popup" class="hidden">
+    <div class="cart-content">
+        <h2 id="vazio"><u>Carrinho</u></h2>
+        <ul id="cart-items"></ul>
+        <p><strong>Total: R$ <span id="total">0,00</span></strong></p> 
+        <label id="endentrega">Nome e endereço para entrega:</label>
+        <input type="text" id="nome" placeholder="Seu nome..." size="" required/>
+        <button id="limp-nome" name="button"><strong>X</strong></button>
+        <input type="text" id="endereco" placeholder="Endereço para entrega..." size="" required/>
+        <button id="limp-end" name="button"><strong>X</strong></button>
+        <br>
         
-      <h4>=============================</h4>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-      <a href="https://api.whatsapp.com/send?phone=5575998886000&text=Ol%C3%A1!"
-          style="position:initial;width:90px;height:90px;right:5px;background-color:#25d366;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 0px 0px 0px #888;
-               z-index:1000;" target="_blank">
-         <i style="margin-top:15px" class="fa fa-whatsapp"></i> 
-        </a>
-      
-      &nbsp;
-      &nbsp;
-               
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-      <a href="https://api.whatsapp.com/send?phone=&text=Link%20abaixo%20do%20Aplicativo%20delivery.%0A%0Ahttps%3A%2F%2Frk-system.github.io%2Ffoodelivery%2F" 
-          style="position:initial;width:90px;height:90px;right:5px;background-color:#eedc31;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 0px 0px 0px #888;
-               z-index:1000;" target="_blank">
-         <i style="margin-top:15px" class="fa fa-share"></i>
-      </a>
-      <div class="col-lg-3 col-12">
-        <p class="copyright-text mb-0">Copyright © 2025 Delivery Online
+        <p>Selecione a forma de pagamento:</p>
+        <input type="radio" id="dinheiro" name="fav_language" value="DINHEIRO">
+        <label for="dinheiro">DINHEIRO</label>
+        <input type="radio" id="pix" name="fav_language" value="PIX">
+        <label for="pix">PIX</label>
+        <input type="radio" id="cartao" name="fav_language" value="CARTÃO">
+        <label for="cartao">CARTÃO</label> <br>
+        <input type="number" step="0.01" min="0" max=" " id="troco" placeholder="Troco para..." onkeypress="return (event.charCode >= 48 && event.charCode <= 57) ||  
+        event.charCode == 44 || event.charCode == 0 " min="0" oninput="validity.valid|| (value='');">
+        <button id="limp-troco" name="button"><strong>X</strong></button>
+        <!-- <input type="number" step="0.01" min="0" max="200" id="troco" placeholder="Troco para..." > -->
+        <!--<input type="text" inputmode="numeric" step="0.01" min="0" max="200" id="troco" placeholder="Troco para..." onkeypress="return (event.charCode >= 48 && event.charCode <= 57) ||  
+        event.charCode == 44 || event.charCode == 0 " min="0" oninput="validity.valid|| (value='');">
+        <button id="limptroco" name="button"><strong>X</strong></button> -->
+        <br><br>
+        <label id="lbtroco" for="dinheiro"> Valor do Troco R$ 0,00</label>
+                <div id="divpix">
+                    <p>Nossa Chave PIX<br><span id="chave-pix">meuemail@provedor.com</span></p>
+                    <button onclick="copiarPix()">Copiar Chave PIX</button>
+                    <p id="mensagem"></p>
+                </div>
+                <br>
+                
+                <div>
+                    <button id="clear-cart">Limpar Carrinho</button>
+                    <button id="close-cart">Fechar Carrinho</button>
+                    <button id="checkout">Finalizar Pedido</button>
+                </div>
+                <br><br><br>
+                <!-- <input type="button" value="Create PDF" onclick="generatePDF()"> -->
+                </div>
+            </div>
+            
+            <h4>=============================</h4>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+            <a href="https://api.whatsapp.com/send?phone=5575998886000&text=Ol%C3%A1!"
+            style="position:initial;width:90px;height:90px;right:5px;background-color:#25d366;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 0px 0px 0px #888;
+            z-index:1000;" target="_blank">
+            <i style="margin-top:15px" class="fa fa-whatsapp"></i></a>
+            
+            &nbsp;
+            &nbsp;
+            
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+            <a href="https://api.whatsapp.com/send?phone=&text=Link%20abaixo%20do%20Aplicativo%20delivery.%0A%0Ahttps%3A%2F%2Frk-system.github.io%2Ffoodelivery%2F" 
+            style="position:initial;width:90px;height:90px;right:5px;background-color:#eedc31;color:#FFF;border-radius:50px;text-align:center;font-size:30px;box-shadow: 0px 0px 0px #888;
+            z-index:1000;" target="_blank">
+            <i style="margin-top:15px" class="fa fa-share"></i></a>
+            <div class="col-lg-3 col-12">
+            <p class="copyright-text mb-0">Copyright © 2025 Delivery Online
             <br><br>
             Design: <a rel="nofollow" href="https://api.whatsapp.com/send?phone=5575998886000&text=Ol%C3%A1!" target="_parent">RK-Systems</a>
             <br><br>
@@ -285,16 +441,6 @@
             <button id="decli" onclick="declineLgpd()">Recusar</button>
         </div>
         <h4>=============================</h4>
-
-        <!-- Modal de imagem -->
-        <!--<div id="modal" class="modal">
-            <span class="close" onclick="fecharModal()">&times;</span>
-            <div class="modal-conteudo" onclick="event.stopPropagation()">
-            <img id="imgModal" alt="">
-            <div class="info-text" id="textoInfo"></div>
-            <button class="botao-modal" onclick="acaoDoBotao()">Ver Mais Informações</button>
-            </div>
-        </div> -->
           
         <script src="script.js"></script>
           

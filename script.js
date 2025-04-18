@@ -464,18 +464,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // Mostrar img com informaçoēs de ingredientes
   const descricoes = {
     "mixto.jpeg": "<MIXTO>\nPão, queijo e presunto.",
-    "burgerfritas.jpeg": "<HAMBURGEUR COM FRITAS>\nPão, hamburguer, queijo, salada\ne uma porção de batata fritas 200gr.",
+    "burgerfritas.jpeg": "<HAMBURGEUR COM FRITAS>\nPão, hamburguer, queijo, salada e uma porção de batata fritas 200gr.",
     "burger.jpeg": "<HAMBURGUER ARTESANAL>\nPão, hamburguer, queijo e salada.",
     "xbacon.jpeg": "<X-BACON COM FRANGO>\nPão, queijo, presunto, bacon e salada.",
     "xfilet.jpeg": "<X-FILET COM FRANGO COMPLETO>\nPão, queijo, filé, frango e salada.",
     "cachorro.jpeg": "<CACHORRO QUENTE COMPLETO>\nPão, salsicha, milho, ervilha, batata-palha e salada.",
-    "lasanhabolonhesa.jpeg": "<LASANHA BOLONHESA>\nMacarrão, queijo, presunto, carne moída,\nmilho, ervilha e azeitona.",
-    "lasanhafrango.jpeg": "<LASANHA FRANGO CATUPIRY>\nMacarrão, queijo, presunto, frango,\ncatupiry, milho, ervilha e azeitona."
+    "lasanhabolonhesa.jpeg": "<LASANHA BOLONHESA>\nMacarrão, queijo, presunto, carne moída, milho, ervilha e azeitona.",
+    "lasanhafrango.jpeg": "<LASANHA FRANGO CATUPIRY>\nMacarrão, queijo, presunto, frango, catupiry, milho, ervilha e azeitona."
   };
 
   let escala = 1;
-
-function abrirModal(img) {
+  
+  function abrirModal(img) {
   const product = img.closest(".product");
   const modal = product.querySelector(".modal");
     
@@ -512,23 +512,9 @@ function fecharModal(event) {
   }
 }
 
-function acaoDoBotao(botao) {
-  const product = botao.closest(".product");
-  const modal = product.querySelector(".modal");
-
-  // Fechar o modal
-  modal.style.display = "none";
-
-  // Aqui você pode adicionar o item ao carrinho se quiser
-  const name = product.getAttribute("data-name");
-  const price = parseFloat(product.getAttribute("data-price"));
-
-  console.log("Adicionado ao carrinho:", name, "R$", price.toFixed(2));
-}
-
   // Zoom com scroll
-  document.getElementById("modal").addEventListener("wheel", function(e) {
-    const img = document.getElementById("modalImg");
+  /*document.querySelector(".modal").addEventListener("wheel", function(e) {
+    const img = document.querySelector(".modalImg");
     e.preventDefault();
     if (e.deltaY < 0) {
       escala += 0.1;
@@ -536,21 +522,21 @@ function acaoDoBotao(botao) {
       escala = Math.max(1, escala - 0.1);
     }
     img.style.transform = `scale(${escala})`;
-  });
+  });*/
 
   // Fechar com ESC
-  document.addEventListener("keydown", function(e) {
-    if (e.key === "Escape") {
-      fecharModal();
+  const modal = document.querySelector('.modal')
+  window.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      modal.style.display = 'none'
     }
-  });
-
+  })
+  
 function acaoDoBotao(botao) {
   const product = botao.closest(".product");
-  const name = product.getAttribute("data-name");
-  const price = parseFloat(product.getAttribute("data-price"));
 
   // Fecha o modal do produto atual
   const modal = product.querySelector(".modal");
   fecharButmodal(modal);
 }
+

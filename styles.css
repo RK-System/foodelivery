@@ -267,7 +267,7 @@ button:hover {
 .modal {
   display: none;
   position: fixed;
-  z-index: 999;
+  z-index: 10;
   left: 0;
   top: 0;
   width: 100%;
@@ -279,7 +279,7 @@ button:hover {
 
 .modal.mostrar {
   display: flex;
-  animation: fadeIn 0.3s ease-out forwards;
+  animation: fadeIn  0.3s ease-out forwards;
 }
 
 @keyframes fadeIn {
@@ -293,6 +293,30 @@ button:hover {
   }
 }
 
+@keyframes pulse {
+  0% {
+   background-color: rgb(187, 207, 187);
+ }
+  45% {
+    background-color: rgb(148, 187, 148);
+}
+  100% {
+    background-color: rgb(187, 196, 187);
+ }
+}
+
+@keyframes pulse2 {
+  0% {
+   background-color: rgb(236, 240, 236);
+ }
+  45% {
+    background-color: rgb(218, 232, 218);
+}
+  100% {
+    background-color: rgb(224, 232, 224);
+ }
+}
+
 .modal-content {
   background-color: white;
   padding: 20px;
@@ -303,6 +327,7 @@ button:hover {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   position: relative;
   animation: slideUp 0.3s ease-out forwards;
+  animation: pulse  5s infinite;
 }
 
 .modalImg {
@@ -314,9 +339,10 @@ button:hover {
 }
 
 .modalImg:hover {
-  transform: scale(1.05);
-  filter: brightness(1.05);
+  transform: scale(1.08);
+  filter: brightness(1.15);
 }
+
 
 .close {
   position: absolute;
@@ -329,7 +355,7 @@ button:hover {
 }
 
 .close:hover {
-  color: #000;
+  color: #e50505;
 }
 
 .add-to-cart {
@@ -359,6 +385,7 @@ button:hover {
   color: #444;
   border-left: 4px solid #ff9900;
   text-align: left;
+  animation: pulse2  5s infinite;
 }
 
 
