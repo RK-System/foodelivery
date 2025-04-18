@@ -69,40 +69,37 @@
                 <h3 style="color: #ff6600"><u>SANDUICHES</u></h3>
                 
                 <div class="products">
+                    
                 <div class="product" data-name="Mixto quente na chapa" data-price="5.99">
                     <img src="mixto.jpeg" alt="Mixto quente na chapa" class="imagem"  onclick="abrirModal(this)"/>
                     <p class="pingredientes">Click na imagem para ver os ingredientes</p>
                     <h4>Mixto quente na chapa</h4>
                     <p>R$ 5,99</p>
                     <button class="add-to-cart">Adicionar</button>
-
-                    <div id="modal" class="modal" data-name="Mixto quente na chapa" data-price="5.99" onclick="fecharModal(event)">
-                        <span class="close" onclick="fecharModal(event)">&times;</span>
+                    
+                    <div class="modal" onclick="fecharModal(event)"><span class="close" onclick="fecharModal(event)">&times;</span>
                         <div class="modal-content" onclick="event.stopPropagation()">
-                          <img id="modalImg" src="mixto.jpeg" alt="">
-                          <div class="info-text" id="infoText"></div>
-                          <button onclick="acaoDoBotao()" class="add-to-cart product" data-name="Mixto quente na chapa" data-price="5.99">Adicionar</button>
+                            <img class="modalImg" src="mixto.jpeg">
+                            <div class="info-text" id="infoText"></div>
+                            <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                          
                         </div>
-                      </div>
+                    </div>
                 </div>
-
-                
-                <div class="product" data-name="Hambúrguer com fritas" data-price="20.99">
+                    
+                    <div class="product" data-name="Hambúrguer com fritas" data-price="20.99">
                     <img src="burgerfritas.jpeg" alt="Hambúrguer com fritas" class="imagem" onclick="abrirModal(this)">
                     <p class="pingredientes">Click na imagem para ver os ingredientes</p>
                     <h4>Hambúrguer com fritas</h4>
                     <p>R$ 20,99</p>
                     <button class="add-to-cart">Adicionar</button>
-                    
-                    <div id="modal" class="modal" data-name="Hambúrguer com fritas" data-price="20.99" onclick="fecharModal(event)">
-                        <span class="close" onclick="fecharModal(event)">&times;</span>
-                        <div class="modal-content" onclick="event.stopPropagation()">
-                          <img id="modalImg" src="burgerfritas.jpeg" alt="">
-                          <div class="info-text" id="infoText"></div>
-                          <button class="add-to-cart product" data-name="Hambúrguer com fritas" data-price="20.99">Adicionar</button>
+                        
+                        <div class="modal" onclick="fecharModal(event)"><span class="close">&times;</span>
+                            <div class="modal-content" onclick="event.stopPropagation()">
+                                <img class="modalImg" src="burgerfritas.jpeg">
+                                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                               
+                            </div>
                         </div>
-                      </div>
-                </div>
+                    </div>
     
                 <div class="product" data-name="Hambúrguer artesanal" data-price="5.00">
                     <img src="burger.jpeg" alt="Hambúrguer artesanal" class="imagem" onclick="abrirModal(this)">
@@ -110,7 +107,14 @@
                     <h4>Hambúrguer artesanal</h4>
                     <p>R$ 5,00</p>
                     <button class="add-to-cart">Adicionar</button>
-                </div>
+                    
+                        <div class="modal" onclick="fecharModal(event)"><span class="close">&times;</span>
+                            <div class="modal-content" onclick="event.stopPropagation()">
+                                <img id="modalImg" src="burger.jpeg">
+                                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                               
+                            </div>
+                        </div>
+                    </div>
     
                 <div class="product" data-name="X-Bacon com frango" data-price="8.99">
                     <img src="xbacon.jpeg" alt="X-Bacon com frango" class="imagem" onclick="abrirModal(this)">
@@ -118,7 +122,14 @@
                     <h4>X-Bacon com frango</h4>
                     <p>R$ 8,99</p>
                     <button class="add-to-cart">Adicionar</button>
-                </div>
+                    
+                        <div class="modal" onclick="fecharModal(event)"><span class="close">&times;</span>
+                            <div class="modal-content" onclick="event.stopPropagation()">
+                                <img id="modalImg" src="xbacon.jpeg">
+                                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                               
+                            </div>
+                        </div>
+                    </div>
                 
                 <div class="product" data-name="X-Filet com frango completo" data-price="25.99">
                     <img src="xfilet.jpeg" alt="X-Filet com frango completo" class="imagem" onclick="abrirModal(this)">
@@ -126,7 +137,14 @@
                     <h4>X-Filet com frango completo</h4>
                     <p>R$ 25,99</p>
                     <button class="add-to-cart">Adicionar</button>
-                </div>
+                    
+                        <div class="modal" onclick="fecharModal(event)"><span class="close">&times;</span>
+                            <div class="modal-content" onclick="event.stopPropagation()">
+                                <img id="modalImg" src="xfilet.jpeg">
+                                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                               
+                            </div>
+                        </div>
+                    </div>
     
                 <div class="product" data-name="Cachorro quente completo" data-price="7.99">
                     <img src="cachorro.jpeg" alt="Cachorro quente completo" onclick="abrirModal(this)">
@@ -134,7 +152,14 @@
                     <h4>Cachorro quente completo</h4>
                     <p>R$ 7,99</p>
                     <button class="add-to-cart">Adicionar</button>
-                </div>
+                    
+                        <div class="modal" onclick="fecharModal(event)"><span class="close">&times;</span>
+                            <div class="modal-content" onclick="event.stopPropagation()">
+                                <img id="modalImg" src="cachorro.jpeg">
+                                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                               
+                            </div>
+                        </div>
+                    </div>
                 </div>            
         </section>
 
@@ -149,7 +174,14 @@
                     <h4>Lasanha bolonhesa</h4>
                     <p>R$ 55,99</p>
                     <button class="add-to-cart">Adicionar</button>
-                </div>
+                    
+                        <div class="modal" onclick="fecharModal(event)"><span class="close">&times;</span>
+                            <div class="modal-content" onclick="event.stopPropagation()">
+                                <img id="modalImg" src="lasanhabolonhesa.jpeg">
+                                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                               
+                            </div>
+                        </div>
+                    </div>
     
                 <div class="product" data-name="Lasanha frango catupiry" data-price="45.99">
                     <img src="lasanhafrango.jpeg" alt="Lasanha frango catupiry" onclick="abrirModal(this)">
@@ -157,10 +189,15 @@
                     <h4>Lasanha frango catupiry</h4>
                     <p>R$ 45,99</p>
                     <button class="add-to-cart">Adicionar</button>
+                        <div class="modal" onclick="fecharModal(event)"><span class="close">&times;</span>
+                            <div class="modal-content" onclick="event.stopPropagation()">
+                                <img id="modalImg" src="lasanhabolonhesa.jpeg">
+                                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                               
+                            </div>
+                        </div>
                 </div>
-            </div>
+                </div>
             </section>
-
         </div>
     </main>
 

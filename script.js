@@ -475,7 +475,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let escala = 1;
 
-  function abrirModal(img) {
+function abrirModal(img) {
+  const product = img.closest(".product");
+  const modal = product.querySelector(".modal");
+  const infoText = product.getAttribute("data-info"); // exemplo de atributo
+
+  modal.querySelector(".info-text").textContent = infoText;
+    
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+    escala = 1;
+    modalImg.style.transform = "scale(1)";
+
+   // const nomeArquivo = img.src.split('/').pop();
+   // infoText.innerText = descricoes[nomeArquivo] || "Sem descrição disponível.";
+
+}
+
+  /*function abrirModal(img) {
     const modal = document.getElementById("modal");
     const modalImg = document.getElementById("modalImg");
     const infoText = document.getElementById("infoText");
@@ -488,20 +505,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const nomeArquivo = img.src.split('/').pop();
     infoText.innerText = descricoes[nomeArquivo] || "Sem descrição disponível.";
-  }
+  }*/
 
-  function fecharModal(event) {
-    const modal = document.getElementById("modal");
-    if (event.target.id === "modal" || event.target.classList.contains("close")) {
-      modal.style.display = "none";
-    }
-  }
 
-  function clicarFora(e) {
-    if (e.target.id === "modal") {
-      fecharModal();
-    }
+
+
+
+
+function fecharButmodal(modal) {
+  if (modal) {
+    modal.style.display = "none";
   }
+}
+
+function fecharModal(event) {
+  const modal = event.currentTarget.closest(".modal");
+
+  // Fecha se clicou no fundo do modal ou no botão de fechar
+  if (
+    event.target === modal || 
+    event.target.classList.contains("close")
+  ) {
+    modal.style.display = "none";
+  }
+}
 
   // Zoom com scroll
   document.getElementById("modal").addEventListener("wheel", function(e) {
@@ -522,30 +549,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  function acaoDoBotao() {
-        document.getElementById("modal").style.display = "none";                          
-  }
+function acaoDoBotao(botao) {
+  const product = botao.closest(".product");
+  const name = product.getAttribute("data-name");
+  const price = parseFloat(product.getAttribute("data-price"));
 
-
-  /*function acaoDoBotao() {
-    document.querySelectorAll(".add-to-cart").forEach(button => {
-        document.getElementById("modal").style.display = "none";                          
-        button.addEventListener("click", (event) => {
-            const product = event.target.closest(".product");
-            const name = product.getAttribute("data-name");
-            const price = parseFloat(product.getAttribute("data-price").toLocaleString('fr-FR'));
-            const existingItem = cart.find(item => item.name === name);
-
-            if (existingItem) {
-                existingItem.quantity++;
-                contador++;
-            } else {
-                cart.push({ name, price, quantity: 1 });
-                document.getElementById("vazio").innerHTML = "Carrinho";
-                contador++;
-            }
-            updateCart();   
-        });
-    });
-  } */
-
+  // Fecha o modal do produto atual
+  const modal = product.querySelector(".modal");
+  fecharButmodal(modal);
+}
