@@ -478,39 +478,21 @@ document.addEventListener("DOMContentLoaded", () => {
 function abrirModal(img) {
   const product = img.closest(".product");
   const modal = product.querySelector(".modal");
-  const infoText = product.getAttribute("data-info"); // exemplo de atributo
-
-  modal.querySelector(".info-text").textContent = infoText;
     
-    modal.style.display = "flex";
-    modalImg.src = img.src;
-    escala = 1;
-    modalImg.style.transform = "scale(1)";
+  // Extrair o nome da imagem
+  const src = img.getAttribute("src");
+  const nomeImagem = src.split("/").pop(); // pega só o nome final
 
-   // const nomeArquivo = img.src.split('/').pop();
-   // infoText.innerText = descricoes[nomeArquivo] || "Sem descrição disponível.";
+  // Atualiza a imagem do modal
+  modal.querySelector(".modalImg").src = src;
 
+  // Mostra a descrição, se existir
+  const texto = descricoes[nomeImagem] || "Sem descrição disponível.";
+  modal.querySelector(".info-text").textContent = texto;
+
+  // Mostra o modal
+  modal.style.display = "flex";
 }
-
-  /*function abrirModal(img) {
-    const modal = document.getElementById("modal");
-    const modalImg = document.getElementById("modalImg");
-    const infoText = document.getElementById("infoText");
-
-    modal.style.display = "flex";
-    modalImg.src = img.src;
-
-    escala = 1;
-    modalImg.style.transform = "scale(1)";
-
-    const nomeArquivo = img.src.split('/').pop();
-    infoText.innerText = descricoes[nomeArquivo] || "Sem descrição disponível.";
-  }*/
-
-
-
-
-
 
 function fecharButmodal(modal) {
   if (modal) {
@@ -519,15 +501,29 @@ function fecharButmodal(modal) {
 }
 
 function fecharModal(event) {
-  const modal = event.currentTarget.closest(".modal");
+  const modal = event.currentTarget;
 
-  // Fecha se clicou no fundo do modal ou no botão de fechar
+  // Fecha se clicou no fundo ou no botão com a classe "close"
   if (
     event.target === modal || 
     event.target.classList.contains("close")
   ) {
     modal.style.display = "none";
   }
+}
+
+function acaoDoBotao(botao) {
+  const product = botao.closest(".product");
+  const modal = product.querySelector(".modal");
+
+  // Fechar o modal
+  modal.style.display = "none";
+
+  // Aqui você pode adicionar o item ao carrinho se quiser
+  const name = product.getAttribute("data-name");
+  const price = parseFloat(product.getAttribute("data-price"));
+
+  console.log("Adicionado ao carrinho:", name, "R$", price.toFixed(2));
 }
 
   // Zoom com scroll
