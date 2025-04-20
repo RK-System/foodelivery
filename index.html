@@ -56,9 +56,9 @@
                 <h4>SALGADOS</h4>
             </div>
 
-            <div class="product" data-name="SORVETES">
-                <a href="#sorvetes"><img src="sorvetes.jpeg" alt="SORVETES"></a>
-                <h4>SORVETES</h4>
+            <div class="product" data-name="DOCES">
+                <a href="#doces"><img src="doces.jpeg" alt="SORVETES"></a>
+                <h4>DOCES</h4>
             </div>
 
             <!-- PRODUTOS SEPARADOS EM CATEGORIAS-->
@@ -70,7 +70,7 @@
                 <div class="products">
                     
                 <div class="product" data-name="Mixto quente na chapa" data-price="5.99">
-                    <img src="mixto.jpeg" alt="Mixto quente na chapa" class="imagem"  onclick="abrirModal(this)"/>
+                    <img src="mixto.jpeg" alt="Mixto quente na chapa" class="imagem" onclick="abrirModal(this)"/>
                     <p class="pingredientes">Click na imagem para ver os ingredientes</p>
                     <h4>Mixto quente na chapa</h4>
                     <p>R$ 5,99</p>
@@ -155,7 +155,7 @@
 </div>
 
 <div class="product" data-name="Cachorro quente completo" data-price="7.99">
-    <img src="cachorro.jpeg" alt="Cachorro quente completo" onclick="abrirModal(this)">
+    <img src="cachorro.jpeg" alt="Cachorro quente completo" class="imagem" onclick="abrirModal(this)">
     <p class="pingredientes">Click na imagem para ver os ingredientes</p>
     <h4>Cachorro quente completo</h4>
     <p>R$ 7,99</p>
@@ -171,23 +171,6 @@
 </div>
 </div>
 
-<!-- <div class="product" data-name="Sanduiche natural" data-price="17.99">
-    <img src="sandubaNatural.jpeg" alt="Sanduiche natural" onclick="abrirModal(this)">
-    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
-    <h4>Sanduiche natural</h4>
-    <p>R$ 17,99</p>
-    <button class="add-to-cart">Adicionar</button>
-
-    <div class="modal" onclick="fecharModal(event)">
-        <span class="close">&times;</span>
-        <div class="modal-content" onclick="event.stopPropagation()">
-        <img class="modalImg" src="sandubaNatural.jpeg">
-        <div class="info-text"></div>
-        <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
-    </div>
-</div>
-</div> -->
-
 </section>
 
 <section>
@@ -196,7 +179,7 @@
     <h3 style="color: #ff6600"><u>LASANHAS</u></h3>                
     <div class="products">
         <div class="product" data-name="Lasanha bolonhesa" data-price="55.99">
-            <img src="lasanhabolonhesa.jpeg" alt="Lasanha bolonhesa" onclick="abrirModal(this)">
+            <img src="lasanhabolonhesa.jpeg" alt="Lasanha bolonhesa" class="imagem" onclick="abrirModal(this)">
             <p class="pingredientes">Click na imagem para ver os ingredientes</p>
             <h4>Lasanha bolonhesa</h4>
             <p>R$ 55,99</p>
@@ -213,7 +196,7 @@
     </div>
     
     <div class="product" data-name="Lasanha frango catupiry" data-price="45.99">
-        <img src="lasanhafrango.jpeg" alt="Lasanha frango catupiry" onclick="abrirModal(this)">
+        <img src="lasanhafrango.jpeg" alt="Lasanha frango catupiry" class="imagem" onclick="abrirModal(this)">
         <p class="pingredientes">Click na imagem para ver os ingredientes</p>
         <h4>Lasanha frango catupiry</h4>
         <p>R$ 45,99</p>
@@ -230,7 +213,7 @@
 </div>
 
 <div class="product" data-name="Lasanha de bacalhau" data-price="45.99">
-    <img src="lasanhaBacalhau.jpeg" alt="Lasanha de bacalhau" onclick="abrirModal(this)">
+    <img src="lasanhaBacalhau.jpeg" alt="Lasanha de bacalhau" class="imagem" onclick="abrirModal(this)">
     <p class="pingredientes">Click na imagem para ver os ingredientes</p>
     <h4>Lasanha de bacalhau</h4>
     <p>R$ 45,99</p>
@@ -341,7 +324,7 @@
 </div>
 
 <div class="product" data-name="Pizza família 8 fatias" data-price="57.99">
-    <img src="pizzaFamilia.jpeg" alt="Pizza família 8 fatias" onclick="abrirModal(this)">
+    <img src="pizzaFamilia.jpeg" alt="Pizza família 8 fatias" class="imagem" onclick="abrirModal(this)">
     <p class="pingredientes">Click na imagem para ver os ingredientes</p>
     <h4>Pizza família 8 fatias</h4>
     <p>R$ 57,99</p>
@@ -358,7 +341,366 @@
 </div>
 </section>
 
+<section>
+    <div id="refri" class="products"></div> <!--Separar Categorias da de Produtos-->
+    <h4>*************************************</h4>    
+    <h3 style="color: #ff6600"><u>REFRIGERANTES</u></h3>                
+    <div class="products">
+        <div class="product" data-name="Coca-cola lata 350ml" data-price="5.99">
+            <img src="coca350.jpeg" alt="Coca-cola lata 350ml" class="imagem" onclick="abrirModal(this)">
+            <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+            <h4>Coca-cola lata 350ml</h4>
+            <p>R$ 5,99</p>
+            <button class="add-to-cart">Adicionar</button>
+
+            <div class="modal" onclick="fecharModal(event)">
+                <span class="close">&times;</span>
+                <div class="modal-content" onclick="event.stopPropagation()">
+                <img class="modalImg" src="coca350.jpeg">
+                <div class="info-text"></div>
+                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="product" data-name="Fanta laranja lata 350ml" data-price="4.99">
+        <img src="fanta350.jpeg" alt="Fanta laranja lata 350ml" class="imagem" onclick="abrirModal(this)">
+        <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+        <h4>Fanta laranja lata 350ml</h4>
+        <p>R$ 4,99</p>
+        <button class="add-to-cart">Adicionar</button>
+
+        <div class="modal" onclick="fecharModal(event)">
+            <span class="close">&times;</span>
+            <div class="modal-content" onclick="event.stopPropagation()">
+            <img class="modalImg" src="fanta350.jpeg">
+            <div class="info-text"></div>
+            <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+        </div>
+    </div>
 </div>
+
+<div class="product" data-name="Suco natural uva 500ml" data-price="7.99">
+    <img src="sucouva500.jpeg" alt="Suco natural uva 500ml" class="imagem" onclick="abrirModal(this)">
+    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+    <h4>Suco natural uva 500ml</h4>
+    <p>R$ 7,99</p>
+    <button class="add-to-cart">Adicionar</button>
+
+    <div class="modal" onclick="fecharModal(event)">
+        <span class="close">&times;</span>
+        <div class="modal-content" onclick="event.stopPropagation()">
+        <img class="modalImg" src="sucouva500.jpeg">
+        <div class="info-text"></div>
+        <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+    </div>
+</div>
+</div>
+</section>
+
+<section>
+    <div id="cerveja" class="products"></div>
+    <h4>*************************************</h4>    
+    <h3 style="color: #ff6600"><u>CERVEJAS</u></h3>                
+    <div class="products">
+        <div class="product" data-name="Cerveja Heineken lata 350ml" data-price="9.99">
+            <img src="heineken350.jpeg" alt="Cerveja Heineken lata 350ml" class="imagem" onclick="abrirModal(this)">
+            <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+            <h4>Cerveja Heineken lata 350ml</h4>
+            <p>R$ 9,99</p>
+            <button class="add-to-cart">Adicionar</button>
+
+            <div class="modal" onclick="fecharModal(event)">
+                <span class="close">&times;</span>
+                <div class="modal-content" onclick="event.stopPropagation()">
+                <img class="modalImg" src="heineken350.jpeg">
+                <div class="info-text"></div>
+                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="product" data-name="Cerveja Skol lata 350ml" data-price="4.99">
+        <img src="skol-lata350.jpeg" alt="Cerveja Skol lata 350ml" class="imagem" onclick="abrirModal(this)">
+        <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+        <h4>Cerveja Skol lata 350ml</h4>
+        <p>R$ 4,99</p>
+        <button class="add-to-cart">Adicionar</button>
+
+        <div class="modal" onclick="fecharModal(event)">
+            <span class="close">&times;</span>
+            <div class="modal-content" onclick="event.stopPropagation()">
+            <img class="modalImg" src="skol-lata350.jpeg">
+            <div class="info-text"></div>
+            <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+        </div>
+    </div>
+</div>
+
+<div class="product" data-name="Cerveja Brahma lata 350ml" data-price="7.99">
+    <img src="brahma350.jpeg" alt="Cerveja Brahma lata 350ml" class="imagem" onclick="abrirModal(this)">
+    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+    <h4>Cerveja Brahma lata 350ml</h4>
+    <p>R$ 7,99</p>
+    <button class="add-to-cart">Adicionar</button>
+
+    <div class="modal" onclick="fecharModal(event)">
+        <span class="close">&times;</span>
+        <div class="modal-content" onclick="event.stopPropagation()">
+        <img class="modalImg" src="brahma350.jpeg">
+        <div class="info-text"></div>
+        <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+    </div>
+</div>
+</div>
+
+<div class="product" data-name="Cerveja Antarctica lata 350ml" data-price="5.99">
+<img src="antarctica350.jpeg" alt="Cerveja Antarctica lata 350ml" class="imagem" onclick="abrirModal(this)">
+<p class="pingredientes">Click na imagem para ver os ingredientes</p>                    
+<h4>Cerveja Antarctica lata 350ml</h4>
+<p>R$ 5,99</p>
+<button class="add-to-cart">Adicionar</button>
+
+<div class="modal" onclick="fecharModal(event)">
+    <span class="close">&times;</span>
+    <div class="modal-content" onclick="event.stopPropagation()">
+    <img class="modalImg" src="antarctica350.jpeg">
+    <div class="info-text"></div>
+    <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section>
+    <div id="agua" class="products"></div>
+    <h4>*************************************</h4>    
+    <h3 style="color: #ff6600"><u>ÁGUA MINERAL</u></h3>                
+    <div class="products">
+        <div class="product" data-name="Água mineral sem gás 500ml" data-price="2.99">
+            <img src="aguasemG.jpeg" alt="Água mineral sem gás 500ml" class="imagem" onclick="abrirModal(this)">
+            <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+            <h4>Água mineral sem gás 500ml</h4>
+            <p>R$ 2,99</p>
+            <button class="add-to-cart">Adicionar</button>
+
+            <div class="modal" onclick="fecharModal(event)">
+                <span class="close">&times;</span>
+                <div class="modal-content" onclick="event.stopPropagation()">
+                <img class="modalImg" src="aguasemG.jpeg">
+                <div class="info-text"></div>
+                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="product" data-name="Água mineral com gás 500ml" data-price="3.99">
+        <img src="aguacomG.jpeg" alt="Água mineral com gás 500ml" class="imagem" onclick="abrirModal(this)">
+        <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+        <h4>Água mineral com gás 500ml</h4>
+        <p>R$ 3,99</p>
+        <button class="add-to-cart">Adicionar</button>
+
+        <div class="modal" onclick="fecharModal(event)">
+            <span class="close">&times;</span>
+            <div class="modal-content" onclick="event.stopPropagation()">
+            <img class="modalImg" src="aguacomG.jpeg">
+            <div class="info-text"></div>
+            <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+        </div>
+    </div>
+</div>
+
+<div class="product" data-name="Água mineral retornável 20lts" data-price="8.99">
+    <img src="agua20lt.jpeg" alt="Água mineral retornável 20lts" class="imagem" onclick="abrirModal(this)">
+    <p class="pingredientes">Click na imagem para ver os ingredientes</p>                    
+    <h4>Água mineral retornável 20lts</h4>
+    <p>R$ 8,99</p>
+    <button class="add-to-cart">Adicionar</button>
+    
+    <div class="modal" onclick="fecharModal(event)">
+        <span class="close">&times;</span>
+        <div class="modal-content" onclick="event.stopPropagation()">
+        <img class="modalImg" src="agua20lt.jpeg">
+        <div class="info-text"></div>
+        <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+    </div>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+    <div id="salgados" class="products"></div> <!--Separar Categorias da de Produtos-->
+    <h4>*************************************</h4>    
+    <h3 style="color: #ff6600"><u>SALGADOS</u></h3>
+    
+    <div class="products">
+        
+    <div class="product" data-name="Risoli de salsicha" data-price="3.99">
+        <img src="salsicha.jpeg" alt="Risoli de salsicha" class="imagem" onclick="abrirModal(this)"/>
+        <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+        <h4>Risoli de salsicha</h4>
+        <p>R$ 3,99</p>
+        <button class="add-to-cart">Adicionar</button>
+        
+        <div class="modal" onclick="fecharModal(event)">
+            <span class="close">&times;</span>
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <img class="modalImg" src="salsicha.jpeg">
+                <div class="info-text"></div>
+                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                          
+            </div>
+        </div>
+    </div>
+    
+    <div class="product" data-name="Coxinha de frango" data-price="4.99">
+        <img src="coxinha.jpeg" alt="Coxinha de frango" class="imagem" onclick="abrirModal(this)">
+        <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+        <h4>Coxinha de frango</h4>
+        <p>R$ 4,99</p>
+        <button class="add-to-cart">Adicionar</button>
+        
+        <div class="modal" onclick="fecharModal(event)">
+            <span class="close">&times;</span>
+            <div class="modal-content" onclick="event.stopPropagation()">
+            <img class="modalImg" src="coxinha.jpeg">
+            <div class="info-text"></div>
+            <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+        </div>
+    </div>
+</div>
+
+<div class="product" data-name="Rabo tatú de carne" data-price="5.50">
+    <img src="rabotatu.jpeg" alt="Rabo tatú de carne" class="imagem" onclick="abrirModal(this)">
+    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+    <h4>Rabo tatú de carne</h4>
+    <p>R$ 5,50</p>
+    <button class="add-to-cart">Adicionar</button>
+
+    <div class="modal" onclick="fecharModal(event)">
+        <span class="close">&times;</span>
+        <div class="modal-content" onclick="event.stopPropagation()">
+        <img class="modalImg" src="rabotatu.jpeg">
+        <div class="info-text"></div>
+        <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+    </div>
+</div>
+</div>
+
+<div class="product" data-name="Kibe de carne" data-price="5.99">
+<img src="kibe.jpeg" alt="Kibe de carne" class="imagem" onclick="abrirModal(this)">
+<p class="pingredientes">Click na imagem para ver os ingredientes</p>                    
+<h4>Kibe de carne</h4>
+<p>R$ 5,99</p>
+<button class="add-to-cart">Adicionar</button>
+
+<div class="modal" onclick="fecharModal(event)">
+    <span class="close">&times;</span>
+    <div class="modal-content" onclick="event.stopPropagation()">
+    <img class="modalImg" src="kibe.jpeg">
+    <div class="info-text"></div>
+    <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+</div>
+</div>
+</div>
+
+<div class="product" data-name="Kit mixto c/ 8un" data-price="42.99">
+<img src="kitsalgados.jpeg" alt="Kit mixto c/ 8un" class="imagem" onclick="abrirModal(this)">
+<p class="pingredientes">Click na imagem para ver os ingredientes</p>
+<h4>Kit mixto c/ 8un</h4>
+<p>R$ 42,99</p>
+<button class="add-to-cart">Adicionar</button>
+
+<div class="modal" onclick="fecharModal(event)">
+<span class="close">&times;</span>
+<div class="modal-content" onclick="event.stopPropagation()">
+<img class="modalImg" src="kitsalgados.jpeg">
+<div class="info-text"></div>
+<button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+    <div id="doces" class="products"></div> <!--Separar Categorias da de Produtos-->
+    <h4>*************************************</h4>    
+    <h3 style="color: #ff6600"><u>DOCES</u></h3>
+    
+    <div class="products">
+        
+    <div class="product" data-name="Sorvete mixo 6 bolas" data-price="30.99">
+        <img src="sorvete.jpeg" alt="Sorvete mixo 6 bolas" class="imagem" onclick="abrirModal(this)"/>
+        <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+        <h4>Sorvete mixo 6 bolas</h4>
+        <p>R$ 30,99</p>
+        <button class="add-to-cart">Adicionar</button>
+        
+        <div class="modal" onclick="fecharModal(event)">
+            <span class="close">&times;</span>
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <img class="modalImg" src="sorvete.jpeg">
+                <div class="info-text"></div>
+                <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>                          
+            </div>
+        </div>
+    </div>
+    
+    <div class="product" data-name="Pudim baunilha e morango" data-price="7.99">
+        <img src="pudim.jpeg" alt="Pudim baunilha e morango" class="imagem" onclick="abrirModal(this)">
+        <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+        <h4>Pudim baunilha e morango</h4>
+        <p>R$ 7,99</p>
+        <button class="add-to-cart">Adicionar</button>
+        
+        <div class="modal" onclick="fecharModal(event)">
+            <span class="close">&times;</span>
+            <div class="modal-content" onclick="event.stopPropagation()">
+            <img class="modalImg" src="pudim.jpeg">
+            <div class="info-text"></div>
+            <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+        </div>
+    </div>
+</div>
+
+<div class="product" data-name="Mousse baunilha maracujá" data-price="6.50">
+    <img src="mousse.jpeg" alt="Mousse baunilha maracujá" class="imagem" onclick="abrirModal(this)">
+    <p class="pingredientes">Click na imagem para ver os ingredientes</p>
+    <h4>Mousse baunilha maracujá</h4>
+    <p>R$ 6,50</p>
+    <button class="add-to-cart">Adicionar</button>
+
+    <div class="modal" onclick="fecharModal(event)">
+        <span class="close">&times;</span>
+        <div class="modal-content" onclick="event.stopPropagation()">
+        <img class="modalImg" src="mousse.jpeg">
+        <div class="info-text"></div>
+        <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+    </div>
+</div>
+</div>
+
+<div class="product" data-name="Pavê baunilha chocolate" data-price="8.99">
+<img src="pave.jpeg" alt="Pavê baunilha chocolate" class="imagem" onclick="abrirModal(this)">
+<p class="pingredientes">Click na imagem para ver os ingredientes</p>                    
+<h4>Pavê baunilha chocolate</h4>
+<p>R$ 8,99</p>
+<button class="add-to-cart">Adicionar</button>
+
+<div class="modal" onclick="fecharModal(event)">
+    <span class="close">&times;</span>
+    <div class="modal-content" onclick="event.stopPropagation()">
+    <img class="modalImg" src="pave.jpeg">
+    <div class="info-text"></div>
+    <button class="add-to-cart" onclick="acaoDoBotao(this)">Adicionar</button>
+</div>
+</div>
+</div>
+</section>
+
 </main>
 
 <div id="cart-popup" class="hidden">
@@ -374,12 +716,14 @@
         <br>
         
         <p>Selecione a forma de pagamento:</p>
+        <div class="radio">
         <input type="radio" id="dinheiro" name="fav_language" value="DINHEIRO">
         <label for="dinheiro">DINHEIRO</label>
         <input type="radio" id="pix" name="fav_language" value="PIX">
         <label for="pix">PIX</label>
         <input type="radio" id="cartao" name="fav_language" value="CARTÃO">
         <label for="cartao">CARTÃO</label> <br>
+        </div>
         <input type="number" step="0.01" min="0" max=" " id="troco" placeholder="Troco para..." onkeypress="return (event.charCode >= 48 && event.charCode <= 57) ||  
         event.charCode == 44 || event.charCode == 0 " min="0" oninput="validity.valid|| (value='');">
         <button id="limp-troco" name="button"><strong>X</strong></button>
@@ -389,14 +733,14 @@
         <button id="limptroco" name="button"><strong>X</strong></button> -->
         <br><br>
         <label id="lbtroco" for="dinheiro"> Valor do Troco R$ 0,00</label>
-                <div id="divpix">
+                <div id="divpix"> <br>
                     <p>Nossa Chave PIX<br><span id="chave-pix">meuemail@provedor.com</span></p>
-                    <button onclick="copiarPix()">Copiar Chave PIX</button>
+                    <button id="msg" onclick="copiarPix()">Copiar Chave PIX</button>
                     <p id="mensagem"></p>
                 </div>
                 <br>
                 
-                <div>
+                <div class="sobe">
                     <button id="clear-cart">Limpar Carrinho</button>
                     <button id="close-cart">Fechar Carrinho</button>
                     <button id="checkout">Finalizar Pedido</button>
