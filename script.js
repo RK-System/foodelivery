@@ -470,7 +470,14 @@ document.addEventListener("DOMContentLoaded", () => {
     "xfilet.jpeg": "<X-FILET COM FRANGO COMPLETO>\nPão, queijo, filé, frango e salada.",
     "cachorro.jpeg": "<CACHORRO QUENTE COMPLETO>\nPão, salsicha, milho, ervilha, batata-palha e salada.",
     "lasanhabolonhesa.jpeg": "<LASANHA BOLONHESA>\nMacarrão, queijo, presunto, carne moída, milho, ervilha e azeitona.",
-    "lasanhafrango.jpeg": "<LASANHA FRANGO CATUPIRY>\nMacarrão, queijo, presunto, frango, catupiry, milho, ervilha e azeitona."
+    "lasanhafrango.jpeg": "<LASANHA FRANGO CATUPIRY>\nMacarrão, queijo, presunto, frango, catupiry, milho, ervilha e azeitona.",
+    "lasanhaBacalhau.jpeg": "<LASANHA BACALHAU>\nMacarrão, queijo, presunto, bacalhau, cheda, milho, ervilha e azeitona.",
+    "brotinho.jpeg": "<PIZZA BROTINHO>\nMassa, queijo, presunto, milho, e azeitona.",
+    "calabresaM.jpeg": "<PIZZA CALABRESA MÉDIA>\nMassa, queijo, presunto, calabresa, cheda, milho, ervilha e azeitona.",
+    "calabresaG.jpeg": "<PIZZA CALABRESA GRANDE>\nMassa, queijo, presunto, calabresa, cheda, milho, ervilha e azeitona.",
+    "margeritaM.jpeg": "<PIZZA MARGERITA MÉDIA>\nMassa, queijo, presunto, carne moida, catupirí, milho, ervilha e azeitona.",
+    "margeritaG.jpeg": "<PIZZA MARGERITA GRANDE>\nMassa, queijo, presunto, carne moida, catupirí, milho, ervilha e azeitona.",
+    "pizzaFamilia.jpeg": "<PIZZA FAMÍLIA 08 FATIAS>\nMassa, queijo, presunto, ovo, carne moida, bacon, catupirí, cheda, tomate, milho, ervilha e azeitona."
   };
 
   let escala = 1;
